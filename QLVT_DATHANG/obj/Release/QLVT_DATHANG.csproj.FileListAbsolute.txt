@@ -26,3 +26,5 @@ D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Release\QLVT_DATHANG.R
 D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Release\QLVT_DATHANG.Report.DanhSachNhanVien.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Release\QLVT_DATHANG.Report.MenuDanhSachNhanVien.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Release\QLVT_DATHANG.Report.ReviewDanhSachNhanVien.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Release\QLVT_DATHANG.SubForm.LapPhieuNhap_AddNew.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Release\QLVT_DATHANG.SubForm.LapPhieuNhap_AddNew_Confirm.resources

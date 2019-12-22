@@ -30,6 +30,7 @@ namespace QLVT_DATHANG
         public static SubForm.LapPhieuNhap addPhieuNhapForm;
         public static SubForm.LapPhieuXuat addPhieuXuatForm;
         public static SubForm.ThemNV addEmployeeForm;
+        public static SubForm.LapPhieuNhap_AddNew addNewPhieuNhap;
 
         public static Report.ReviewDanhSachVatTu reviewDanhSachVatTu;
         public static Report.MenuDanhSachNhanVien menuDanhSachNhanVien;

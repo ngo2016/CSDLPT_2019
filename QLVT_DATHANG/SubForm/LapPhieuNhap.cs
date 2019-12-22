@@ -225,7 +225,10 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            Program.addNewPhieuNhap = new LapPhieuNhap_AddNew();
+            Program.addNewPhieuNhap.Activate();
+            Program.addNewPhieuNhap.Show();
+            this.Visible = false;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
