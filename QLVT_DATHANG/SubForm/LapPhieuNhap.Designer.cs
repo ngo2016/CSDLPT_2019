@@ -81,12 +81,11 @@
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.cTPNDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cellMaVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnSubformAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformDel = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformWrite = new System.Windows.Forms.ToolStripMenuItem();
             this.cTPNBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -571,6 +570,7 @@
             // maSoDonDatHangTextEdit
             // 
             this.maSoDonDatHangTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.phieuNhapBindingSource, "MasoDDH", true));
+            this.maSoDonDatHangTextEdit.Enabled = false;
             this.maSoDonDatHangTextEdit.Location = new System.Drawing.Point(140, 140);
             this.maSoDonDatHangTextEdit.MenuManager = this.barManager1;
             this.maSoDonDatHangTextEdit.Name = "maSoDonDatHangTextEdit";
@@ -580,6 +580,7 @@
             // maPhieuNhapTextEdit
             // 
             this.maPhieuNhapTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.phieuNhapBindingSource, "MAPN", true));
+            this.maPhieuNhapTextEdit.Enabled = false;
             this.maPhieuNhapTextEdit.Location = new System.Drawing.Point(140, 41);
             this.maPhieuNhapTextEdit.MenuManager = this.barManager1;
             this.maPhieuNhapTextEdit.Name = "maPhieuNhapTextEdit";
@@ -596,12 +597,13 @@
             // 
             // cTPNDataGridView
             // 
+            this.cTPNDataGridView.AllowUserToAddRows = false;
             this.cTPNDataGridView.AutoGenerateColumns = false;
             this.cTPNDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cTPNDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
+            this.cellMaVT,
+            this.cellSoLuong,
             this.dataGridViewTextBoxColumn4});
             this.cTPNDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.cTPNDataGridView.DataSource = this.cTPNBindingSource;
@@ -614,65 +616,67 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "MAPN";
-            this.dataGridViewTextBoxColumn1.HeaderText = "MAPN";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã phiếu nhập";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 122;
             // 
-            // dataGridViewTextBoxColumn2
+            // cellMaVT
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MAVT";
-            this.dataGridViewTextBoxColumn2.DataSource = this.vattuBindingSource;
-            this.dataGridViewTextBoxColumn2.DisplayMember = "TENVT";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MAVT";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.ValueMember = "MAVT";
+            this.cellMaVT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cellMaVT.DataPropertyName = "MAVT";
+            this.cellMaVT.DataSource = this.vattuBindingSource;
+            this.cellMaVT.DisplayMember = "TENVT";
+            this.cellMaVT.HeaderText = "Tên vật tư";
+            this.cellMaVT.Name = "cellMaVT";
+            this.cellMaVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cellMaVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cellMaVT.ValueMember = "MAVT";
+            this.cellMaVT.Width = 98;
             // 
             // vattuBindingSource
             // 
             this.vattuBindingSource.DataMember = "Vattu";
             this.vattuBindingSource.DataSource = this.cN1;
             // 
-            // dataGridViewTextBoxColumn3
+            // cellSoLuong
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.HeaderText = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.cellSoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cellSoLuong.DataPropertyName = "SOLUONG";
+            this.cellSoLuong.HeaderText = "Số lượng";
+            this.cellSoLuong.Name = "cellSoLuong";
+            this.cellSoLuong.ToolTipText = "Số lượng hàng nhập (không được quá số lượng hàng đặt)";
+            this.cellSoLuong.Width = 88;
             // 
             // dataGridViewTextBoxColumn4
             // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn4.DataPropertyName = "DONGIA";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DONGIA";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Đơn giá";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnSubformAdd,
             this.btnSubformDel,
             this.btnSubformWrite});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(116, 76);
-            // 
-            // btnSubformAdd
-            // 
-            this.btnSubformAdd.Name = "btnSubformAdd";
-            this.btnSubformAdd.Size = new System.Drawing.Size(115, 24);
-            this.btnSubformAdd.Text = "Thêm";
-            this.btnSubformAdd.Click += new System.EventHandler(this.btnSubformAdd_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 52);
             // 
             // btnSubformDel
             // 
             this.btnSubformDel.Name = "btnSubformDel";
-            this.btnSubformDel.Size = new System.Drawing.Size(115, 24);
+            this.btnSubformDel.Size = new System.Drawing.Size(104, 24);
             this.btnSubformDel.Text = "Xóa";
             this.btnSubformDel.Click += new System.EventHandler(this.btnSubformDel_Click);
             // 
             // btnSubformWrite
             // 
             this.btnSubformWrite.Name = "btnSubformWrite";
-            this.btnSubformWrite.Size = new System.Drawing.Size(115, 24);
+            this.btnSubformWrite.Size = new System.Drawing.Size(104, 24);
             this.btnSubformWrite.Text = "Ghi";
             this.btnSubformWrite.Click += new System.EventHandler(this.btnSubformWrite_Click);
             // 
@@ -785,7 +789,6 @@
         private DevExpress.XtraBars.BarButtonItem btnThem;
         private DevExpress.XtraBars.BarButtonItem btnGhi;
         private DevExpress.XtraBars.BarButtonItem btnXoa;
-        private DevExpress.XtraBars.BarButtonItem btnReload;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
@@ -814,7 +817,6 @@
         private CN1TableAdapters.CTPNTableAdapter cTPNTableAdapter;
         private System.Windows.Forms.BindingSource cTPNBindingSource;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem btnSubformAdd;
         private System.Windows.Forms.ToolStripMenuItem btnSubformDel;
         private System.Windows.Forms.ToolStripMenuItem btnSubformWrite;
         private System.Windows.Forms.DataGridView cTPNDataGridView;
@@ -824,10 +826,6 @@
         private DevExpress.XtraEditors.TextEdit maPhieuNhapTextEdit;
         private System.Windows.Forms.BindingSource vattuBindingSource;
         private CN1TableAdapters.VattuTableAdapter vattuTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DevExpress.XtraEditors.LabelControl labelNhomNV;
         private DevExpress.XtraEditors.LabelControl labelTenNV;
         private DevExpress.XtraEditors.LabelControl labelMaNV;
@@ -838,5 +836,10 @@
         private CN1TableAdapters.KhoTableAdapter khoTableAdapter;
         private System.Windows.Forms.ComboBox tenKhoComboBox;
         private System.Windows.Forms.DateTimePicker ngayDateTimePicker;
+        public DevExpress.XtraBars.BarButtonItem btnReload;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cellMaVT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

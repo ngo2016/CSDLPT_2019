@@ -46,6 +46,8 @@
             this.tableAdapterManager = new QLVT_DATHANG.CN1TableAdapters.TableAdapterManager();
             this.dDH_ChuaCo_PNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dDH_ChuaCo_PNTableAdapter = new QLVT_DATHANG.CN1TableAdapters.DDH_ChuaCo_PNTableAdapter();
+            this.btnLapPhieuNhap = new System.Windows.Forms.Button();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datHangGridControl)).BeginInit();
@@ -56,10 +58,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dDH_ChuaCo_PNBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btnLapPhieuNhap);
             this.layoutControl1.Controls.Add(this.btnExit);
             this.layoutControl1.Controls.Add(this.datHangGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -72,9 +76,9 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(542, 493);
+            this.btnExit.Location = new System.Drawing.Point(840, 523);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(520, 79);
+            this.btnExit.Size = new System.Drawing.Size(222, 49);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -86,11 +90,10 @@
             this.datHangGridControl.Location = new System.Drawing.Point(16, 16);
             this.datHangGridControl.MainView = this.gridView1;
             this.datHangGridControl.Name = "datHangGridControl";
-            this.datHangGridControl.Size = new System.Drawing.Size(1046, 471);
+            this.datHangGridControl.Size = new System.Drawing.Size(1046, 501);
             this.datHangGridControl.TabIndex = 4;
             this.datHangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.datHangGridControl.MouseCaptureChanged += new System.EventHandler(this.datHangGridControl_MouseCaptureChanged);
             // 
             // cN1
             // 
@@ -108,6 +111,7 @@
             this.gridView1.GridControl = this.datHangGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            this.gridView1.OptionsFind.AlwaysVisible = true;
             // 
             // colMasoDDH
             // 
@@ -157,7 +161,8 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.emptySpaceItem1,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
@@ -169,24 +174,24 @@
             this.layoutControlItem1.Control = this.datHangGridControl;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1052, 477);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1052, 507);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 477);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 507);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(526, 85);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(609, 55);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnExit;
-            this.layoutControlItem2.Location = new System.Drawing.Point(526, 477);
+            this.layoutControlItem2.Location = new System.Drawing.Point(824, 507);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(526, 85);
+            this.layoutControlItem2.Size = new System.Drawing.Size(228, 55);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -213,6 +218,25 @@
             // 
             this.dDH_ChuaCo_PNTableAdapter.ClearBeforeFill = true;
             // 
+            // btnLapPhieuNhap
+            // 
+            this.btnLapPhieuNhap.Location = new System.Drawing.Point(625, 523);
+            this.btnLapPhieuNhap.Name = "btnLapPhieuNhap";
+            this.btnLapPhieuNhap.Size = new System.Drawing.Size(209, 49);
+            this.btnLapPhieuNhap.TabIndex = 6;
+            this.btnLapPhieuNhap.Text = "Lập phiếu nhập";
+            this.btnLapPhieuNhap.UseVisualStyleBackColor = true;
+            this.btnLapPhieuNhap.Click += new System.EventHandler(this.btnLapPhieuNhap_Click);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.btnLapPhieuNhap;
+            this.layoutControlItem3.Location = new System.Drawing.Point(609, 507);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(215, 55);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
             // LapPhieuNhap_AddNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -234,6 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dDH_ChuaCo_PNBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +282,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private System.Windows.Forms.BindingSource dDH_ChuaCo_PNBindingSource;
         private CN1TableAdapters.DDH_ChuaCo_PNTableAdapter dDH_ChuaCo_PNTableAdapter;
+        private System.Windows.Forms.Button btnLapPhieuNhap;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

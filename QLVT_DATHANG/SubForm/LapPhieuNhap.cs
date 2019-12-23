@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLVT_DATHANG.SubForm
 {
@@ -64,7 +65,7 @@ namespace QLVT_DATHANG.SubForm
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
-            
+
             // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
@@ -202,25 +203,48 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
-        private void btnSubformAdd_Click(object sender, EventArgs e)
+        private void btnSubformWrite_Click(object sender, EventArgs e)
         {
             this.Validate();
+
+            int soluong = int.Parse(this.cTPNDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
+
+            GridView gridView = phieuNhapGridControl.FocusedView as GridView;
+            object row = gridView.GetRow(gridView.FocusedRowHandle);
+            DataRowView row_data = row as DataRowView;
+            string maDDH = row_data.Row.ItemArray[2].ToString();
+
+            string maVT = this.cTPNDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
+
+            String sp_laysoluongtrongddh = "EXEC sp_laysoluongtrongddh '" + maDDH + "', '" + maVT + "'";
+            SqlDataReader soluongDDH = Program.ExecSqlDataReader(sp_laysoluongtrongddh);
+
+            soluongDDH.Read();
+            int soluongtrongDDH = soluongDDH.GetInt32(0);
+
+            if (soluong > soluongtrongDDH)
+            {
+                MessageBox.Show("Không được nhập quá số lượng đã đặt (" + soluongtrongDDH + ")", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.cTPNTableAdapter.Fill(this.cN1.CTPN);
+                soluongDDH.Close();
+                return;
+            }
+
             this.cTPNBindingSource.EndEdit();
+            soluongDDH.Close();
             this.cTPNTableAdapter.Update(this.cN1);
             // fill lại dữ liệu cho subform
             this.cTPNTableAdapter.Fill(this.cN1.CTPN);
-        }
-
-        private void btnSubformWrite_Click(object sender, EventArgs e)
-        {
-            this.btnSubformAdd.PerformClick();
         }
 
         private void btnSubformDel_Click(object sender, EventArgs e)
         {
             //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
             this.cTPNBindingSource.RemoveCurrent();
-            this.btnSubformAdd.PerformClick();
+            this.cTPNBindingSource.EndEdit();
+            this.cTPNTableAdapter.Update(this.cN1);
+            // fill lại dữ liệu cho subform
+            this.cTPNTableAdapter.Fill(this.cN1.CTPN);
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

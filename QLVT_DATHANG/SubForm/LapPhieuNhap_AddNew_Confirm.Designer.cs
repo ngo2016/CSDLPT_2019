@@ -65,7 +65,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(833, 292, 312, 437);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1087, 579);
+            this.layoutControl1.Size = new System.Drawing.Size(716, 579);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -73,7 +73,7 @@
             // 
             this.btnComplete.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnComplete.ForeColor = System.Drawing.Color.White;
-            this.btnComplete.Location = new System.Drawing.Point(463, 514);
+            this.btnComplete.Location = new System.Drawing.Point(267, 514);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(98, 49);
             this.btnComplete.TabIndex = 6;
@@ -83,10 +83,11 @@
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Location = new System.Drawing.Point(156, 16);
+            this.layoutControl2.Location = new System.Drawing.Point(107, 16);
             this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(971, 221, 312, 437);
             this.layoutControl2.Root = this.Root;
-            this.layoutControl2.Size = new System.Drawing.Size(787, 492);
+            this.layoutControl2.Size = new System.Drawing.Size(510, 492);
             this.layoutControl2.TabIndex = 5;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -97,14 +98,14 @@
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.OptionsItemText.TextToControlDistance = 4;
-            this.Root.Size = new System.Drawing.Size(787, 492);
+            this.Root.Size = new System.Drawing.Size(510, 492);
             this.Root.TextVisible = false;
             // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(567, 514);
+            this.btnExit.Location = new System.Drawing.Point(371, 514);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(96, 49);
             this.btnExit.TabIndex = 4;
@@ -127,13 +128,13 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1087, 579);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(716, 579);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnExit;
-            this.layoutControlItem1.Location = new System.Drawing.Point(551, 498);
+            this.layoutControlItem1.Location = new System.Drawing.Point(355, 498);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(102, 55);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(102, 55);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -145,9 +146,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.layoutControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(140, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(91, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(793, 498);
+            this.layoutControlItem2.Size = new System.Drawing.Size(516, 498);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -156,21 +157,21 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(140, 553);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(91, 553);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(933, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(607, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(128, 553);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(83, 553);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnComplete;
-            this.layoutControlItem3.Location = new System.Drawing.Point(447, 498);
+            this.layoutControlItem3.Location = new System.Drawing.Point(251, 498);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(104, 55);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(104, 55);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -182,24 +183,24 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(653, 498);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(457, 498);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(280, 55);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(150, 55);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(140, 498);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(91, 498);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(307, 55);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(160, 55);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // LapPhieuNhap_AddNew_Confirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 579);
+            this.ClientSize = new System.Drawing.Size(716, 579);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LapPhieuNhap_AddNew_Confirm";

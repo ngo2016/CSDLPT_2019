@@ -16,6 +16,7 @@ namespace QLVT_DATHANG.SubForm
     {
         private TextBox maPhieuNhapTextBox;
         private TextBox maDDHTextBox;
+        private TextBox maNVTextBox;
 
         private DateTimePicker dateTimePicker;
         private List<NumericUpDown> items = new List<NumericUpDown>();
@@ -38,9 +39,13 @@ namespace QLVT_DATHANG.SubForm
             dateTimePicker.CustomFormat = "yyyy-MM-dd";
             dateTimePicker.Format = DateTimePickerFormat.Custom;
 
+            maNVTextBox = new TextBox();
+            maNVTextBox.Text = Program.username;
+
             this.layoutControl2.AddItem("Mã đơn đặt hàng", maDDHTextBox);
             this.layoutControl2.AddItem("Mã phiếu nhập", maPhieuNhapTextBox);
             this.layoutControl2.AddItem("Ngày nhập", dateTimePicker);
+            this.layoutControl2.AddItem("Mã nhân viên nhập phiếu", maNVTextBox);
 
             String sp_laychitietDDH = "EXEC sp_laychitietDDH '" + maDDH + "'";
             SqlDataReader chiTietDDH = Program.ExecSqlDataReader(sp_laychitietDDH);
@@ -72,7 +77,7 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+            Program.addNewPhieuNhap.Visible = true;
             this.Close();
         }
 
@@ -80,6 +85,16 @@ namespace QLVT_DATHANG.SubForm
         {
             //tao phieu nhap cho don dat hang
             string mapn = this.maPhieuNhapTextBox.Text;
+
+            //ma nhan vien lap phieu nhap
+            string manvLapPhieuNhap = maNVTextBox.Text;
+
+            if (mapn == "")
+            {
+                MessageBox.Show("Mã phiếu nhập không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DateTime ngaylap = this.dateTimePicker.Value;
             string ngayLap = ngaylap.Year.ToString() + "-" + ngaylap.Month.ToString() + "-" + ngaylap.Day.ToString();
             SqlCommand sqlcmd1 = new SqlCommand("sp_taophieunhap", Program.connect);
@@ -87,7 +102,16 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd1.Parameters.AddWithValue("@MAPN", mapn);
             sqlcmd1.Parameters.AddWithValue("@NGAY", ngayLap);
             sqlcmd1.Parameters.AddWithValue("@MasoDDH", this.maDDH);
-            Program.execStoreProcedure(sqlcmd1);
+            sqlcmd1.Parameters.AddWithValue("@MANV", manvLapPhieuNhap);
+            try
+            {
+                Program.execStoreProcedure(sqlcmd1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Mã phiếu nhập đã tồn tại\nHoặc không có nhân viên có mã " + manvLapPhieuNhap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             //tao chi tiet phieu nhap cho tung mat hang trong chi tiet don dat hang
             foreach (var item in this.items)
@@ -102,6 +126,9 @@ namespace QLVT_DATHANG.SubForm
                 sqlcmd.Parameters.AddWithValue("@SOLUONG", soluong);
                 Program.execStoreProcedure(sqlcmd);
             }
+            Program.addPhieuNhapForm.Visible = true;
+            Program.addPhieuNhapForm.btnReload.PerformClick();
+
             this.Close();
         }
 

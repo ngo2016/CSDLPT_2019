@@ -45,7 +45,7 @@ namespace QLVT_DATHANG.SubForm
             Program.addPhieuNhapForm.Visible = true;
         }
 
-        private void datHangGridControl_MouseCaptureChanged(object sender, EventArgs e)
+        private void btnLapPhieuNhap_Click(object sender, EventArgs e)
         {
             GridView gridView = datHangGridControl.FocusedView as GridView;
             object row = gridView.GetRow(gridView.FocusedRowHandle);
@@ -55,7 +55,7 @@ namespace QLVT_DATHANG.SubForm
             LapPhieuNhap_AddNew_Confirm confirm = new LapPhieuNhap_AddNew_Confirm(maDDH);
             confirm.Activate();
             confirm.Show();
-
+            this.Visible = false;
         }
     }
 }
