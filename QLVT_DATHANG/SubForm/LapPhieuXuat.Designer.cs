@@ -515,6 +515,7 @@
             this.maNVSpinEdit.Name = "maNVSpinEdit";
             this.maNVSpinEdit.Size = new System.Drawing.Size(179, 22);
             this.maNVSpinEdit.TabIndex = 15;
+            this.maNVSpinEdit.TextChanged += new System.EventHandler(this.maNVSpinEdit_TextChanged);
             // 
             // ngayLapDateEdit
             // 

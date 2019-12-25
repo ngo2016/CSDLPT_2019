@@ -109,7 +109,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Mã phiếu nhập đã tồn tại\nHoặc không có nhân viên có mã " + manvLapPhieuNhap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mã phiếu nhập đã tồn tại\nHoặc nhân viên đã chuyển chi nhánh\nHoặc không có nhân viên có mã " + manvLapPhieuNhap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -12,6 +12,21 @@
     <AssemblyName>QLVT_DATHANG</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -132,6 +147,12 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.Designer.cs">
+      <DependentUpon>BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\DanhSachNhanVien.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -144,11 +165,23 @@
     <Compile Include="Report\DanhSachVatTu.Designer.cs">
       <DependentUpon>DanhSachVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\KeKhai_Select_From_To.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\KeKhai_Select_From_To.Designer.cs">
+      <DependentUpon>KeKhai_Select_From_To.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\MenuDanhSachNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Report\MenuDanhSachNhanVien.Designer.cs">
       <DependentUpon>MenuDanhSachNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MenuHoatDongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\MenuHoatDongNhanVien.Designer.cs">
+      <DependentUpon>MenuHoatDongNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\ReviewDanhSachNhanVien.cs">
       <SubType>Form</SubType>
@@ -161,6 +194,12 @@
     </Compile>
     <Compile Include="Report\ReviewDanhSachVatTu.Designer.cs">
       <DependentUpon>ReviewDanhSachVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReviewKeKhai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\ReviewKeKhai.Designer.cs">
+      <DependentUpon>ReviewKeKhai.cs</DependentUpon>
     </Compile>
     <Compile Include="StorageForm.cs">
       <SubType>Form</SubType>
@@ -252,20 +291,32 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.resx">
+      <DependentUpon>BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachNhanVien.resx">
       <DependentUpon>DanhSachNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachVatTu.resx">
       <DependentUpon>DanhSachVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\KeKhai_Select_From_To.resx">
+      <DependentUpon>KeKhai_Select_From_To.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\MenuDanhSachNhanVien.resx">
       <DependentUpon>MenuDanhSachNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MenuHoatDongNhanVien.resx">
+      <DependentUpon>MenuHoatDongNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReviewDanhSachNhanVien.resx">
       <DependentUpon>ReviewDanhSachNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReviewDanhSachVatTu.resx">
       <DependentUpon>ReviewDanhSachVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReviewKeKhai.resx">
+      <DependentUpon>ReviewKeKhai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>
@@ -336,6 +387,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

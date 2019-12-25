@@ -105,7 +105,6 @@ namespace QLVT_DATHANG.SubForm
         private void maNVTextEdit_TextChanged(object sender, EventArgs e)
         {
             //thay doi ten nhan vien trong combobox khi ma nhan vien thay doi
-            //xu ly khi nhan vao row trong table don dat hang
             try
             {
                 string manv = this.maNVTextEdit.Text;
@@ -246,6 +245,13 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            string hoten = this.hoTenComboBox.Text;
+            if (hoten.Contains("Đã chuyển"))
+            {
+                MessageBox.Show("Nhân viên lập đơn hàng đã chuyển sang chi nhánh khác. Xin vui lòng chọn nhân viên khác", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string maddh = this.maSoDDHTextEdit.Text;
             DateTime ngaylap = this.ngayLapDateEdit.Value;
             string ngayLap = ngaylap.Year.ToString() + "-" + ngaylap.Month.ToString() + "-" + ngaylap.Day.ToString();

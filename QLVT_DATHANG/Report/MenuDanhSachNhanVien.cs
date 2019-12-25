@@ -38,9 +38,6 @@ namespace QLVT_DATHANG.Report
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            // thay doi connect string
-
-
             if (this.tenCNComboBox.Enabled != false)
             {
                 Program.servername = this.tenCNComboBox.SelectedValue.ToString();

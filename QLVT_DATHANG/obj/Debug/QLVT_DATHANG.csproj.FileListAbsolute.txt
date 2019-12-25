@@ -18,3 +18,17 @@ D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Sub
 D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.SubForm.LapDonDatHang.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.SubForm.LapPhieuNhap.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.SubForm.LapPhieuXuat.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.PrintRibbonControllerResources.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.RegisterForm.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.DanhSachNhanVien.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.DanhSachVatTu.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.MenuDanhSachNhanVien.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.ReviewDanhSachNhanVien.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.ReviewDanhSachVatTu.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.SubForm.LapPhieuNhap_AddNew.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.SubForm.LapPhieuNhap_AddNew_Confirm.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.XRDesignRibbonControllerResources.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.ReviewKeKhai.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.KeKhai_Select_From_To.resources
+D:\Temp\PTIT\T2_CSDLPT\DoAn\QLVT_DATHANG\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.MenuHoatDongNhanVien.resources

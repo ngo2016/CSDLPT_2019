@@ -47,16 +47,16 @@ namespace QLVT_DATHANG.SubForm
             cN1.EnforceConstraints = false;
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
+
+            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connectString;
             this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
             this.vattuTableAdapter.Fill(this.cN1.Vattu);
-
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.cTPNTableAdapter.Connection.ConnectionString = Program.connectString;
@@ -127,16 +127,16 @@ namespace QLVT_DATHANG.SubForm
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
+
+            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connectString;
             this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
             this.vattuTableAdapter.Fill(this.cN1.Vattu);
-
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.cTPNTableAdapter.Connection.ConnectionString = Program.connectString;

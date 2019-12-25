@@ -104,5 +104,12 @@ namespace QLVT_DATHANG
             Program.menuDanhSachNhanVien.Show();
             this.Visible = false;
         }
+
+        private void btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Report.KeKhai_Select_From_To fromTo = new Report.KeKhai_Select_From_To();
+
+            fromTo.ShowDialog(this);
+        }
     }
 }

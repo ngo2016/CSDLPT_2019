@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.applicationMenu2 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.btnFormEmployee = new DevExpress.XtraBars.BarButtonItem();
             this.btnExit = new DevExpress.XtraBars.BarButtonItem();
             this.btnSupplies = new DevExpress.XtraBars.BarButtonItem();
@@ -45,23 +46,34 @@
             this.btnInDanhSachCacDonDatHangChuaCoPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
             this.btnBaoCaoTinhHinhHoatDongCua1NhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnTongHopNhapXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.printPreviewStaticItem1 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.printPreviewStaticItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.labelMaNV = new DevExpress.XtraEditors.LabelControl();
             this.labelTenNV = new DevExpress.XtraEditors.LabelControl();
             this.labelNhomNV = new DevExpress.XtraEditors.LabelControl();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationMenu2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
             // 
+            this.ribbon.ApplicationButtonDropDownControl = this.applicationMenu2;
+            this.ribbon.AutoHideEmptyItems = true;
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -78,18 +90,32 @@
             this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat,
             this.btnInDanhSachCacDonDatHangChuaCoPhieuNhap,
             this.btnBaoCaoTinhHinhHoatDongCua1NhanVien,
-            this.btnTongHopNhapXuat});
+            this.btnTongHopNhapXuat,
+            this.printPreviewStaticItem1,
+            this.barStaticItem1,
+            this.barButtonItem3,
+            this.printPreviewStaticItem2});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 21;
+            this.ribbon.MaxItemId = 149;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage3});
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemProgressBar1,
+            this.repositoryItemZoomTrackBar1});
             this.ribbon.Size = new System.Drawing.Size(1224, 179);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
+            this.ribbon.TransparentEditors = true;
+            // 
+            // applicationMenu2
+            // 
+            this.applicationMenu2.Name = "applicationMenu2";
+            this.applicationMenu2.Ribbon = this.ribbon;
+            this.applicationMenu2.ShowRightPane = true;
             // 
             // btnFormEmployee
             // 
@@ -183,6 +209,7 @@
             this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.Id = 17;
             this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.LargeGlyph")));
             this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.Name = "btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat";
+            this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat_ItemClick);
             // 
             // btnInDanhSachCacDonDatHangChuaCoPhieuNhap
             // 
@@ -204,6 +231,41 @@
             this.btnTongHopNhapXuat.Id = 20;
             this.btnTongHopNhapXuat.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTongHopNhapXuat.LargeGlyph")));
             this.btnTongHopNhapXuat.Name = "btnTongHopNhapXuat";
+            // 
+            // printPreviewStaticItem1
+            // 
+            this.printPreviewStaticItem1.Caption = "Nothing";
+            this.printPreviewStaticItem1.Id = 142;
+            this.printPreviewStaticItem1.LeftIndent = 1;
+            this.printPreviewStaticItem1.Name = "printPreviewStaticItem1";
+            this.printPreviewStaticItem1.RightIndent = 1;
+            this.printPreviewStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.printPreviewStaticItem1.Type = "PageOfPages";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Id = 143;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.OnlyInRuntime;
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.barButtonItem3.Enabled = false;
+            this.barButtonItem3.Id = 146;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.Visibility = DevExpress.XtraBars.BarItemVisibility.OnlyInRuntime;
+            // 
+            // printPreviewStaticItem2
+            // 
+            this.printPreviewStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.printPreviewStaticItem2.AutoSize = DevExpress.XtraBars.BarStaticItemSize.None;
+            this.printPreviewStaticItem2.Caption = "100%";
+            this.printPreviewStaticItem2.Id = 147;
+            this.printPreviewStaticItem2.Name = "printPreviewStaticItem2";
+            this.printPreviewStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.printPreviewStaticItem2.Type = "ZoomFactorText";
             // 
             // ribbonPage1
             // 
@@ -253,13 +315,30 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
+            // repositoryItemProgressBar1
+            // 
+            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
+            // 
+            // repositoryItemZoomTrackBar1
+            // 
+            this.repositoryItemZoomTrackBar1.Alignment = DevExpress.Utils.VertAlignment.Center;
+            this.repositoryItemZoomTrackBar1.AllowFocused = false;
+            this.repositoryItemZoomTrackBar1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.repositoryItemZoomTrackBar1.Maximum = 180;
+            this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
+            this.repositoryItemZoomTrackBar1.ScrollThumbStyle = DevExpress.XtraEditors.Repository.ScrollThumbStyle.ArrowDownRight;
+            // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 649);
+            this.ribbonStatusBar.ItemLinks.Add(this.printPreviewStaticItem1);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonStatusBar.ItemLinks.Add(this.printPreviewStaticItem2);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 644);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1224, 35);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1224, 40);
             // 
             // labelMaNV
             // 
@@ -310,7 +389,7 @@
             this.Controls.Add(this.labelMaNV);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Ribbon = this.ribbon;
@@ -318,6 +397,9 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationMenu2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -352,5 +434,12 @@
         private DevExpress.XtraBars.BarButtonItem btnInDanhSachCacDonDatHangChuaCoPhieuNhap;
         private DevExpress.XtraBars.BarButtonItem btnBaoCaoTinhHinhHoatDongCua1NhanVien;
         private DevExpress.XtraBars.BarButtonItem btnTongHopNhapXuat;
+        private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu2;
+        private DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem printPreviewStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem printPreviewStaticItem2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar repositoryItemZoomTrackBar1;
     }
 }

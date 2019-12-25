@@ -46,12 +46,12 @@ namespace QLVT_DATHANG.SubForm
             cN1.EnforceConstraints = false;
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.phieuXuatTableAdapter.Fill(this.cN1.PhieuXuat);
-
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
+
+            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.phieuXuatTableAdapter.Fill(this.cN1.PhieuXuat);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
@@ -108,30 +108,17 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
-        private void maNVSpinEdit_TextChanged(object sender, EventArgs e)
-        {
-            //thay doi ten nhan vien trong combobox khi ma nhan vien thay doi
-            //xu ly khi nhan vao row trong table don dat hang
-            try
-            {
-                string manv = this.maNVSpinEdit.Text;
-                this.hoTenComboBox.SelectedValue = int.Parse(manv);
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.phieuXuatTableAdapter.Fill(this.cN1.PhieuXuat);
+            cN1.EnforceConstraints = false;
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
+
+            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.phieuXuatTableAdapter.Fill(this.cN1.PhieuXuat);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
@@ -144,6 +131,8 @@ namespace QLVT_DATHANG.SubForm
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
+
+            cN1.EnforceConstraints = true;
         }
 
         private void tenKhoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -211,6 +200,13 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            string hoten = this.hoTenComboBox.Text;
+            if (hoten.Contains("Đã chuyển"))
+            {
+                MessageBox.Show("Nhân viên lập phiếu xuất đã chuyển sang chi nhánh khác. Xin vui lòng chọn nhân viên khác", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string mapx = this.maPhieuXuatTextEdit.Text;
             DateTime ngaylap = this.ngayLapDateEdit.Value;
             string ngayLap = ngaylap.Year.ToString() + "-" + ngaylap.Month.ToString() + "-" + ngaylap.Day.ToString();
@@ -281,6 +277,20 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@MAKHO", SqlDbType.NChar).Value = makho;
             Program.execStoreProcedure(sqlcmd);
             this.btnReload.PerformClick();
+        }
+
+        private void maNVSpinEdit_TextChanged(object sender, EventArgs e)
+        {
+            //thay doi ten nhan vien trong combobox khi ma nhan vien thay doi
+            try
+            {
+                string manv = this.maNVSpinEdit.Text;
+                this.hoTenComboBox.SelectedValue = int.Parse(manv);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

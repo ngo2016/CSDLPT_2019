@@ -36,6 +36,7 @@ namespace QLVT_DATHANG
         public static Report.MenuDanhSachNhanVien menuDanhSachNhanVien;
         public static Report.ReviewDanhSachNhanVien reviewDanhSachNhanVien;
         public static Report.DanhSachNhanVien danhSachNhanVien;
+        public static Report.ReviewKeKhai reviewKeKhai;
 
         public static bool flagCloseRegisterForm;
         public static bool flagCloseFormThemNV;
