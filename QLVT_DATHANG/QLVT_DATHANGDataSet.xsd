@@ -711,6 +711,24 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON, rowguid FROM Vattu WHERE (MAVT = @MAVT)</Co
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DS_NhanVienTableAdapter" GeneratorDataComponentClassName="V_DS_NhanVienTableAdapter" Name="V_DS_NhanVien" UserDataComponentName="V_DS_NhanVienTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLVT_DATHANGConnectionString (Settings)" DbObjectName="QLVT_DATHANG.dbo.NhanVien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT HO + N' ' + TEN AS HOTEN, MANV
+FROM     NhanVien</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="HOTEN" DataSetColumn="HOTEN" />
+              <Mapping SourceColumn="MANV" DataSetColumn="MANV" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1036,6 +1054,20 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON, rowguid FROM Vattu WHERE (MAVT = @MAVT)</Co
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="V_DS_NhanVien" msprop:Generator_TableClassName="V_DS_NhanVienDataTable" msprop:Generator_TableVarName="tableV_DS_NhanVien" msprop:Generator_RowChangedName="V_DS_NhanVienRowChanged" msprop:Generator_TablePropName="V_DS_NhanVien" msprop:Generator_RowDeletingName="V_DS_NhanVienRowDeleting" msprop:Generator_RowChangingName="V_DS_NhanVienRowChanging" msprop:Generator_RowEvHandlerName="V_DS_NhanVienRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DS_NhanVienRowDeleted" msprop:Generator_RowClassName="V_DS_NhanVienRow" msprop:Generator_UserTableName="V_DS_NhanVien" msprop:Generator_RowEvArgName="V_DS_NhanVienRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="62" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MANV" msprop:Generator_ColumnVarNameInTable="columnMANV" msprop:Generator_ColumnPropNameInRow="MANV" msprop:Generator_ColumnPropNameInTable="MANVColumn" msprop:Generator_UserColumnName="MANV" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1080,6 +1112,10 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON, rowguid FROM Vattu WHERE (MAVT = @MAVT)</Co
     <xs:unique name="Vattu_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Vattu" />
       <xs:field xpath="mstns:MAVT" />
+    </xs:unique>
+    <xs:unique name="V_DS_NhanVien_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_DS_NhanVien" />
+      <xs:field xpath="mstns:MANV" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

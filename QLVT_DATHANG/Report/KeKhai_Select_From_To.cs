@@ -21,13 +21,26 @@ namespace QLVT_DATHANG.Report
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            //chưa chọn phiếu nào thì báo lỗi
+            if (!(radioButtonPhieuNhap.Checked || radioButtonPhieuXuat.Checked))
+            {
+                MessageBox.Show("Phải chọn phiếu nhập hoặc phiếu xuất", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DateTime startDate = this.dateTimePickerFrom.Value;
             DateTime endDate = this.dateTimePickerTo.Value;
             bool congty = Program.group == "CONGTY" ? true : false;
+            //phieu nhap = false -> dang chon phieu xuat
+            bool phieuNhap = this.radioButtonPhieuNhap.Checked;
 
             BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.congty = congty;
+            BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.phieuNhap = phieuNhap;
             BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.startDate = startDate;
-            BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.endDate = endDate; 
+            BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.endDate = endDate;
+            BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.lableTitle = phieuNhap ? "BẢNG KÊ KHAI CHI TIẾT NHẬP" :
+                "BẢNG KÊ KHAI CHI TIẾT XUẤT";
             
             Program.reviewKeKhai = new Report.ReviewKeKhai();
             Program.reviewKeKhai.ShowDialog(this);

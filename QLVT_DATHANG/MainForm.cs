@@ -111,5 +111,17 @@ namespace QLVT_DATHANG
 
             fromTo.ShowDialog(this);
         }
+
+        private void btnBaoCaoTinhHinhHoatDongCua1NhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Program.menuHoatDongNhanVien = new Report.MenuHoatDongNhanVien();
+            Program.menuHoatDongNhanVien.ShowDialog(this);
+        }
+
+        private void btnTongHopNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Program.menuTongHopNhapXuat = new Report.MenuTongHopNhapXuat();
+            Program.menuTongHopNhapXuat.ShowDialog(this);
+        }
     }
 }

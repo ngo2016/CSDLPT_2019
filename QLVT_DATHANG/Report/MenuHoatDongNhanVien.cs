@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using System.Data.SqlClient;
 
 namespace QLVT_DATHANG.Report
 {
@@ -22,18 +23,21 @@ namespace QLVT_DATHANG.Report
         private void nhanVienBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.nhanVienBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.cN1);
 
         }
 
         private void MenuHoatDongNhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cN1.V_DS_NhanVien' table. You can move, or remove it, as needed.
+            if (Program.group=="CONGTY")
+            {
+                this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = "Data Source=HEROSEEKER\\MAINSERVER;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
+            }
+            else
+            {
+            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;  
+            }          
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
-            // TODO: This line of code loads data into the 'cN1.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.cN1.NhanVien);
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -43,7 +47,40 @@ namespace QLVT_DATHANG.Report
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            Report.DanhSachNhanVien n = new Report.DanhSachNhanVien();
+            int maNV = int.Parse(this.maNVComboBox.Text);
+            Report.HoatDongNhanVien n = new Report.HoatDongNhanVien(maNV, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            n.lbMaNV.Text = this.maNVComboBox.Text;
+
+            String sp_layThongTinNhanVien = "EXEC sp_layThongTinNhanVien '" + maNV + "'";
+            SqlDataReader dataReader = Program.ExecSqlDataReader(sp_layThongTinNhanVien);
+            if (dataReader == null)
+            {
+                MessageBox.Show("Không có mã nhân viên " + maNV, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataReader.Close();
+                return;
+            }
+            try
+            {
+                //doc ket qua tu sp_layThongTinNhanVien có 4 cột ("HOTEN", "[DIACHI]", "[NGAYSINH]", "[LUONG]")
+                dataReader.Read();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không tìm thấy thông tin của mã nhân viên " + maNV, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataReader.Close();
+                return;
+            }
+            //sau khi thuc thi sp_layThongTinNhanVien ta co    0           1           2           3
+            //                                                 HOTEN       DIACHI      NGAYSINH    LUONG
+            n.lbHoTen.Text = dataReader.GetString(0);
+            
+            n.lbDiaChi.Text = dataReader.GetString(1);
+            n.lbNgaySinh.Text = dataReader[2].ToString();
+            n.lbLuong.Text = dataReader[3].ToString();
+
+            //đóng bảng chỉ đọc và ngắt kết nối
+            dataReader.Close();
+
             ReportPrintTool m = new ReportPrintTool(n);
             m.ShowPreviewDialog();
         }

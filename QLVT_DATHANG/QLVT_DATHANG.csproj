@@ -165,6 +165,12 @@
     <Compile Include="Report\DanhSachVatTu.Designer.cs">
       <DependentUpon>DanhSachVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\HoatDongNhanVien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HoatDongNhanVien.Designer.cs">
+      <DependentUpon>HoatDongNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\KeKhai_Select_From_To.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,12 @@
     <Compile Include="Report\MenuHoatDongNhanVien.Designer.cs">
       <DependentUpon>MenuHoatDongNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\MenuTongHopNhapXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\MenuTongHopNhapXuat.Designer.cs">
+      <DependentUpon>MenuTongHopNhapXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\ReviewDanhSachNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +212,12 @@
     </Compile>
     <Compile Include="Report\ReviewKeKhai.Designer.cs">
       <DependentUpon>ReviewKeKhai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\TongHopNhapXuat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\TongHopNhapXuat.Designer.cs">
+      <DependentUpon>TongHopNhapXuat.cs</DependentUpon>
     </Compile>
     <Compile Include="StorageForm.cs">
       <SubType>Form</SubType>
@@ -296,9 +314,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachNhanVien.resx">
       <DependentUpon>DanhSachNhanVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachVatTu.resx">
       <DependentUpon>DanhSachVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HoatDongNhanVien.resx">
+      <DependentUpon>HoatDongNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\KeKhai_Select_From_To.resx">
       <DependentUpon>KeKhai_Select_From_To.cs</DependentUpon>
@@ -309,6 +331,9 @@
     <EmbeddedResource Include="Report\MenuHoatDongNhanVien.resx">
       <DependentUpon>MenuHoatDongNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\MenuTongHopNhapXuat.resx">
+      <DependentUpon>MenuTongHopNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\ReviewDanhSachNhanVien.resx">
       <DependentUpon>ReviewDanhSachNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReviewKeKhai.resx">
       <DependentUpon>ReviewKeKhai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\TongHopNhapXuat.resx">
+      <DependentUpon>TongHopNhapXuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>

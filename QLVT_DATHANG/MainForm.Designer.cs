@@ -224,6 +224,7 @@
             this.btnBaoCaoTinhHinhHoatDongCua1NhanVien.Id = 19;
             this.btnBaoCaoTinhHinhHoatDongCua1NhanVien.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnBaoCaoTinhHinhHoatDongCua1NhanVien.LargeGlyph")));
             this.btnBaoCaoTinhHinhHoatDongCua1NhanVien.Name = "btnBaoCaoTinhHinhHoatDongCua1NhanVien";
+            this.btnBaoCaoTinhHinhHoatDongCua1NhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBaoCaoTinhHinhHoatDongCua1NhanVien_ItemClick);
             // 
             // btnTongHopNhapXuat
             // 
@@ -231,6 +232,7 @@
             this.btnTongHopNhapXuat.Id = 20;
             this.btnTongHopNhapXuat.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTongHopNhapXuat.LargeGlyph")));
             this.btnTongHopNhapXuat.Name = "btnTongHopNhapXuat";
+            this.btnTongHopNhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTongHopNhapXuat_ItemClick);
             // 
             // printPreviewStaticItem1
             // 

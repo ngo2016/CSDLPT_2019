@@ -51,7 +51,7 @@
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbTitle = new DevExpress.XtraReports.UI.XRLabel();
             this.groupFooterBand2 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.groupFooterBand3 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
@@ -272,22 +272,22 @@
             // reportHeaderBand1
             // 
             this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel11});
+            this.lbTitle});
             this.reportHeaderBand1.Dpi = 100F;
             this.reportHeaderBand1.HeightF = 48F;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
             // 
-            // xrLabel11
+            // lbTitle
             // 
-            this.xrLabel11.Dpi = 100F;
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(5F, 5F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(640F, 33F);
-            this.xrLabel11.StyleName = "Title";
-            this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "BẢNG KÊ KHAI CHI TIẾT NHẬP XUẤT";
-            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lbTitle.Dpi = 100F;
+            this.lbTitle.LocationFloat = new DevExpress.Utils.PointFloat(5F, 5F);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbTitle.SizeF = new System.Drawing.SizeF(640F, 33F);
+            this.lbTitle.StyleName = "Title";
+            this.lbTitle.StylePriority.UseTextAlignment = false;
+            this.lbTitle.Text = "BẢNG KÊ KHAI CHI TIẾT NHẬP XUẤT";
+            this.lbTitle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // groupFooterBand2
             // 
@@ -311,10 +311,10 @@
             this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "sp_keKhaiChiTietTongHop.SOLUONG")});
             this.xrLabel12.Dpi = 100F;
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(269.3478F, 5F);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(330F, 5F);
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(208.6957F, 18F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(148.0435F, 18F);
             this.xrLabel12.StyleName = "FieldCaption";
             this.xrLabel12.StylePriority.UseTextAlignment = false;
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
@@ -367,10 +367,10 @@
             this.xrLabel15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "sp_keKhaiChiTietTongHop.SOLUONG")});
             this.xrLabel15.Dpi = 100F;
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(269.3478F, 35F);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(330F, 35F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel15.SizeF = new System.Drawing.SizeF(208.6957F, 18F);
+            this.xrLabel15.SizeF = new System.Drawing.SizeF(148.0435F, 18F);
             this.xrLabel15.StyleName = "FieldCaption";
             this.xrLabel15.StylePriority.UseBorders = false;
             this.xrLabel15.StylePriority.UseTextAlignment = false;
@@ -525,7 +525,6 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.GroupFooterBand groupFooterBand2;
         private DevExpress.XtraReports.UI.GroupFooterBand groupFooterBand3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
@@ -544,5 +543,6 @@
         private DevExpress.XtraReports.UI.XRLine xrLine3;
         private CN1TableAdapters.sp_keKhaiChiTietTongHopTableAdapter sp_keKhaiChiTietTongHopTableAdapter;
         private CN1 KeKhaiCN1;
+        public DevExpress.XtraReports.UI.XRLabel lbTitle;
     }
 }

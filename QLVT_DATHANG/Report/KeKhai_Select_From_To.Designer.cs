@@ -35,25 +35,31 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.radioButtonPhieuNhap = new System.Windows.Forms.RadioButton();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.radioButtonPhieuXuat = new System.Windows.Forms.RadioButton();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.radioButtonPhieuXuat);
+            this.layoutControl1.Controls.Add(this.radioButtonPhieuNhap);
             this.layoutControl1.Controls.Add(this.buttonOK);
             this.layoutControl1.Controls.Add(this.dateTimePickerTo);
             this.layoutControl1.Controls.Add(this.dateTimePickerFrom);
@@ -68,9 +74,9 @@
             // buttonOK
             // 
             this.buttonOK.ForeColor = System.Drawing.Color.Black;
-            this.buttonOK.Location = new System.Drawing.Point(345, 177);
+            this.buttonOK.Location = new System.Drawing.Point(345, 127);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(106, 35);
+            this.buttonOK.Size = new System.Drawing.Size(106, 85);
             this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -101,11 +107,12 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.emptySpaceItem1,
-            this.emptySpaceItem2,
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.emptySpaceItem3,
-            this.emptySpaceItem4});
+            this.emptySpaceItem4,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
@@ -129,14 +136,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(456, 11);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 81);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(456, 91);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.dateTimePickerTo;
@@ -149,18 +148,18 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.buttonOK;
-            this.layoutControlItem3.Location = new System.Drawing.Point(340, 172);
+            this.layoutControlItem3.Location = new System.Drawing.Point(340, 122);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(116, 45);
+            this.layoutControlItem3.Size = new System.Drawing.Size(116, 95);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 172);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 122);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(340, 45);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(340, 95);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -170,6 +169,44 @@
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(456, 23);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // radioButtonPhieuNhap
+            // 
+            this.radioButtonPhieuNhap.Location = new System.Drawing.Point(5, 86);
+            this.radioButtonPhieuNhap.Name = "radioButtonPhieuNhap";
+            this.radioButtonPhieuNhap.Size = new System.Drawing.Size(218, 31);
+            this.radioButtonPhieuNhap.TabIndex = 7;
+            this.radioButtonPhieuNhap.TabStop = true;
+            this.radioButtonPhieuNhap.Text = "Phiếu nhập";
+            this.radioButtonPhieuNhap.UseVisualStyleBackColor = true;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.radioButtonPhieuNhap;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 81);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(228, 41);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // radioButtonPhieuXuat
+            // 
+            this.radioButtonPhieuXuat.Location = new System.Drawing.Point(233, 86);
+            this.radioButtonPhieuXuat.Name = "radioButtonPhieuXuat";
+            this.radioButtonPhieuXuat.Size = new System.Drawing.Size(218, 31);
+            this.radioButtonPhieuXuat.TabIndex = 8;
+            this.radioButtonPhieuXuat.TabStop = true;
+            this.radioButtonPhieuXuat.Text = "Phiếu xuất";
+            this.radioButtonPhieuXuat.UseVisualStyleBackColor = true;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.radioButtonPhieuXuat;
+            this.layoutControlItem5.Location = new System.Drawing.Point(228, 81);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(228, 41);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // KeKhai_Select_From_To
             // 
@@ -191,11 +228,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,10 +247,13 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private System.Windows.Forms.RadioButton radioButtonPhieuXuat;
+        private System.Windows.Forms.RadioButton radioButtonPhieuNhap;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }
