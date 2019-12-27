@@ -50,6 +50,7 @@ namespace QLVT_DATHANG
                 this.undoButton.Enabled = false;
                 this.writeButton.Enabled = false;
                 this.tenChiNhanhComboBox.Enabled = true;
+                this.btnMove.Enabled = false;
             }
         }
 
