@@ -115,8 +115,7 @@ namespace QLVT_DATHANG.SubForm
             Program.execStoreProcedure(sqlcmd);
 
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK);
-            this.Visible = false;
-            Program.productForm.Visible = true;
+            this.Close();
         }
 
         private void ThemVT_FormClosing(object sender, FormClosingEventArgs e)
@@ -139,6 +138,11 @@ namespace QLVT_DATHANG.SubForm
                     Program.flagCloseFormThemVT = true;
                 }
             }
+        }
+
+        private void ThemVT_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

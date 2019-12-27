@@ -35,7 +35,6 @@
             this.v_DS_NhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cN1 = new QLVT_DATHANG.CN1();
             this.hOTENComboBox = new System.Windows.Forms.ComboBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.rdUser = new System.Windows.Forms.RadioButton();
@@ -60,7 +59,6 @@
             // 
             this.groupBox1.Controls.Add(this.tbUser);
             this.groupBox1.Controls.Add(this.hOTENComboBox);
-            this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Controls.Add(this.btnSubmit);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.rdUser);
@@ -77,7 +75,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(948, 439);
+            this.groupBox1.Size = new System.Drawing.Size(447, 397);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tạo tài khoản";
@@ -86,7 +84,7 @@
             // 
             this.tbUser.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.v_DS_NhanVienBindingSource, "MANV", true));
             this.tbUser.Enabled = false;
-            this.tbUser.Location = new System.Drawing.Point(580, 289);
+            this.tbUser.Location = new System.Drawing.Point(345, 252);
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(64, 22);
             this.tbUser.TabIndex = 16;
@@ -108,29 +106,16 @@
             this.hOTENComboBox.DisplayMember = "HOTEN";
             this.hOTENComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hOTENComboBox.FormattingEnabled = true;
-            this.hOTENComboBox.Location = new System.Drawing.Point(339, 287);
+            this.hOTENComboBox.Location = new System.Drawing.Point(104, 250);
             this.hOTENComboBox.Name = "hOTENComboBox";
             this.hOTENComboBox.Size = new System.Drawing.Size(233, 24);
             this.hOTENComboBox.TabIndex = 15;
             this.hOTENComboBox.ValueMember = "MANV";
             // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(911, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnClose.MinimumSize = new System.Drawing.Size(37, 39);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(37, 39);
-            this.btnClose.TabIndex = 14;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // btnSubmit
             // 
             this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubmit.Location = new System.Drawing.Point(386, 394);
+            this.btnSubmit.Location = new System.Drawing.Point(170, 358);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(105, 31);
@@ -141,19 +126,18 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.Location = new System.Drawing.Point(383, 33);
-            this.label5.MinimumSize = new System.Drawing.Size(149, 158);
+            this.label5.Location = new System.Drawing.Point(148, 12);
+            this.label5.MinimumSize = new System.Drawing.Size(150, 150);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 158);
+            this.label5.Size = new System.Drawing.Size(150, 150);
             this.label5.TabIndex = 13;
             // 
             // rdUser
             // 
             this.rdUser.AutoSize = true;
             this.rdUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rdUser.Location = new System.Drawing.Point(521, 346);
+            this.rdUser.Location = new System.Drawing.Point(286, 309);
             this.rdUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdUser.Name = "rdUser";
             this.rdUser.Size = new System.Drawing.Size(56, 21);
@@ -166,7 +150,7 @@
             // 
             this.rdChiNhanh.AutoSize = true;
             this.rdChiNhanh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rdChiNhanh.Location = new System.Drawing.Point(419, 346);
+            this.rdChiNhanh.Location = new System.Drawing.Point(184, 309);
             this.rdChiNhanh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdChiNhanh.Name = "rdChiNhanh";
             this.rdChiNhanh.Size = new System.Drawing.Size(91, 21);
@@ -179,7 +163,7 @@
             // 
             this.rdCongTy.AutoSize = true;
             this.rdCongTy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rdCongTy.Location = new System.Drawing.Point(329, 346);
+            this.rdCongTy.Location = new System.Drawing.Point(94, 309);
             this.rdCongTy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdCongTy.Name = "rdCongTy";
             this.rdCongTy.Size = new System.Drawing.Size(79, 21);
@@ -191,7 +175,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(285, 349);
+            this.label4.Location = new System.Drawing.Point(50, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 17);
             this.label4.TabIndex = 8;
@@ -201,7 +185,7 @@
             // 
             this.cbShow.AutoSize = true;
             this.cbShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbShow.Location = new System.Drawing.Point(580, 247);
+            this.cbShow.Location = new System.Drawing.Point(345, 210);
             this.cbShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbShow.Name = "cbShow";
             this.cbShow.Size = new System.Drawing.Size(64, 21);
@@ -213,7 +197,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(293, 290);
+            this.label3.Location = new System.Drawing.Point(58, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 4;
@@ -221,7 +205,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(338, 245);
+            this.tbPassword.Location = new System.Drawing.Point(103, 208);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(234, 23);
@@ -231,7 +215,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(265, 249);
+            this.label2.Location = new System.Drawing.Point(30, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 2;
@@ -239,7 +223,7 @@
             // 
             // tbLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(338, 203);
+            this.tbLogin.Location = new System.Drawing.Point(103, 166);
             this.tbLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(234, 23);
@@ -248,7 +232,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 207);
+            this.label1.Location = new System.Drawing.Point(54, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 0;
@@ -278,10 +262,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 467);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(465, 423);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MaximizeBox = false;
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
@@ -299,7 +285,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rdUser;

@@ -72,7 +72,7 @@ namespace QLVT_DATHANG
         public static BindingSource bdsDanhSachPhanManh = new BindingSource();  // giữ bdsPhanManh khi đăng nhập
 
         //kiem tra chuoi rong
-        public static bool isEmpty(TextEdit value)
+        public static bool isEmpty(TextBox value)
         {
             bool empty = value.Text.Length == 0;
             if (empty)

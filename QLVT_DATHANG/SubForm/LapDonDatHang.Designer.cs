@@ -38,6 +38,7 @@
             System.Windows.Forms.Label tENCNLabel;
             System.Windows.Forms.Label mAKHOLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LapDonDatHang));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -573,11 +574,19 @@
             this.dataGridViewTextBoxColumn4});
             this.cTDDHDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.cTDDHDataGridView.DataSource = this.cTDDHBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cTDDHDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.cTDDHDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cTDDHDataGridView.Location = new System.Drawing.Point(2, 25);
+            this.cTDDHDataGridView.Location = new System.Drawing.Point(2, 27);
             this.cTDDHDataGridView.Name = "cTDDHDataGridView";
             this.cTDDHDataGridView.RowTemplate.Height = 24;
-            this.cTDDHDataGridView.Size = new System.Drawing.Size(561, 352);
+            this.cTDDHDataGridView.Size = new System.Drawing.Size(561, 350);
             this.cTDDHDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -757,7 +766,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 861);
-            this.ControlBox = false;
             this.Controls.Add(this.labelNhomNV);
             this.Controls.Add(this.labelTenNV);
             this.Controls.Add(this.labelMaNV);
@@ -769,7 +777,10 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MaximizeBox = false;
             this.Name = "LapDonDatHang";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

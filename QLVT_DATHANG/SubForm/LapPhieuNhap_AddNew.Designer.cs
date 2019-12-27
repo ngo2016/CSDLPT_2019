@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnLapPhieuNhap = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.datHangGridControl = new DevExpress.XtraGrid.GridControl();
+            this.dDH_ChuaCo_PNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cN1 = new QLVT_DATHANG.CN1();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMasoDDH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,21 +45,19 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tableAdapterManager = new QLVT_DATHANG.CN1TableAdapters.TableAdapterManager();
-            this.dDH_ChuaCo_PNBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dDH_ChuaCo_PNTableAdapter = new QLVT_DATHANG.CN1TableAdapters.DDH_ChuaCo_PNTableAdapter();
-            this.btnLapPhieuNhap = new System.Windows.Forms.Button();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tableAdapterManager = new QLVT_DATHANG.CN1TableAdapters.TableAdapterManager();
+            this.dDH_ChuaCo_PNTableAdapter = new QLVT_DATHANG.CN1TableAdapters.DDH_ChuaCo_PNTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datHangGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDH_ChuaCo_PNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cN1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dDH_ChuaCo_PNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +73,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(1078, 588);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btnLapPhieuNhap
+            // 
+            this.btnLapPhieuNhap.Location = new System.Drawing.Point(625, 523);
+            this.btnLapPhieuNhap.Name = "btnLapPhieuNhap";
+            this.btnLapPhieuNhap.Size = new System.Drawing.Size(209, 49);
+            this.btnLapPhieuNhap.TabIndex = 6;
+            this.btnLapPhieuNhap.Text = "Lập phiếu nhập";
+            this.btnLapPhieuNhap.UseVisualStyleBackColor = true;
+            this.btnLapPhieuNhap.Click += new System.EventHandler(this.btnLapPhieuNhap_Click);
             // 
             // btnExit
             // 
@@ -94,6 +104,11 @@
             this.datHangGridControl.TabIndex = 4;
             this.datHangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // dDH_ChuaCo_PNBindingSource
+            // 
+            this.dDH_ChuaCo_PNBindingSource.DataMember = "DDH_ChuaCo_PN";
+            this.dDH_ChuaCo_PNBindingSource.DataSource = this.cN1;
             // 
             // cN1
             // 
@@ -195,39 +210,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ChiNhanhTableAdapter = null;
-            this.tableAdapterManager.CTDDHTableAdapter = null;
-            this.tableAdapterManager.CTPNTableAdapter = null;
-            this.tableAdapterManager.CTPXTableAdapter = null;
-            this.tableAdapterManager.KhoTableAdapter = null;
-            this.tableAdapterManager.NhanVienTableAdapter = null;
-            this.tableAdapterManager.PhieuNhapTableAdapter = null;
-            this.tableAdapterManager.PhieuXuatTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLVT_DATHANG.CN1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VattuTableAdapter = null;
-            // 
-            // dDH_ChuaCo_PNBindingSource
-            // 
-            this.dDH_ChuaCo_PNBindingSource.DataMember = "DDH_ChuaCo_PN";
-            this.dDH_ChuaCo_PNBindingSource.DataSource = this.cN1;
-            // 
-            // dDH_ChuaCo_PNTableAdapter
-            // 
-            this.dDH_ChuaCo_PNTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnLapPhieuNhap
-            // 
-            this.btnLapPhieuNhap.Location = new System.Drawing.Point(625, 523);
-            this.btnLapPhieuNhap.Name = "btnLapPhieuNhap";
-            this.btnLapPhieuNhap.Size = new System.Drawing.Size(209, 49);
-            this.btnLapPhieuNhap.TabIndex = 6;
-            this.btnLapPhieuNhap.Text = "Lập phiếu nhập";
-            this.btnLapPhieuNhap.UseVisualStyleBackColor = true;
-            this.btnLapPhieuNhap.Click += new System.EventHandler(this.btnLapPhieuNhap_Click);
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnLapPhieuNhap;
@@ -237,13 +219,36 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ChiNhanhTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.CTDDHTableAdapter = null;
+            this.tableAdapterManager.CTPNTableAdapter = null;
+            this.tableAdapterManager.CTPXTableAdapter = null;
+            this.tableAdapterManager.DatHangTableAdapter = null;
+            this.tableAdapterManager.KhoTableAdapter = null;
+            this.tableAdapterManager.NhanVienTableAdapter = null;
+            this.tableAdapterManager.PhieuNhapTableAdapter = null;
+            this.tableAdapterManager.PhieuXuatTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLVT_DATHANG.CN1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VattuTableAdapter = null;
+            // 
+            // dDH_ChuaCo_PNTableAdapter
+            // 
+            this.dDH_ChuaCo_PNTableAdapter.ClearBeforeFill = true;
+            // 
             // LapPhieuNhap_AddNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 588);
             this.Controls.Add(this.layoutControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MaximizeBox = false;
             this.Name = "LapPhieuNhap_AddNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LapPhieuNhap_AddNew";
@@ -251,13 +256,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datHangGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDH_ChuaCo_PNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cN1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dDH_ChuaCo_PNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 

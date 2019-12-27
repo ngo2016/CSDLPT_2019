@@ -61,8 +61,7 @@ namespace QLVT_DATHANG
 
         private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.Visible = false;
-            Program.mainForm.Visible = true;
+            this.Close();
         }
 
         private bool checkValidate(TextEdit tb, string str)
@@ -209,10 +208,8 @@ namespace QLVT_DATHANG
 
         private void btnAddStorage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.Visible = false;
             Program.addStorageForm = new SubForm.ThemKho();
-            Program.addStorageForm.Activate();
-            Program.addStorageForm.Visible = true;
+            Program.addStorageForm.ShowDialog(this);
         }
 
         private void tenCNCNComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,6 +228,12 @@ namespace QLVT_DATHANG
                 MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Notification", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void StorageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = false;
+            Program.mainForm.Visible = true;
         }
     }
 }

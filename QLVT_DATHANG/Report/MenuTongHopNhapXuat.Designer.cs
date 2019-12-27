@@ -63,9 +63,9 @@
             // buttonOK
             // 
             this.buttonOK.ForeColor = System.Drawing.Color.Black;
-            this.buttonOK.Location = new System.Drawing.Point(217, 75);
+            this.buttonOK.Location = new System.Drawing.Point(215, 78);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(202, 70);
+            this.buttonOK.Size = new System.Drawing.Size(193, 56);
             this.buttonOK.TabIndex = 7;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -75,18 +75,18 @@
             // 
             this.dateTimePickerFrom.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(36, 5);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(47, 16);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(383, 23);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(361, 23);
             this.dateTimePickerFrom.TabIndex = 4;
             // 
             // dateTimePickerTo
             // 
             this.dateTimePickerTo.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerTo.Location = new System.Drawing.Point(36, 40);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(47, 47);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(383, 23);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(361, 23);
             this.dateTimePickerTo.TabIndex = 5;
             // 
             // layoutControlGroup1
@@ -110,7 +110,7 @@
             this.layoutControlItem1.CustomizationFormText = "TỪ";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(424, 35);
+            this.layoutControlItem1.Size = new System.Drawing.Size(398, 31);
             this.layoutControlItem1.Text = "TỪ";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(27, 17);
             // 
@@ -118,26 +118,26 @@
             // 
             this.layoutControlItem2.Control = this.dateTimePickerTo;
             this.layoutControlItem2.CustomizationFormText = "ĐẾN";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 35);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 31);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(424, 35);
+            this.layoutControlItem2.Size = new System.Drawing.Size(398, 31);
             this.layoutControlItem2.Text = "ĐẾN";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(27, 17);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 70);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 62);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(212, 80);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(199, 62);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.buttonOK;
-            this.layoutControlItem3.Location = new System.Drawing.Point(212, 70);
+            this.layoutControlItem3.Location = new System.Drawing.Point(199, 62);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(212, 80);
+            this.layoutControlItem3.Size = new System.Drawing.Size(199, 62);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -157,8 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 150);
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Office 2016 Colorful";
-            this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.LookAndFeel.SkinName = "Metropolis";
             this.LookAndFeel.TouchUIMode = DevExpress.Utils.DefaultBoolean.True;
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.MaximizeBox = false;

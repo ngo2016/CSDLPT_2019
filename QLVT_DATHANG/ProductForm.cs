@@ -65,13 +65,12 @@ namespace QLVT_DATHANG
             this.cTPXTableAdapter.Fill(this.cN1.CTPX);
             // TODO: This line of code loads data into the 'cN1.Vattu' table. You can move, or remove it, as needed.
             this.vattuTableAdapter.Fill(this.cN1.Vattu);
-
+            oldVTData = getVTCurrentData();
         }
 
         private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.Visible = false;
-            Program.mainForm.Visible = true;
+            this.Close();
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -221,10 +220,8 @@ namespace QLVT_DATHANG
 
         private void btnAddProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.Visible = false;
             Program.addProductForm = new SubForm.ThemVT();
-            Program.addProductForm.Activate();
-            Program.addProductForm.Visible = true;
+            Program.addProductForm.ShowDialog(this);
         }
 
         private void vattuGridControl_VisibleChanged(object sender, EventArgs e)
@@ -243,6 +240,12 @@ namespace QLVT_DATHANG
         private void vattuGridControl_MouseDown(object sender, MouseEventArgs e)
         {
             this.tenVTTextEdit.Focus();
+        }
+
+        private void ProductForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = false;
+            Program.mainForm.Visible = true;
         }
     }
 }

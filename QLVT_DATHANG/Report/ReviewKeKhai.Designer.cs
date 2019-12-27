@@ -927,8 +927,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.LookAndFeel.SkinName = "Office 2016 Colorful";
-            this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.LookAndFeel.SkinName = "Metropolis";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "ReviewKeKhai";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

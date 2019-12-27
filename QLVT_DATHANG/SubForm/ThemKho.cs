@@ -146,5 +146,14 @@ namespace QLVT_DATHANG.SubForm
                 }
             }
         }
+
+        private void ThemKho_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+            if (Program.flagCloseFormThemKho == true)
+            {
+                Program.storageForm.Visible = true;
+            }
+        }
     }
 }

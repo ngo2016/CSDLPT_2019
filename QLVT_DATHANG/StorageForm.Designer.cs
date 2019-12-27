@@ -502,7 +502,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 762);
-            this.ControlBox = false;
             this.Controls.Add(this.labelNhomNV);
             this.Controls.Add(this.labelTenNV);
             this.Controls.Add(this.labelMaNV);
@@ -514,10 +513,14 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MinimizeBox = false;
             this.Name = "StorageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StorageForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StorageForm_FormClosed);
             this.Load += new System.EventHandler(this.StorageForm_Load);
             this.VisibleChanged += new System.EventHandler(this.StorageForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

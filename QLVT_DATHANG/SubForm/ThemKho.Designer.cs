@@ -35,19 +35,15 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditThemDiachi = new DevExpress.XtraEditors.TextEdit();
-            this.textEditThemTenKho = new DevExpress.XtraEditors.TextEdit();
-            this.textEditThemMaKho = new DevExpress.XtraEditors.TextEdit();
             this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.textEditThemMaCN = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemDiachi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemTenKho.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaKho.Properties)).BeginInit();
+            this.textEditThemMaKho = new System.Windows.Forms.TextBox();
+            this.textEditThemTenKho = new System.Windows.Forms.TextBox();
+            this.textEditThemDiachi = new System.Windows.Forms.TextBox();
+            this.textEditThemMaCN = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaCN.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -125,49 +121,11 @@
             this.labelControl2.TabIndex = 44;
             this.labelControl2.Text = "Mã kho:";
             // 
-            // textEditThemDiachi
-            // 
-            this.textEditThemDiachi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEditThemDiachi.Location = new System.Drawing.Point(505, 241);
-            this.textEditThemDiachi.Name = "textEditThemDiachi";
-            this.textEditThemDiachi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditThemDiachi.Properties.Appearance.Options.UseFont = true;
-            this.textEditThemDiachi.Size = new System.Drawing.Size(208, 34);
-            this.textEditThemDiachi.TabIndex = 43;
-            this.textEditThemDiachi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditThemDiachi_KeyPress);
-            // 
-            // textEditThemTenKho
-            // 
-            this.textEditThemTenKho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEditThemTenKho.Location = new System.Drawing.Point(134, 350);
-            this.textEditThemTenKho.Name = "textEditThemTenKho";
-            this.textEditThemTenKho.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditThemTenKho.Properties.Appearance.Options.UseFont = true;
-            this.textEditThemTenKho.Size = new System.Drawing.Size(208, 34);
-            this.textEditThemTenKho.TabIndex = 42;
-            this.textEditThemTenKho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditThemTenKho_KeyPress);
-            // 
-            // textEditThemMaKho
-            // 
-            this.textEditThemMaKho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEditThemMaKho.Location = new System.Drawing.Point(134, 241);
-            this.textEditThemMaKho.Name = "textEditThemMaKho";
-            this.textEditThemMaKho.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditThemMaKho.Properties.Appearance.Options.UseFont = true;
-            this.textEditThemMaKho.Size = new System.Drawing.Size(208, 34);
-            this.textEditThemMaKho.TabIndex = 41;
-            this.textEditThemMaKho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditThemMaKho_KeyPress);
-            // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.White;
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
             this.btnBack.Location = new System.Drawing.Point(0, 0);
@@ -195,6 +153,9 @@
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.textEditThemMaCN);
+            this.groupControl1.Controls.Add(this.textEditThemDiachi);
+            this.groupControl1.Controls.Add(this.textEditThemTenKho);
+            this.groupControl1.Controls.Add(this.textEditThemMaKho);
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.labelControl9);
@@ -202,48 +163,62 @@
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.textEditThemDiachi);
-            this.groupControl1.Controls.Add(this.textEditThemTenKho);
-            this.groupControl1.Controls.Add(this.textEditThemMaKho);
             this.groupControl1.Location = new System.Drawing.Point(52, 0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(761, 415);
             this.groupControl1.TabIndex = 53;
             // 
+            // textEditThemMaKho
+            // 
+            this.textEditThemMaKho.Location = new System.Drawing.Point(134, 252);
+            this.textEditThemMaKho.MaxLength = 4;
+            this.textEditThemMaKho.Name = "textEditThemMaKho";
+            this.textEditThemMaKho.Size = new System.Drawing.Size(216, 23);
+            this.textEditThemMaKho.TabIndex = 1;
+            // 
+            // textEditThemTenKho
+            // 
+            this.textEditThemTenKho.Location = new System.Drawing.Point(134, 361);
+            this.textEditThemTenKho.MaxLength = 30;
+            this.textEditThemTenKho.Name = "textEditThemTenKho";
+            this.textEditThemTenKho.Size = new System.Drawing.Size(216, 23);
+            this.textEditThemTenKho.TabIndex = 2;
+            // 
+            // textEditThemDiachi
+            // 
+            this.textEditThemDiachi.Location = new System.Drawing.Point(506, 252);
+            this.textEditThemDiachi.MaxLength = 100;
+            this.textEditThemDiachi.Name = "textEditThemDiachi";
+            this.textEditThemDiachi.Size = new System.Drawing.Size(208, 23);
+            this.textEditThemDiachi.TabIndex = 3;
+            // 
             // textEditThemMaCN
             // 
-            this.textEditThemMaCN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEditThemMaCN.Enabled = false;
-            this.textEditThemMaCN.Location = new System.Drawing.Point(506, 350);
+            this.textEditThemMaCN.Location = new System.Drawing.Point(506, 361);
             this.textEditThemMaCN.Name = "textEditThemMaCN";
-            this.textEditThemMaCN.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditThemMaCN.Properties.Appearance.Options.UseFont = true;
-            this.textEditThemMaCN.Size = new System.Drawing.Size(208, 34);
+            this.textEditThemMaCN.Size = new System.Drawing.Size(208, 23);
             this.textEditThemMaCN.TabIndex = 51;
-            this.textEditThemMaCN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditThemMaCN_KeyPress);
             // 
             // ThemKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 416);
-            this.ControlBox = false;
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.btnBack);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MinimizeBox = false;
             this.Name = "ThemKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemKho";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThemKho_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemDiachi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemTenKho.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaKho.Properties)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ThemKho_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaCN.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,10 +233,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEditThemDiachi;
-        private DevExpress.XtraEditors.TextEdit textEditThemTenKho;
-        private DevExpress.XtraEditors.TextEdit textEditThemMaKho;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.TextEdit textEditThemMaCN;
+        private System.Windows.Forms.TextBox textEditThemTenKho;
+        private System.Windows.Forms.TextBox textEditThemMaKho;
+        private System.Windows.Forms.TextBox textEditThemDiachi;
+        private System.Windows.Forms.TextBox textEditThemMaCN;
     }
 }

@@ -14,8 +14,6 @@ namespace QLVT_DATHANG.SubForm
 {
     public partial class ThemNV : DevExpress.XtraEditors.XtraForm
     {
-        private static bool canUpdate = false;
-
         public ThemNV()
         {
             InitializeComponent();
@@ -25,19 +23,15 @@ namespace QLVT_DATHANG.SubForm
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            if (Program.flagCloseFormThemNV == true)
-            {
-                Program.employeeForm.Visible = true;
-            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool canUpdate = !textEditThemHoNV.Text.Equals("") && !textEditThemTenNV.Text.Equals("")
+            bool canCreate = !textEditThemHoNV.Text.Equals("") && !textEditThemTenNV.Text.Equals("")
                 && !numericThemMaNV.Value.Equals(null) && !textEditThemDiaChi.Text.Equals("")
                 && numericLuong.Value >= 4000000;
 
-            if (!canUpdate)
+            if (!canCreate)
             {
                 MessageBox.Show("Vui lòng kiểm tra lại các field đã nhập\nCác field không được bỏ trống\nField Lương phải lớn hơn 4000000",
                     "Cảnh báo", MessageBoxButtons.OK);
@@ -78,9 +72,14 @@ namespace QLVT_DATHANG.SubForm
             Program.execStoreProcedure(sqlcmd);
 
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK);
-            this.Visible = false;
-            Program.employeeForm.Visible = true;
 
+            this.textEditThemHoNV.Text = "";
+            this.textEditThemTenNV.Text = "";
+            this.numericThemMaNV.Value = 0;
+            this.textEditThemDiaChi.Text = "";
+            this.numericLuong.Value = 4000000;
+
+            this.Close();
         }
 
         private void textEditThemHoNV_KeyPress(object sender, KeyPressEventArgs e)
@@ -129,12 +128,10 @@ namespace QLVT_DATHANG.SubForm
 
         private void ThemNV_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool checkNonEmpty = !textEditThemHoNV.Text.Equals("") || !textEditThemTenNV.Text.Equals("")
+            bool isNonEmpty = !textEditThemHoNV.Text.Equals("") || !textEditThemTenNV.Text.Equals("")
                 || !numericThemMaNV.Value.Equals(0) || !textEditThemDiaChi.Text.Equals("") || !numericLuong.Value.Equals(4000000);
 
-            Program.flagCloseFormThemNV = checkNonEmpty ? false : true;
-
-            if (Program.flagCloseFormThemNV == false)
+            if (isNonEmpty)
             {
                 DialogResult dr = MessageBox.Show("Dữ liệu Form thêm nhân viên vẫn chưa được lưu! \nBạn có chắn chắn muốn thoát?", "Cảnh báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -142,10 +139,19 @@ namespace QLVT_DATHANG.SubForm
                 {
                     e.Cancel = true;
                 }
-                else if (dr == DialogResult.Yes)
-                {
-                    Program.flagCloseFormThemNV = true;
-                }
+            }
+        }
+
+        private void ThemNV_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void numericLuong_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericLuong.Value < 4000000)
+            {
+                this.numericLuong.Value = 4000000;
             }
         }
 

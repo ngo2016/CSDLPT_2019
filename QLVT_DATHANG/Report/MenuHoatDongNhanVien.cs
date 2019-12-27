@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
+using DevExpress.XtraPrinting;
 
 namespace QLVT_DATHANG.Report
 {
@@ -83,6 +84,62 @@ namespace QLVT_DATHANG.Report
 
             ReportPrintTool m = new ReportPrintTool(n);
             m.ShowPreviewDialog();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            int maNV = int.Parse(this.maNVComboBox.Text);
+            Report.HoatDongNhanVien n = new Report.HoatDongNhanVien(maNV, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            n.lbMaNV.Text = this.maNVComboBox.Text;
+
+            String sp_layThongTinNhanVien = "EXEC sp_layThongTinNhanVien '" + maNV + "'";
+            SqlDataReader dataReader = Program.ExecSqlDataReader(sp_layThongTinNhanVien);
+            if (dataReader == null)
+            {
+                MessageBox.Show("Không có mã nhân viên " + maNV, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataReader.Close();
+                return;
+            }
+            try
+            {
+                //doc ket qua tu sp_layThongTinNhanVien có 4 cột ("HOTEN", "[DIACHI]", "[NGAYSINH]", "[LUONG]")
+                dataReader.Read();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không tìm thấy thông tin của mã nhân viên " + maNV, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataReader.Close();
+                return;
+            }
+            //sau khi thuc thi sp_layThongTinNhanVien ta co    0           1           2           3
+            //                                                 HOTEN       DIACHI      NGAYSINH    LUONG
+            n.lbHoTen.Text = dataReader.GetString(0);
+
+            n.lbDiaChi.Text = dataReader.GetString(1);
+            n.lbNgaySinh.Text = dataReader[2].ToString();
+            n.lbLuong.Text = dataReader[3].ToString();
+
+            //đóng bảng chỉ đọc và ngắt kết nối
+            dataReader.Close();
+
+            SaveFileDialog svg = new SaveFileDialog();
+            svg.Title = "Lưu file pdf";
+            svg.Filter = "PDF(*.pdf)|*.pdf";
+            svg.ShowDialog();
+            if (!String.IsNullOrEmpty(svg.FileName))
+            {
+                string reportPath = svg.FileName;
+                PdfExportOptions pdfOptions = n.ExportOptions.Pdf;
+                pdfOptions.ConvertImagesToJpeg = false;
+                pdfOptions.ImageQuality = PdfJpegImageQuality.Medium;
+
+                pdfOptions.PdfACompatibility = PdfACompatibility.PdfA2b;
+                n.ExportToPdf(reportPath, pdfOptions);
+
+                System.Diagnostics.Process.Start(reportPath);
+
+                MessageBox.Show("In report thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

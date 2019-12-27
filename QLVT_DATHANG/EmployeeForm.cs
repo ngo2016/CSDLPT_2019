@@ -74,8 +74,7 @@ namespace QLVT_DATHANG
 
         private void exitButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.Visible = false;
-            Program.mainForm.Visible = true;
+            this.Close();
         }
 
         private void reloadButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -88,10 +87,8 @@ namespace QLVT_DATHANG
 
         private void addButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.Visible = false;
             Program.addEmployeeForm = new SubForm.ThemNV();
-            Program.addEmployeeForm.Activate();
-            Program.addEmployeeForm.Visible = true;
+            Program.addEmployeeForm.ShowDialog(this);
         }
 
         private void tenChiNhanhComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,7 +150,7 @@ namespace QLVT_DATHANG
             return dateTime.Year.ToString() + "-" + dateTime.Month.ToString() + "-" + dateTime.Day.ToString();
         }
 
-        private bool checkValidate(TextEdit tb, string str)
+        private bool checkValidate(TextBox tb, string str)
         {
             if (tb.Text.Trim().Equals(""))
             {
@@ -330,6 +327,14 @@ namespace QLVT_DATHANG
            sqlcmd.Parameters.AddWithValue("@MACN", macn);
            Program.execStoreProcedure(sqlcmd);
            reloadButton.PerformClick();
+        }
+
+        private void luongSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            if (luongSpinEdit.Value < 4000000)
+            {
+                this.luongSpinEdit.Value = 4000000;
+            }
         }
     }
 }

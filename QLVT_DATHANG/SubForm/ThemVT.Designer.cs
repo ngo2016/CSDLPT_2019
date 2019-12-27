@@ -39,19 +39,19 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditThemDVT = new DevExpress.XtraEditors.TextEdit();
-            this.textEditThemTenVT = new DevExpress.XtraEditors.TextEdit();
-            this.textEditThemMaVT = new DevExpress.XtraEditors.TextEdit();
+            this.textEditThemMaVT = new System.Windows.Forms.TextBox();
+            this.textEditThemTenVT = new System.Windows.Forms.TextBox();
+            this.textEditThemDVT = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSoLuongTon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemDVT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemTenVT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaVT.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.textEditThemDVT);
+            this.groupControl1.Controls.Add(this.textEditThemTenVT);
+            this.groupControl1.Controls.Add(this.textEditThemMaVT);
             this.groupControl1.Controls.Add(this.btnBack);
             this.groupControl1.Controls.Add(this.numericSoLuongTon);
             this.groupControl1.Controls.Add(this.btnSave);
@@ -61,9 +61,6 @@
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.textEditThemDVT);
-            this.groupControl1.Controls.Add(this.textEditThemTenVT);
-            this.groupControl1.Controls.Add(this.textEditThemMaVT);
             this.groupControl1.Location = new System.Drawing.Point(3, 5);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(733, 467);
@@ -73,11 +70,12 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.White;
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(2, 25);
+            this.btnBack.Location = new System.Drawing.Point(2, 27);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(56, 440);
+            this.btnBack.Size = new System.Drawing.Size(56, 438);
             this.btnBack.TabIndex = 39;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -93,7 +91,7 @@
             0});
             this.numericSoLuongTon.Name = "numericSoLuongTon";
             this.numericSoLuongTon.Size = new System.Drawing.Size(201, 35);
-            this.numericSoLuongTon.TabIndex = 40;
+            this.numericSoLuongTon.TabIndex = 4;
             this.numericSoLuongTon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericSoLuongTon_KeyPress);
             // 
             // btnSave
@@ -186,64 +184,49 @@
             this.labelControl2.TabIndex = 29;
             this.labelControl2.Text = "Mã vật tư:";
             // 
-            // textEditThemDVT
+            // textEditThemMaVT
             // 
-            this.textEditThemDVT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEditThemDVT.Location = new System.Drawing.Point(520, 249);
-            this.textEditThemDVT.Name = "textEditThemDVT";
-            this.textEditThemDVT.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditThemDVT.Properties.Appearance.Options.UseFont = true;
-            this.textEditThemDVT.Size = new System.Drawing.Size(202, 34);
-            this.textEditThemDVT.TabIndex = 26;
-            this.textEditThemDVT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditThemDVT_KeyPress);
+            this.textEditThemMaVT.Location = new System.Drawing.Point(150, 260);
+            this.textEditThemMaVT.MaxLength = 4;
+            this.textEditThemMaVT.Name = "textEditThemMaVT";
+            this.textEditThemMaVT.Size = new System.Drawing.Size(201, 23);
+            this.textEditThemMaVT.TabIndex = 1;
             // 
             // textEditThemTenVT
             // 
-            this.textEditThemTenVT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEditThemTenVT.Location = new System.Drawing.Point(149, 358);
+            this.textEditThemTenVT.Location = new System.Drawing.Point(150, 364);
+            this.textEditThemTenVT.MaxLength = 30;
             this.textEditThemTenVT.Name = "textEditThemTenVT";
-            this.textEditThemTenVT.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditThemTenVT.Properties.Appearance.Options.UseFont = true;
-            this.textEditThemTenVT.Size = new System.Drawing.Size(202, 34);
-            this.textEditThemTenVT.TabIndex = 24;
-            this.textEditThemTenVT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditThemTenVT_KeyPress);
+            this.textEditThemTenVT.Size = new System.Drawing.Size(201, 23);
+            this.textEditThemTenVT.TabIndex = 2;
             // 
-            // textEditThemMaVT
+            // textEditThemDVT
             // 
-            this.textEditThemMaVT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEditThemMaVT.Location = new System.Drawing.Point(149, 249);
-            this.textEditThemMaVT.Name = "textEditThemMaVT";
-            this.textEditThemMaVT.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditThemMaVT.Properties.Appearance.Options.UseFont = true;
-            this.textEditThemMaVT.Size = new System.Drawing.Size(202, 34);
-            this.textEditThemMaVT.TabIndex = 23;
-            this.textEditThemMaVT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditThemMaVT_KeyPress);
+            this.textEditThemDVT.Location = new System.Drawing.Point(521, 260);
+            this.textEditThemDVT.MaxLength = 15;
+            this.textEditThemDVT.Name = "textEditThemDVT";
+            this.textEditThemDVT.Size = new System.Drawing.Size(201, 23);
+            this.textEditThemDVT.TabIndex = 3;
             // 
             // ThemVT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 472);
-            this.ControlBox = false;
             this.Controls.Add(this.groupControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MinimizeBox = false;
             this.Name = "ThemVT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemVT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThemVT_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ThemVT_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSoLuongTon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemDVT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemTenVT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaVT.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,8 +243,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEditThemDVT;
-        private DevExpress.XtraEditors.TextEdit textEditThemTenVT;
-        private DevExpress.XtraEditors.TextEdit textEditThemMaVT;
+        private System.Windows.Forms.TextBox textEditThemTenVT;
+        private System.Windows.Forms.TextBox textEditThemMaVT;
+        private System.Windows.Forms.TextBox textEditThemDVT;
     }
 }

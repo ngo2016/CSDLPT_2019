@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label tENCNLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.qLVT_DATHANGDataSet = new QLVT_DATHANG.QLVT_DATHANGDataSet();
             this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.v_DS_PHANMANHTableAdapter = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.V_DS_PHANMANHTableAdapter();
@@ -92,13 +91,14 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(0, 411);
+            this.btnLogin.Location = new System.Drawing.Point(141, 344);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(482, 46);
-            this.btnLogin.TabIndex = 7;
+            this.btnLogin.Size = new System.Drawing.Size(116, 46);
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -106,13 +106,14 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.No;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(0, 365);
+            this.btnCancel.Location = new System.Drawing.Point(297, 344);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(482, 46);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Size = new System.Drawing.Size(116, 46);
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -159,7 +160,7 @@
             this.usernameTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usernameTxtBox.Name = "usernameTxtBox";
             this.usernameTxtBox.Size = new System.Drawing.Size(272, 29);
-            this.usernameTxtBox.TabIndex = 5;
+            this.usernameTxtBox.TabIndex = 1;
             this.usernameTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.usernameTxtBox_KeyPress);
             // 
             // passwordTxtBox
@@ -170,7 +171,7 @@
             this.passwordTxtBox.Name = "passwordTxtBox";
             this.passwordTxtBox.PasswordChar = '*';
             this.passwordTxtBox.Size = new System.Drawing.Size(272, 32);
-            this.passwordTxtBox.TabIndex = 6;
+            this.passwordTxtBox.TabIndex = 2;
             this.passwordTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTxtBox_KeyPress);
             // 
             // label3
@@ -188,15 +189,12 @@
             // 
             // LoginForm
             // 
-            this.Appearance.BackColor = System.Drawing.Color.NavajoWhite;
+            this.Appearance.BackColor = System.Drawing.Color.DimGray;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.None;
-            this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
-            this.ClientSize = new System.Drawing.Size(482, 457);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(482, 436);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
@@ -206,9 +204,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(tENCNLabel);
             this.Controls.Add(this.tenChiNhanhComboBox);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.LookAndFeel.SkinName = "DevExpress Dark Style";
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.LookAndFeel.SkinName = "Metropolis Dark";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "LoginForm";

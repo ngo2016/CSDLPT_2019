@@ -106,9 +106,9 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(383, 170);
+            this.btnExit.Location = new System.Drawing.Point(377, 161);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(178, 39);
+            this.btnExit.Size = new System.Drawing.Size(173, 37);
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -116,18 +116,19 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(205, 170);
+            this.btnPrint.Location = new System.Drawing.Point(207, 161);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(168, 39);
+            this.btnPrint.Size = new System.Drawing.Size(164, 37);
             this.btnPrint.TabIndex = 10;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnReview
             // 
-            this.btnReview.Location = new System.Drawing.Point(5, 170);
+            this.btnReview.Location = new System.Drawing.Point(16, 161);
             this.btnReview.Name = "btnReview";
-            this.btnReview.Size = new System.Drawing.Size(190, 39);
+            this.btnReview.Size = new System.Drawing.Size(185, 37);
             this.btnReview.TabIndex = 9;
             this.btnReview.Text = "Review";
             this.btnReview.UseVisualStyleBackColor = true;
@@ -137,27 +138,27 @@
             // 
             this.dateTimePickerFrom.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(90, 41);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(101, 48);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(188, 23);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(179, 23);
             this.dateTimePickerFrom.TabIndex = 8;
             // 
             // dateTimePickerTo
             // 
             this.dateTimePickerTo.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerTo.Location = new System.Drawing.Point(373, 41);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(371, 48);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(188, 23);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(179, 23);
             this.dateTimePickerTo.TabIndex = 7;
             // 
             // hoTenTextEdit
             // 
             this.hoTenTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.v_DS_NhanVienBindingSourceCN1, "HOTEN", true));
             this.hoTenTextEdit.Enabled = false;
-            this.hoTenTextEdit.Location = new System.Drawing.Point(271, 5);
+            this.hoTenTextEdit.Location = new System.Drawing.Point(274, 16);
             this.hoTenTextEdit.Name = "hoTenTextEdit";
-            this.hoTenTextEdit.Size = new System.Drawing.Size(290, 24);
+            this.hoTenTextEdit.Size = new System.Drawing.Size(276, 22);
             this.hoTenTextEdit.StyleController = this.layoutControl1;
             this.hoTenTextEdit.TabIndex = 6;
             // 
@@ -172,9 +173,9 @@
             this.maNVComboBox.DisplayMember = "MANV";
             this.maNVComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.maNVComboBox.FormattingEnabled = true;
-            this.maNVComboBox.Location = new System.Drawing.Point(90, 5);
+            this.maNVComboBox.Location = new System.Drawing.Point(101, 16);
             this.maNVComboBox.Name = "maNVComboBox";
-            this.maNVComboBox.Size = new System.Drawing.Size(86, 24);
+            this.maNVComboBox.Size = new System.Drawing.Size(82, 24);
             this.maNVComboBox.TabIndex = 5;
             // 
             // layoutControlGroup1
@@ -199,63 +200,63 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dateTimePickerTo;
-            this.layoutControlItem1.Location = new System.Drawing.Point(283, 36);
+            this.layoutControlItem1.Location = new System.Drawing.Point(270, 32);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(283, 35);
+            this.layoutControlItem1.Size = new System.Drawing.Size(270, 31);
             this.layoutControlItem1.Text = "Đến ngày:";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(81, 17);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.dateTimePickerFrom;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 32);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(283, 35);
+            this.layoutControlItem4.Size = new System.Drawing.Size(270, 31);
             this.layoutControlItem4.Text = "Từ ngày:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(81, 17);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnReview;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 165);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 145);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(200, 49);
+            this.layoutControlItem5.Size = new System.Drawing.Size(191, 43);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnPrint;
-            this.layoutControlItem6.Location = new System.Drawing.Point(200, 165);
+            this.layoutControlItem6.Location = new System.Drawing.Point(191, 145);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(178, 49);
+            this.layoutControlItem6.Size = new System.Drawing.Size(170, 43);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnExit;
-            this.layoutControlItem7.Location = new System.Drawing.Point(378, 165);
+            this.layoutControlItem7.Location = new System.Drawing.Point(361, 145);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(188, 49);
+            this.layoutControlItem7.Size = new System.Drawing.Size(179, 43);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 71);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 63);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(566, 94);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(540, 82);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.hoTenTextEdit;
             this.layoutControlItem3.CustomizationFormText = "Họ & Tên:";
-            this.layoutControlItem3.Location = new System.Drawing.Point(181, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(173, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(385, 36);
+            this.layoutControlItem3.Size = new System.Drawing.Size(367, 32);
             this.layoutControlItem3.Text = "Họ và Tên:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(81, 17);
             // 
@@ -264,7 +265,7 @@
             this.layoutControlItem2.Control = this.maNVComboBox;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(181, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(173, 32);
             this.layoutControlItem2.Text = "Mã nhân viên:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(81, 16);
             // 
@@ -279,8 +280,7 @@
             this.ClientSize = new System.Drawing.Size(566, 214);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.LookAndFeel.SkinName = "Office 2016 Colorful";
-            this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.LookAndFeel.SkinName = "Metropolis";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.MaximizeBox = false;
             this.Name = "MenuHoatDongNhanVien";

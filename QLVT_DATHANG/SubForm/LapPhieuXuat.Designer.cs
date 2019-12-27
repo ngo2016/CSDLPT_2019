@@ -39,6 +39,7 @@
             System.Windows.Forms.Label hOTENLabel;
             System.Windows.Forms.Label tENKHOLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LapPhieuXuat));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -612,6 +613,14 @@
             this.dataGridViewTextBoxColumn4});
             this.cTPXDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.cTPXDataGridView.DataSource = this.cTPXBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cTPXDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.cTPXDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cTPXDataGridView.Location = new System.Drawing.Point(2, 25);
             this.cTPXDataGridView.Name = "cTPXDataGridView";
@@ -757,7 +766,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 849);
-            this.ControlBox = false;
             this.Controls.Add(this.labelNhomNV);
             this.Controls.Add(this.labelTenNV);
             this.Controls.Add(this.labelMaNV);
@@ -770,7 +778,10 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MinimizeBox = false;
             this.Name = "LapPhieuXuat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LapPhieuXuat";

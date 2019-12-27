@@ -24,15 +24,14 @@ namespace QLVT_DATHANG
             if (Program.group == "USER")
             {
                 this.btnCreateAcc.Enabled = false;
+                this.ribbonBaoCao.Visible = false;
             }
         }
 
         private void btnFormEmployee_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.employeeForm = new EmployeeForm();
-            Program.employeeForm.Activate();
-            Program.employeeForm.Show();
-            this.Visible = false;
+            Program.employeeForm.ShowDialog(this);
 
         }
 
@@ -45,65 +44,49 @@ namespace QLVT_DATHANG
         private void btnWarehouse_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.storageForm = new StorageForm();
-            Program.storageForm.Activate();
-            Program.storageForm.Show();
-            this.Visible = false;
+            Program.storageForm.ShowDialog(this);
         }
 
         private void btnSupplies_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.productForm = new ProductForm();
-            Program.productForm.Activate();
-            Program.productForm.Show();
-            this.Visible = false;
+            Program.productForm.ShowDialog(this);
         }
 
         private void btnLapDonDatHang_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.addDDHForm = new SubForm.LapDonDatHang();
-            Program.addDDHForm.Activate();
-            Program.addDDHForm.Show();
-            this.Visible = false;
+            Program.addDDHForm.ShowDialog(this);
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.addPhieuNhapForm = new SubForm.LapPhieuNhap();
-            Program.addPhieuNhapForm.Activate();
-            Program.addPhieuNhapForm.Show();
-            this.Visible = false;
+            Program.addPhieuNhapForm.ShowDialog(this);
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.addPhieuXuatForm = new SubForm.LapPhieuXuat();
-            Program.addPhieuXuatForm.Activate();
-            Program.addPhieuXuatForm.Show();
-            this.Visible = false;
+            Program.addPhieuXuatForm.ShowDialog(this);
         }
 
         private void btnCreateAcc_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.registerForm = new RegisterForm();
-            Program.registerForm.Activate();
-            Program.registerForm.Show();
-            this.Visible = false;
+            Program.registerForm.ShowDialog(this);
         }
 
         private void btnInDanhMucVatTu_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.reviewDanhSachVatTu = new Report.ReviewDanhSachVatTu();
-            Program.reviewDanhSachVatTu.Activate();
-            Program.reviewDanhSachVatTu.Show();
-            this.Visible = false;
+            Program.reviewDanhSachVatTu.ShowDialog(this);
         }
 
         private void btnInDanhSachNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.menuDanhSachNhanVien = new Report.MenuDanhSachNhanVien();
-            Program.menuDanhSachNhanVien.Activate();
-            Program.menuDanhSachNhanVien.Show();
-            this.Visible = false;
+            Program.menuDanhSachNhanVien.ShowDialog(this);
         }
 
         private void btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat_ItemClick(object sender, ItemClickEventArgs e)
@@ -130,6 +113,11 @@ namespace QLVT_DATHANG
             Report.DanhSachDDHChuaCoPhieuNhap n = new Report.DanhSachDDHChuaCoPhieuNhap();
             ReportPrintTool m = new ReportPrintTool(n);
             m.ShowPreviewDialog();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.loginForm.Visible = true;
         }
     }
 }

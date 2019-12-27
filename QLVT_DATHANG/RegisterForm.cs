@@ -87,15 +87,7 @@ namespace QLVT_DATHANG
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
             this.Close();
-            if (Program.flagCloseRegisterForm == true)
-            {
-                Program.mainForm.Visible = true;
-            }
         }
 
         private void RegisterForm_Load(object sender, EventArgs e)

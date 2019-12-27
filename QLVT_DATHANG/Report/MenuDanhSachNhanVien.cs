@@ -32,7 +32,6 @@ namespace QLVT_DATHANG.Report
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Program.mainForm.Visible = true;
             this.Close();
         }
 
@@ -46,9 +45,7 @@ namespace QLVT_DATHANG.Report
 
             // load form review
             Program.reviewDanhSachNhanVien = new ReviewDanhSachNhanVien();
-            Program.reviewDanhSachNhanVien.Activate();
-            Program.reviewDanhSachNhanVien.Show();
-            this.Visible = false;
+            Program.reviewDanhSachNhanVien.ShowDialog(this);
         }
     }
 }
