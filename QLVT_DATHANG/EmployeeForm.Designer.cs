@@ -91,6 +91,7 @@
             this.phieuXuatTableAdapter = new QLVT_DATHANG.CN1TableAdapters.PhieuXuatTableAdapter();
             this.phieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapTableAdapter = new QLVT_DATHANG.CN1TableAdapters.PhieuNhapTableAdapter();
+            this.btnMove = new DevExpress.XtraBars.BarButtonItem();
             tENCNLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
@@ -219,9 +220,10 @@
             this.writeButton,
             this.undoButton,
             this.reloadButton,
-            this.exitButton});
+            this.exitButton,
+            this.btnMove});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 7;
+            this.barManager1.MaxItemId = 8;
             // 
             // bar2
             // 
@@ -236,6 +238,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.writeButton, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.undoButton, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.reloadButton, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnMove, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.exitButton, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -708,6 +711,15 @@
             // 
             this.phieuNhapTableAdapter.ClearBeforeFill = true;
             // 
+            // btnMove
+            // 
+            this.btnMove.Caption = "Chuyển chi nhánh";
+            this.btnMove.Glyph = ((System.Drawing.Image)(resources.GetObject("btnMove.Glyph")));
+            this.btnMove.Id = 7;
+            this.btnMove.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnMove.LargeGlyph")));
+            this.btnMove.Name = "btnMove";
+            this.btnMove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMove_ItemClick);
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -723,7 +735,10 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "EmployeeForm";
@@ -813,5 +828,6 @@
         private CN1TableAdapters.PhieuXuatTableAdapter phieuXuatTableAdapter;
         private System.Windows.Forms.BindingSource phieuNhapBindingSource;
         private CN1TableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
+        private DevExpress.XtraBars.BarButtonItem btnMove;
     }
 }

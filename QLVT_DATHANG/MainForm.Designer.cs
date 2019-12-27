@@ -217,6 +217,7 @@
             this.btnInDanhSachCacDonDatHangChuaCoPhieuNhap.Id = 18;
             this.btnInDanhSachCacDonDatHangChuaCoPhieuNhap.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnInDanhSachCacDonDatHangChuaCoPhieuNhap.LargeGlyph")));
             this.btnInDanhSachCacDonDatHangChuaCoPhieuNhap.Name = "btnInDanhSachCacDonDatHangChuaCoPhieuNhap";
+            this.btnInDanhSachCacDonDatHangChuaCoPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInDanhSachCacDonDatHangChuaCoPhieuNhap_ItemClick);
             // 
             // btnBaoCaoTinhHinhHoatDongCua1NhanVien
             // 

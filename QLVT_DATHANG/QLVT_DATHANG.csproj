@@ -153,6 +153,12 @@
     <Compile Include="Report\BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.Designer.cs">
       <DependentUpon>BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\DanhSachDDHChuaCoPhieuNhap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DanhSachDDHChuaCoPhieuNhap.Designer.cs">
+      <DependentUpon>DanhSachDDHChuaCoPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\DanhSachNhanVien.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.resx">
       <DependentUpon>BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachDDHChuaCoPhieuNhap.resx">
+      <DependentUpon>DanhSachDDHChuaCoPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachNhanVien.resx">
       <DependentUpon>DanhSachNhanVien.cs</DependentUpon>

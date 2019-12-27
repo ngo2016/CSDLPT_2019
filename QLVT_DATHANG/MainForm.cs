@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using DevExpress.XtraReports.UI;
 
 namespace QLVT_DATHANG
 {
@@ -122,6 +123,13 @@ namespace QLVT_DATHANG
         {
             Program.menuTongHopNhapXuat = new Report.MenuTongHopNhapXuat();
             Program.menuTongHopNhapXuat.ShowDialog(this);
+        }
+
+        private void btnInDanhSachCacDonDatHangChuaCoPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Report.DanhSachDDHChuaCoPhieuNhap n = new Report.DanhSachDDHChuaCoPhieuNhap();
+            ReportPrintTool m = new ReportPrintTool(n);
+            m.ShowPreviewDialog();
         }
     }
 }

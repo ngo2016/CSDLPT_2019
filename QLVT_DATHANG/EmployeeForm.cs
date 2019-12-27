@@ -318,5 +318,17 @@ namespace QLVT_DATHANG
         {
             this.reloadButton.PerformClick();
         }
+
+        private void btnMove_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           string manv = this.maNhanVienTextEdit.Text;
+           string macn = Program.chiNhanh == 1 ? "CN2" : "CN1";
+           SqlCommand sqlcmd = new SqlCommand("sp_chuyenChiNhanhNhanVien", Program.connect);
+           sqlcmd.CommandType = CommandType.StoredProcedure;
+           sqlcmd.Parameters.AddWithValue("@MANV", manv);
+           sqlcmd.Parameters.AddWithValue("@MACN", macn);
+           Program.execStoreProcedure(sqlcmd);
+           reloadButton.PerformClick();
+        }
     }
 }

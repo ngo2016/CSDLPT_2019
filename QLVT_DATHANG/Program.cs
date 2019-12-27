@@ -169,6 +169,7 @@ namespace QLVT_DATHANG
             }
         }
 
+        //chuyen chi nhanh de xem du lieu
         public static void chuyenChiNhanh(string server)
         {
             if (server == "null")
