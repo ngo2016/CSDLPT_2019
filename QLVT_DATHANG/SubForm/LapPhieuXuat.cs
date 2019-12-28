@@ -169,11 +169,25 @@ namespace QLVT_DATHANG.SubForm
             }
             else
             {
-                string cmd = "EXEC sp_xoaphieuxuat '" + this.maPhieuXuatTextEdit.Text + "'";
-                SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
-                sqlcmd.CommandType = CommandType.Text;
-                Program.execStoreProcedure(sqlcmd);
-                btnReload.PerformClick();
+                DialogResult dr = MessageBox.Show("Phiếu xuất sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.No)
+                {
+                    return;
+                }
+                else if (dr == DialogResult.Yes)
+                {
+
+                    string cmd = "EXEC sp_xoaphieuxuat '" + this.maPhieuXuatTextEdit.Text + "'";
+                    SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
+                    sqlcmd.CommandType = CommandType.Text;
+                    Program.execStoreProcedure(sqlcmd);
+
+                    MessageBox.Show("Phiếu xuất đã bị xóa!", "Thông báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    btnReload.PerformClick();
+                }
             }
         }
 
@@ -332,7 +346,7 @@ namespace QLVT_DATHANG.SubForm
         private void cTPXDataGridView_MouseUp(object sender, MouseEventArgs e)
         {
             //lấy data từ cellSoLuong của CTPN
-            
+
             if (this.cTPXDataGridView.CurrentRow.IsNewRow)
             {
                 btnSubformWrite.Enabled = false;
@@ -342,8 +356,8 @@ namespace QLVT_DATHANG.SubForm
                 object cell3 = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value;
                 object cell4 = this.cTPXDataGridView.CurrentRow.Cells["cellDonGia"].Value;
 
-                if ( string.IsNullOrEmpty(cell1.ToString()) || string.IsNullOrEmpty(cell2.ToString()) || 
-                    string.IsNullOrEmpty(cell3.ToString()) || string.IsNullOrEmpty(cell4.ToString()) )
+                if (string.IsNullOrEmpty(cell1.ToString()) || string.IsNullOrEmpty(cell2.ToString()) ||
+                    string.IsNullOrEmpty(cell3.ToString()) || string.IsNullOrEmpty(cell4.ToString()))
                 {
                     btnSubformAdd.Enabled = false;
                 }

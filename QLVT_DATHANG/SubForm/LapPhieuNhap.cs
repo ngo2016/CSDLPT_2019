@@ -180,14 +180,24 @@ namespace QLVT_DATHANG.SubForm
             }
             else
             {
-                if (!Program.checkValidate(maPhieuNhapTextEdit, "Field mã phiếu nhập không được để trống!")) return;
-                if (!Program.checkValidate(maSoDonDatHangTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
+                DialogResult dr = MessageBox.Show("Phiếu nhập sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.No)
+                {
+                    return;
+                }
+                else if (dr == DialogResult.Yes)
+                {
+                    string cmd = "EXEC sp_xoaphieunhap '" + this.maPhieuNhapTextEdit.Text + "'";
+                    SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
+                    sqlcmd.CommandType = CommandType.Text;
+                    Program.execStoreProcedure(sqlcmd);
 
-                string cmd = "EXEC sp_xoaphieunhap '" + this.maPhieuNhapTextEdit.Text + "'";
-                SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
-                sqlcmd.CommandType = CommandType.Text;
-                Program.execStoreProcedure(sqlcmd);
-                btnReload.PerformClick();
+                    MessageBox.Show("Phiếu nhập đã bị xóa!", "Thông báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    btnReload.PerformClick();
+                }
             }
         }
 
@@ -248,6 +258,9 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!Program.checkValidate(maPhieuNhapTextEdit, "Field mã phiếu nhập không được để trống!")) return;
+            if (!Program.checkValidate(maSoDonDatHangTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
+
             // lay thong tin ddh hien tai
             string mapn = this.maPhieuNhapTextEdit.Text;
             DateTime ngaylap = this.ngayDateTimePicker.Value;

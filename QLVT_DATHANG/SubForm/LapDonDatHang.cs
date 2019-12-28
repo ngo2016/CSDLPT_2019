@@ -199,14 +199,24 @@ namespace QLVT_DATHANG.SubForm
             }
             else
             {
-                if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
-                if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
+                DialogResult dr = MessageBox.Show("Đơn đặt hàng sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.No)
+                {
+                    return;
+                }
+                else if (dr == DialogResult.Yes)
+                {
+                    string cmd = "EXEC sp_xoaddh '" + this.maSoDDHTextEdit.Text + "'";
+                    SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
+                    sqlcmd.CommandType = CommandType.Text;
+                    Program.execStoreProcedure(sqlcmd);
 
-                string cmd = "EXEC sp_xoaddh '" + this.maSoDDHTextEdit.Text + "'";
-                SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
-                sqlcmd.CommandType = CommandType.Text;
-                Program.execStoreProcedure(sqlcmd);
-                btnReload.PerformClick();
+                    MessageBox.Show("Đơn đặt hàng đã bị xóa!", "Thông báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    btnReload.PerformClick();
+                }
             }
         }
 
@@ -239,6 +249,9 @@ namespace QLVT_DATHANG.SubForm
                 MessageBox.Show("Nhân viên lập đơn hàng đã chuyển sang chi nhánh khác. Xin vui lòng chọn nhân viên khác", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
+            if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
 
             string maddh = this.maSoDDHTextEdit.Text;
             DateTime ngaylap = this.ngayLapDateEdit.Value;
@@ -278,6 +291,9 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
+            if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
+
             // lay thong tin ddh hien tai
             string maddh = this.maSoDDHTextEdit.Text;
             DateTime ngaylap = this.ngayLapDateEdit.Value;
