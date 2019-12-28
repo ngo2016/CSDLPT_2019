@@ -38,10 +38,10 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.textEditThemMaKho = new System.Windows.Forms.TextBox();
-            this.textEditThemTenKho = new System.Windows.Forms.TextBox();
-            this.textEditThemDiachi = new System.Windows.Forms.TextBox();
             this.textEditThemMaCN = new System.Windows.Forms.TextBox();
+            this.textEditThemDiachi = new System.Windows.Forms.TextBox();
+            this.textEditThemTenKho = new System.Windows.Forms.TextBox();
+            this.textEditThemMaKho = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.SuspendLayout();
@@ -168,21 +168,13 @@
             this.groupControl1.Size = new System.Drawing.Size(761, 415);
             this.groupControl1.TabIndex = 53;
             // 
-            // textEditThemMaKho
+            // textEditThemMaCN
             // 
-            this.textEditThemMaKho.Location = new System.Drawing.Point(134, 252);
-            this.textEditThemMaKho.MaxLength = 4;
-            this.textEditThemMaKho.Name = "textEditThemMaKho";
-            this.textEditThemMaKho.Size = new System.Drawing.Size(216, 23);
-            this.textEditThemMaKho.TabIndex = 1;
-            // 
-            // textEditThemTenKho
-            // 
-            this.textEditThemTenKho.Location = new System.Drawing.Point(134, 361);
-            this.textEditThemTenKho.MaxLength = 30;
-            this.textEditThemTenKho.Name = "textEditThemTenKho";
-            this.textEditThemTenKho.Size = new System.Drawing.Size(216, 23);
-            this.textEditThemTenKho.TabIndex = 2;
+            this.textEditThemMaCN.Enabled = false;
+            this.textEditThemMaCN.Location = new System.Drawing.Point(506, 361);
+            this.textEditThemMaCN.Name = "textEditThemMaCN";
+            this.textEditThemMaCN.Size = new System.Drawing.Size(208, 23);
+            this.textEditThemMaCN.TabIndex = 51;
             // 
             // textEditThemDiachi
             // 
@@ -192,13 +184,21 @@
             this.textEditThemDiachi.Size = new System.Drawing.Size(208, 23);
             this.textEditThemDiachi.TabIndex = 3;
             // 
-            // textEditThemMaCN
+            // textEditThemTenKho
             // 
-            this.textEditThemMaCN.Enabled = false;
-            this.textEditThemMaCN.Location = new System.Drawing.Point(506, 361);
-            this.textEditThemMaCN.Name = "textEditThemMaCN";
-            this.textEditThemMaCN.Size = new System.Drawing.Size(208, 23);
-            this.textEditThemMaCN.TabIndex = 51;
+            this.textEditThemTenKho.Location = new System.Drawing.Point(134, 361);
+            this.textEditThemTenKho.MaxLength = 30;
+            this.textEditThemTenKho.Name = "textEditThemTenKho";
+            this.textEditThemTenKho.Size = new System.Drawing.Size(216, 23);
+            this.textEditThemTenKho.TabIndex = 2;
+            // 
+            // textEditThemMaKho
+            // 
+            this.textEditThemMaKho.Location = new System.Drawing.Point(134, 252);
+            this.textEditThemMaKho.MaxLength = 4;
+            this.textEditThemMaKho.Name = "textEditThemMaKho";
+            this.textEditThemMaKho.Size = new System.Drawing.Size(216, 23);
+            this.textEditThemMaKho.TabIndex = 1;
             // 
             // ThemKho
             // 
@@ -215,7 +215,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemKho";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThemKho_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ThemKho_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

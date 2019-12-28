@@ -41,13 +41,13 @@ namespace QLVT_DATHANG
 
             if (this.usernameTxtBox.Text.Trim() == "")
             {
-                MessageBox.Show("Tài khoản không được bỏ trống", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Tài khoản không được bỏ trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 usernameTxtBox.Focus();
                 return;
             }
             if (this.passwordTxtBox.Text.Trim() == "")
             {
-                MessageBox.Show("Mật khẩu không được bỏ trống", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Mật khẩu không được bỏ trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 passwordTxtBox.Focus();
                 return;
             }
@@ -64,7 +64,7 @@ namespace QLVT_DATHANG
             Program.dataReader = Program.ExecSqlDataReader(sp_dangnhap);
             if (Program.dataReader == null)
             {
-                MessageBox.Show("Đăng nhập không thành công!", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Đăng nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -74,7 +74,7 @@ namespace QLVT_DATHANG
             }
             catch (Exception e)
             {
-                MessageBox.Show("Login bạn nhập không được hỗ trợ", "DoAn.exe", MessageBoxButtons.OK);
+                MessageBox.Show("Login bạn nhập không được hỗ trợ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //sau khi thuc thi sp_dangnhap ta co    0           1       2
@@ -82,7 +82,7 @@ namespace QLVT_DATHANG
             Program.username = Program.dataReader.GetString(0);
             if (Convert.IsDBNull(Program.username))
             {
-                MessageBox.Show("Login bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại username, password", "", MessageBoxButtons.OK);
+                MessageBox.Show("Login bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại username, password", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Program.hoten = Program.dataReader.GetString(1);

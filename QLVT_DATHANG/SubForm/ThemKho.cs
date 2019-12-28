@@ -23,10 +23,6 @@ namespace QLVT_DATHANG.SubForm
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            if (Program.flagCloseFormThemKho==true)
-            {
-                Program.storageForm.Visible = true;
-            }
         }
 
         private void textEditThemMaKho_KeyPress(object sender, KeyPressEventArgs e)
@@ -79,13 +75,13 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool canUpdate = !textEditThemMaKho.Text.Equals("") && !textEditThemTenKho.Text.Equals("")
+            bool canCreate = !textEditThemMaKho.Text.Equals("") && !textEditThemTenKho.Text.Equals("")
                 && !textEditThemDiachi.Text.Equals("");
 
-            if (!canUpdate)
+            if (!canCreate)
             {
                 MessageBox.Show("Vui lòng kiểm tra lại các field đã nhập\nCác field không được bỏ trống",
-                    "Cảnh báo", MessageBoxButtons.OK);
+                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -101,12 +97,12 @@ namespace QLVT_DATHANG.SubForm
             kiemtratontai.Parameters.Add("@TENKHO", SqlDbType.NVarChar).Value = tenkho;
             if (Program.execStoreProcedureWithReturnValue(kiemtratontai) == 1)
             {
-                MessageBox.Show("Đã tồn tại mã kho " + makho);
+                MessageBox.Show("Đã tồn tại mã kho " + makho, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (Program.execStoreProcedureWithReturnValue(kiemtratontai) == 2)
             {
-                MessageBox.Show("Đã tồn tại tên kho " + tenkho);
+                MessageBox.Show("Đã tồn tại tên kho " + tenkho, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -120,19 +116,21 @@ namespace QLVT_DATHANG.SubForm
             Program.execStoreProcedure(sqlcmd);
 
             MessageBox.Show("Thêm mới thành công",
-                    "Thông báo", MessageBoxButtons.OK);
-            this.Visible = false;
-            Program.storageForm.Visible = true;
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.textEditThemMaKho.Text="";
+            this.textEditThemTenKho.Text="";
+            this.textEditThemDiachi.Text="";
+
+            this.Close();
         }
 
         private void ThemKho_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool checkNonEmpty = !textEditThemMaKho.Text.Equals("") || !textEditThemTenKho.Text.Equals("")
+            bool isNonEmpty = !textEditThemMaKho.Text.Equals("") || !textEditThemTenKho.Text.Equals("")
                 || !textEditThemDiachi.Text.Equals("");
 
-            Program.flagCloseFormThemKho = checkNonEmpty ? false : true;
-
-            if (Program.flagCloseFormThemKho == false)
+            if (isNonEmpty)
             {
                 DialogResult dr = MessageBox.Show("Dữ liệu Form thêm kho vẫn chưa được lưu! \nBạn có chắn chắn muốn thoát?", "Cảnh báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -140,19 +138,6 @@ namespace QLVT_DATHANG.SubForm
                 {
                     e.Cancel = true;
                 }
-                else if (dr == DialogResult.Yes)
-                {
-                    Program.flagCloseFormThemKho = true;
-                }
-            }
-        }
-
-        private void ThemKho_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-            if (Program.flagCloseFormThemKho == true)
-            {
-                Program.storageForm.Visible = true;
             }
         }
     }

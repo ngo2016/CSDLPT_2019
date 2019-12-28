@@ -38,6 +38,7 @@ namespace QLVT_DATHANG.SubForm
             dateTimePicker = new DateTimePicker();
             dateTimePicker.CustomFormat = "yyyy-MM-dd";
             dateTimePicker.Format = DateTimePickerFormat.Custom;
+            this.dateTimePicker.MaxDate = DateTime.Today;
 
             maNVTextBox = new TextBox();
             maNVTextBox.Text = Program.username;
@@ -51,7 +52,7 @@ namespace QLVT_DATHANG.SubForm
             SqlDataReader chiTietDDH = Program.ExecSqlDataReader(sp_laychitietDDH);
             if (chiTietDDH == null)
             {
-                MessageBox.Show("Đơn đặt hàng chưa có chi tiết đơn. Vui lòng lập chi tiết đơn để tiếp tục!", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Đơn đặt hàng chưa có chi tiết đơn. Vui lòng lập chi tiết đơn để tiếp tục!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             while (true)

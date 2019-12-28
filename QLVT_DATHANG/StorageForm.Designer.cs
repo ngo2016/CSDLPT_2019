@@ -64,10 +64,10 @@
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.maKhoTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.tenKhoTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.diaChiTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.maCNTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.diaChiTextEdit = new System.Windows.Forms.TextBox();
+            this.tenKhoTextEdit = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelNhomNV = new DevExpress.XtraEditors.LabelControl();
             this.labelTenNV = new DevExpress.XtraEditors.LabelControl();
@@ -85,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.khoGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maKhoTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenKhoTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diaChiTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maCNTextEdit.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -405,26 +403,6 @@
             this.maKhoTextEdit.Size = new System.Drawing.Size(170, 22);
             this.maKhoTextEdit.TabIndex = 8;
             // 
-            // tenKhoTextEdit
-            // 
-            this.tenKhoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.khoBindingSource, "TENKHO", true));
-            this.tenKhoTextEdit.Location = new System.Drawing.Point(295, 109);
-            this.tenKhoTextEdit.MenuManager = this.barManager1;
-            this.tenKhoTextEdit.Name = "tenKhoTextEdit";
-            this.tenKhoTextEdit.Size = new System.Drawing.Size(170, 22);
-            this.tenKhoTextEdit.TabIndex = 10;
-            this.tenKhoTextEdit.Enter += new System.EventHandler(this.tenKhoTextEdit_Enter);
-            // 
-            // diaChiTextEdit
-            // 
-            this.diaChiTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.khoBindingSource, "DIACHI", true));
-            this.diaChiTextEdit.Location = new System.Drawing.Point(590, 52);
-            this.diaChiTextEdit.MenuManager = this.barManager1;
-            this.diaChiTextEdit.Name = "diaChiTextEdit";
-            this.diaChiTextEdit.Size = new System.Drawing.Size(170, 22);
-            this.diaChiTextEdit.TabIndex = 12;
-            this.diaChiTextEdit.Enter += new System.EventHandler(this.diaChiTextEdit_Enter);
-            // 
             // maCNTextEdit
             // 
             this.maCNTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.khoBindingSource, "MACN", true));
@@ -437,14 +415,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.diaChiTextEdit);
+            this.groupBox1.Controls.Add(this.tenKhoTextEdit);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(mACNLabel);
             this.groupBox1.Controls.Add(mAKHOLabel);
             this.groupBox1.Controls.Add(this.maCNTextEdit);
             this.groupBox1.Controls.Add(dIACHILabel);
-            this.groupBox1.Controls.Add(this.diaChiTextEdit);
             this.groupBox1.Controls.Add(tENKHOLabel);
-            this.groupBox1.Controls.Add(this.tenKhoTextEdit);
             this.groupBox1.Controls.Add(this.maKhoTextEdit);
             this.groupBox1.Location = new System.Drawing.Point(0, 558);
             this.groupBox1.Name = "groupBox1";
@@ -452,6 +430,24 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // diaChiTextEdit
+            // 
+            this.diaChiTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.khoBindingSource, "DIACHI", true));
+            this.diaChiTextEdit.Location = new System.Drawing.Point(590, 52);
+            this.diaChiTextEdit.MaxLength = 100;
+            this.diaChiTextEdit.Name = "diaChiTextEdit";
+            this.diaChiTextEdit.Size = new System.Drawing.Size(170, 23);
+            this.diaChiTextEdit.TabIndex = 2;
+            // 
+            // tenKhoTextEdit
+            // 
+            this.tenKhoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.khoBindingSource, "TENKHO", true));
+            this.tenKhoTextEdit.Location = new System.Drawing.Point(294, 112);
+            this.tenKhoTextEdit.MaxLength = 30;
+            this.tenKhoTextEdit.Name = "tenKhoTextEdit";
+            this.tenKhoTextEdit.Size = new System.Drawing.Size(171, 23);
+            this.tenKhoTextEdit.TabIndex = 1;
             // 
             // label1
             // 
@@ -516,7 +512,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.LookAndFeel.SkinName = "Metropolis";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "StorageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StorageForm";
@@ -531,8 +527,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.khoGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maKhoTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenKhoTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diaChiTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maCNTextEdit.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -570,8 +564,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit maCNTextEdit;
-        private DevExpress.XtraEditors.TextEdit diaChiTextEdit;
-        private DevExpress.XtraEditors.TextEdit tenKhoTextEdit;
         private DevExpress.XtraEditors.TextEdit maKhoTextEdit;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTENKHO;
@@ -580,6 +572,8 @@
         private DevExpress.XtraEditors.LabelControl labelNhomNV;
         private DevExpress.XtraEditors.LabelControl labelTenNV;
         private DevExpress.XtraEditors.LabelControl labelMaNV;
+        private System.Windows.Forms.TextBox diaChiTextEdit;
+        private System.Windows.Forms.TextBox tenKhoTextEdit;
 
 
     }

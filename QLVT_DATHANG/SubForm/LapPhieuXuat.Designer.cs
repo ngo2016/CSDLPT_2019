@@ -79,8 +79,6 @@
             this.hoTenComboBox = new System.Windows.Forms.ComboBox();
             this.v_DS_NhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maKhoTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.hoTenKhachHangTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.maPhieuXuatTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.cTPXDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,11 +93,10 @@
             this.cTPXBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.tenCNComboBox1 = new System.Windows.Forms.ComboBox();
-            this.labelNhomNV = new DevExpress.XtraEditors.LabelControl();
-            this.labelTenNV = new DevExpress.XtraEditors.LabelControl();
-            this.labelMaNV = new DevExpress.XtraEditors.LabelControl();
             this.v_DS_NhanVienTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_NhanVienTableAdapter();
             this.khoTableAdapter = new QLVT_DATHANG.CN1TableAdapters.KhoTableAdapter();
+            this.maPhieuXuatTextEdit = new System.Windows.Forms.TextBox();
+            this.hoTenKhachHangTextEdit = new System.Windows.Forms.TextBox();
             tENCNLabel = new System.Windows.Forms.Label();
             mAPXLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -124,8 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_NhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maKhoTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hoTenKhachHangTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maPhieuXuatTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTPXDataGridView)).BeginInit();
@@ -316,7 +311,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 824);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 843);
             this.barDockControlBottom.Size = new System.Drawing.Size(1094, 25);
             // 
             // barDockControlLeft
@@ -324,14 +319,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 50);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 774);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 793);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1094, 50);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 774);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 793);
             // 
             // qLVT_DATHANGDataSet
             // 
@@ -488,6 +483,8 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.hoTenKhachHangTextEdit);
+            this.groupControl2.Controls.Add(this.maPhieuXuatTextEdit);
             this.groupControl2.Controls.Add(this.maNVSpinEdit);
             this.groupControl2.Controls.Add(this.ngayLapDateEdit);
             this.groupControl2.Controls.Add(tENKHOLabel);
@@ -498,10 +495,8 @@
             this.groupControl2.Controls.Add(this.maKhoTextEdit);
             this.groupControl2.Controls.Add(mANVLabel);
             this.groupControl2.Controls.Add(hOTENKHLabel);
-            this.groupControl2.Controls.Add(this.hoTenKhachHangTextEdit);
             this.groupControl2.Controls.Add(nGAYLabel);
             this.groupControl2.Controls.Add(mAPXLabel);
-            this.groupControl2.Controls.Add(this.maPhieuXuatTextEdit);
             this.groupControl2.Location = new System.Drawing.Point(1, 465);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(389, 358);
@@ -576,24 +571,6 @@
             this.maKhoTextEdit.TabIndex = 9;
             this.maKhoTextEdit.TextChanged += new System.EventHandler(this.maKhoTextEdit_TextChanged);
             // 
-            // hoTenKhachHangTextEdit
-            // 
-            this.hoTenKhachHangTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.phieuXuatBindingSource, "HOTENKH", true));
-            this.hoTenKhachHangTextEdit.Location = new System.Drawing.Point(167, 137);
-            this.hoTenKhachHangTextEdit.MenuManager = this.barManager1;
-            this.hoTenKhachHangTextEdit.Name = "hoTenKhachHangTextEdit";
-            this.hoTenKhachHangTextEdit.Size = new System.Drawing.Size(179, 22);
-            this.hoTenKhachHangTextEdit.TabIndex = 5;
-            // 
-            // maPhieuXuatTextEdit
-            // 
-            this.maPhieuXuatTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.phieuXuatBindingSource, "MAPX", true));
-            this.maPhieuXuatTextEdit.Location = new System.Drawing.Point(167, 38);
-            this.maPhieuXuatTextEdit.MenuManager = this.barManager1;
-            this.maPhieuXuatTextEdit.Name = "maPhieuXuatTextEdit";
-            this.maPhieuXuatTextEdit.Size = new System.Drawing.Size(179, 22);
-            this.maPhieuXuatTextEdit.TabIndex = 1;
-            // 
             // groupControl3
             // 
             this.groupControl3.Controls.Add(this.cTPXDataGridView);
@@ -622,10 +599,10 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.cTPXDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.cTPXDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cTPXDataGridView.Location = new System.Drawing.Point(2, 25);
+            this.cTPXDataGridView.Location = new System.Drawing.Point(2, 27);
             this.cTPXDataGridView.Name = "cTPXDataGridView";
             this.cTPXDataGridView.RowTemplate.Height = 24;
-            this.cTPXDataGridView.Size = new System.Drawing.Size(696, 331);
+            this.cTPXDataGridView.Size = new System.Drawing.Size(696, 329);
             this.cTPXDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -720,39 +697,6 @@
             this.tenCNComboBox1.ValueMember = "TENSERVER";
             this.tenCNComboBox1.SelectedIndexChanged += new System.EventHandler(this.tenCNComboBox1_SelectedIndexChanged);
             // 
-            // labelNhomNV
-            // 
-            this.labelNhomNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNhomNV.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNhomNV.Location = new System.Drawing.Point(713, 829);
-            this.labelNhomNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelNhomNV.Name = "labelNhomNV";
-            this.labelNhomNV.Size = new System.Drawing.Size(49, 23);
-            this.labelNhomNV.TabIndex = 26;
-            this.labelNhomNV.Text = "Nhóm";
-            // 
-            // labelTenNV
-            // 
-            this.labelTenNV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.labelTenNV.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTenNV.Location = new System.Drawing.Point(355, 829);
-            this.labelTenNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelTenNV.Name = "labelTenNV";
-            this.labelTenNV.Size = new System.Drawing.Size(32, 23);
-            this.labelTenNV.TabIndex = 25;
-            this.labelTenNV.Text = "Tên";
-            // 
-            // labelMaNV
-            // 
-            this.labelMaNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelMaNV.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaNV.Location = new System.Drawing.Point(74, 829);
-            this.labelMaNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelMaNV.Name = "labelMaNV";
-            this.labelMaNV.Size = new System.Drawing.Size(112, 23);
-            this.labelMaNV.TabIndex = 24;
-            this.labelMaNV.Text = "Mã nhân viên";
-            // 
             // v_DS_NhanVienTableAdapter
             // 
             this.v_DS_NhanVienTableAdapter.ClearBeforeFill = true;
@@ -761,14 +705,29 @@
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
             // 
+            // maPhieuXuatTextEdit
+            // 
+            this.maPhieuXuatTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuXuatBindingSource, "MAPX", true));
+            this.maPhieuXuatTextEdit.Location = new System.Drawing.Point(168, 43);
+            this.maPhieuXuatTextEdit.MaxLength = 8;
+            this.maPhieuXuatTextEdit.Name = "maPhieuXuatTextEdit";
+            this.maPhieuXuatTextEdit.Size = new System.Drawing.Size(178, 23);
+            this.maPhieuXuatTextEdit.TabIndex = 1;
+            // 
+            // hoTenKhachHangTextEdit
+            // 
+            this.hoTenKhachHangTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuXuatBindingSource, "HOTENKH", true));
+            this.hoTenKhachHangTextEdit.Location = new System.Drawing.Point(168, 142);
+            this.hoTenKhachHangTextEdit.MaxLength = 100;
+            this.hoTenKhachHangTextEdit.Name = "hoTenKhachHangTextEdit";
+            this.hoTenKhachHangTextEdit.Size = new System.Drawing.Size(178, 23);
+            this.hoTenKhachHangTextEdit.TabIndex = 2;
+            // 
             // LapPhieuXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 849);
-            this.Controls.Add(this.labelNhomNV);
-            this.Controls.Add(this.labelTenNV);
-            this.Controls.Add(this.labelMaNV);
+            this.ClientSize = new System.Drawing.Size(1094, 868);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
@@ -781,7 +740,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.LookAndFeel.SkinName = "Metropolis";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "LapPhieuXuat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LapPhieuXuat";
@@ -803,8 +762,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_NhanVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maKhoTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hoTenKhachHangTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maPhieuXuatTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cTPXDataGridView)).EndInit();
@@ -856,8 +813,6 @@
         private System.Windows.Forms.BindingSource cTPXBindingSource;
         private System.Windows.Forms.DataGridView cTPXDataGridView;
         private DevExpress.XtraEditors.TextEdit maKhoTextEdit;
-        private DevExpress.XtraEditors.TextEdit hoTenKhachHangTextEdit;
-        private DevExpress.XtraEditors.TextEdit maPhieuXuatTextEdit;
         private CN1TableAdapters.VattuTableAdapter vattuTableAdapter;
         private System.Windows.Forms.BindingSource vattuBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -866,9 +821,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private System.Windows.Forms.ComboBox tenCNComboBox1;
-        private DevExpress.XtraEditors.LabelControl labelNhomNV;
-        private DevExpress.XtraEditors.LabelControl labelTenNV;
-        private DevExpress.XtraEditors.LabelControl labelMaNV;
         private System.Windows.Forms.BindingSource v_DS_NhanVienBindingSource;
         private CN1TableAdapters.V_DS_NhanVienTableAdapter v_DS_NhanVienTableAdapter;
         private System.Windows.Forms.ComboBox hoTenComboBox;
@@ -881,5 +833,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnSubformDel;
         private System.Windows.Forms.DateTimePicker ngayLapDateEdit;
         private DevExpress.XtraEditors.TextEdit maNVSpinEdit;
+        private System.Windows.Forms.TextBox hoTenKhachHangTextEdit;
+        private System.Windows.Forms.TextBox maPhieuXuatTextEdit;
     }
 }

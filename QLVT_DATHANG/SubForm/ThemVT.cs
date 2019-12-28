@@ -22,10 +22,6 @@ namespace QLVT_DATHANG.SubForm
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            if (Program.flagCloseFormThemVT==true)
-            {
-                Program.productForm.Visible = true;
-            }
         }
 
         private void textEditThemMaVT_KeyPress(object sender, KeyPressEventArgs e)
@@ -74,13 +70,13 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool canUpdate = !textEditThemMaVT.Text.Equals("") && !textEditThemTenVT.Text.Equals("")
-                && numericSoLuongTon.Value>=0 && !textEditThemDVT.Text.Equals("");
+            bool canCreate = !textEditThemMaVT.Text.Equals("") && !textEditThemTenVT.Text.Equals("")
+                && numericSoLuongTon.Value >= 0 && !textEditThemDVT.Text.Equals("");
 
-            if (!canUpdate)
+            if (!canCreate)
             {
                 MessageBox.Show("Vui lòng kiểm tra lại các field đã nhập\nCác field không được bỏ trống",
-                    "Cảnh báo", MessageBoxButtons.OK);
+                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -96,12 +92,12 @@ namespace QLVT_DATHANG.SubForm
             kiemtratontai.Parameters.Add("@TENVT", SqlDbType.NVarChar).Value = tenvt;
             if (Program.execStoreProcedureWithReturnValue(kiemtratontai) == 1)
             {
-                MessageBox.Show("Đã tồn tại mã vật tư " + mavt);
+                MessageBox.Show("Đã tồn tại mã vật tư " + mavt, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (Program.execStoreProcedureWithReturnValue(kiemtratontai) == 2)
             {
-                MessageBox.Show("Đã tồn tại tên vật tư " + tenvt);
+                MessageBox.Show("Đã tồn tại tên vật tư " + tenvt, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -114,18 +110,22 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@SLT", SqlDbType.Int).Value = slt;
             Program.execStoreProcedure(sqlcmd);
 
-            MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.textEditThemMaVT.Text = "";
+            this.textEditThemTenVT.Text = "";
+            this.numericSoLuongTon.Value = 0;
+            this.textEditThemDVT.Text = "";
+
             this.Close();
         }
 
         private void ThemVT_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool checkNonEmpty = !textEditThemMaVT.Text.Equals("") || !textEditThemTenVT.Text.Equals("")
+            bool isNonEmpty = !textEditThemMaVT.Text.Equals("") || !textEditThemTenVT.Text.Equals("")
                 || !numericSoLuongTon.Value.Equals(0) || !textEditThemDVT.Text.Equals("");
 
-            Program.flagCloseFormThemVT = checkNonEmpty ? false : true;
-
-            if (Program.flagCloseFormThemVT == false)
+            if (isNonEmpty)
             {
                 DialogResult dr = MessageBox.Show("Dữ liệu Form thêm vật tư vẫn chưa được lưu! \nBạn có chắn chắn muốn thoát?", "Cảnh báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -133,16 +133,7 @@ namespace QLVT_DATHANG.SubForm
                 {
                     e.Cancel = true;
                 }
-                else if (dr == DialogResult.Yes)
-                {
-                    Program.flagCloseFormThemVT = true;
-                }
             }
-        }
-
-        private void ThemVT_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

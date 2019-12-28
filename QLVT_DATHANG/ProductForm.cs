@@ -78,21 +78,10 @@ namespace QLVT_DATHANG
             this.vattuTableAdapter.Fill(this.cN1.Vattu);
         }
 
-        private bool checkValidate(TextEdit tb, string str)
-        {
-            if (tb.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tb.Focus();
-                return false;
-            }
-            return true;
-        }
-
         private void btnSaveProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!checkValidate(donViTinhTextEdit, "Field đơn vị tính không được để trống!")) return;
-            if (!checkValidate(tenVTTextEdit, "Field tên vật tư không được để trống!")) return;
+            if (!Program.checkValidate(donViTinhTextEdit, "Field đơn vị tính không được để trống!")) return;
+            if (!Program.checkValidate(tenVTTextEdit, "Field tên vật tư không được để trống!")) return;
 
             // lay thong tin nhan vien hien tai
             string mavt = this.maVTTextEdit.Text;
@@ -124,7 +113,7 @@ namespace QLVT_DATHANG
                 oldVTData = newVTData;
             }
 
-            MessageBox.Show("Đã lưu thông tin", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Đã lưu thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.btnReload.PerformClick();
         }
 
@@ -132,15 +121,15 @@ namespace QLVT_DATHANG
         {
             if (cTDDHBindingSource.Count > 0)
             {
-                MessageBox.Show("Vật tư đã có chi tiết đơn đặt hàng. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Vật tư đã có chi tiết đơn đặt hàng. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (cTPNBindingSource.Count > 0)
             {
-                MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu nhập. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu nhập. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (cTPXBindingSource.Count > 0)
             {
-                MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu xuất. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu xuất. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -153,7 +142,7 @@ namespace QLVT_DATHANG
                 else if (dr == DialogResult.Yes)
                 {
                     MessageBox.Show("Vật tư đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.OK);
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     string cmd = "EXEC sp_xoavattu '" + this.maVTTextEdit.Text + "'";
                     SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
@@ -233,7 +222,7 @@ namespace QLVT_DATHANG
         {
             if (e.KeyChar == '.')
             {
-                MessageBox.Show("Số lượng tòn là số nguyên");
+                MessageBox.Show("Số lượng tồn chỉ được nhập số nguyên");
             }
         }
 

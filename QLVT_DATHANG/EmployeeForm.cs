@@ -104,7 +104,7 @@ namespace QLVT_DATHANG
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.StackTrace, "Notification", MessageBoxButtons.OK);
+                MessageBox.Show("Kết nối Server thất bại! " + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -113,20 +113,20 @@ namespace QLVT_DATHANG
         {
             if (this.trangThaiXoaTextEdit.Text=="1")
             {
-                MessageBox.Show("Nhân viên đã bị xóa rồi. Xin vui lòng không xoá nữa.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Nhân viên đã bị xóa rồi. Xin vui lòng không xoá nữa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (phieuNhapBindingSource.Count > 0)
             {
-                MessageBox.Show("Nhân viên đã lập phiếu nhập. Xin vui lòng xoá phiếu nhập trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Nhân viên đã lập phiếu nhập. Xin vui lòng xoá phiếu nhập trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (phieuXuatBindingSource.Count > 0)
             {
-                MessageBox.Show("Nhân viên đã lập phiếu xuất. Xin vui lòng xoá phiếu xuất trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Nhân viên đã lập phiếu xuất. Xin vui lòng xoá phiếu xuất trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (datHangBindingSource.Count > 0)
             {
-                MessageBox.Show("Nhân viên đã lập phiếu đơn đặt hàng. Xin vui lòng xoá đơn đặt hàng trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Nhân viên đã lập phiếu đơn đặt hàng. Xin vui lòng xoá đơn đặt hàng trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -139,7 +139,7 @@ namespace QLVT_DATHANG
                 else if (dr == DialogResult.Yes)
                 {
                     MessageBox.Show("Nhân viên đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.OK);
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.trangThaiXoaTextEdit.Text = "1";
                 }
             }
@@ -150,22 +150,11 @@ namespace QLVT_DATHANG
             return dateTime.Year.ToString() + "-" + dateTime.Month.ToString() + "-" + dateTime.Day.ToString();
         }
 
-        private bool checkValidate(TextBox tb, string str)
-        {
-            if (tb.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tb.Focus();
-                return false;
-            }
-            return true;
-        }
-
         public void updateNhanVien()
         {
-            if (!checkValidate(hoTextEdit, "Field họ không được để trống!")) return;
-            if (!checkValidate(tenTextEdit, "Field tên không được để trống!")) return;
-            if (!checkValidate(diaChiTextEdit, "Field địa chỉ không được để trống!")) return;
+            if (!Program.checkValidate(hoTextEdit, "Field họ không được để trống!")) return;
+            if (!Program.checkValidate(tenTextEdit, "Field tên không được để trống!")) return;
+            if (!Program.checkValidate(diaChiTextEdit, "Field địa chỉ không được để trống!")) return;
             if (luongSpinEdit.Value < 4000000)
             {
                 MessageBox.Show("Lương tối thiểu của nhân viên là 4000000", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

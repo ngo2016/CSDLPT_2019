@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemVT));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.textEditThemDVT = new System.Windows.Forms.TextBox();
+            this.textEditThemTenVT = new System.Windows.Forms.TextBox();
+            this.textEditThemMaVT = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.numericSoLuongTon = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
@@ -39,9 +42,6 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditThemMaVT = new System.Windows.Forms.TextBox();
-            this.textEditThemTenVT = new System.Windows.Forms.TextBox();
-            this.textEditThemDVT = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSoLuongTon)).BeginInit();
@@ -65,6 +65,30 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(733, 467);
             this.groupControl1.TabIndex = 0;
+            // 
+            // textEditThemDVT
+            // 
+            this.textEditThemDVT.Location = new System.Drawing.Point(521, 260);
+            this.textEditThemDVT.MaxLength = 15;
+            this.textEditThemDVT.Name = "textEditThemDVT";
+            this.textEditThemDVT.Size = new System.Drawing.Size(201, 23);
+            this.textEditThemDVT.TabIndex = 3;
+            // 
+            // textEditThemTenVT
+            // 
+            this.textEditThemTenVT.Location = new System.Drawing.Point(150, 364);
+            this.textEditThemTenVT.MaxLength = 30;
+            this.textEditThemTenVT.Name = "textEditThemTenVT";
+            this.textEditThemTenVT.Size = new System.Drawing.Size(201, 23);
+            this.textEditThemTenVT.TabIndex = 2;
+            // 
+            // textEditThemMaVT
+            // 
+            this.textEditThemMaVT.Location = new System.Drawing.Point(150, 260);
+            this.textEditThemMaVT.MaxLength = 4;
+            this.textEditThemMaVT.Name = "textEditThemMaVT";
+            this.textEditThemMaVT.Size = new System.Drawing.Size(201, 23);
+            this.textEditThemMaVT.TabIndex = 1;
             // 
             // btnBack
             // 
@@ -184,30 +208,6 @@
             this.labelControl2.TabIndex = 29;
             this.labelControl2.Text = "Mã vật tư:";
             // 
-            // textEditThemMaVT
-            // 
-            this.textEditThemMaVT.Location = new System.Drawing.Point(150, 260);
-            this.textEditThemMaVT.MaxLength = 4;
-            this.textEditThemMaVT.Name = "textEditThemMaVT";
-            this.textEditThemMaVT.Size = new System.Drawing.Size(201, 23);
-            this.textEditThemMaVT.TabIndex = 1;
-            // 
-            // textEditThemTenVT
-            // 
-            this.textEditThemTenVT.Location = new System.Drawing.Point(150, 364);
-            this.textEditThemTenVT.MaxLength = 30;
-            this.textEditThemTenVT.Name = "textEditThemTenVT";
-            this.textEditThemTenVT.Size = new System.Drawing.Size(201, 23);
-            this.textEditThemTenVT.TabIndex = 2;
-            // 
-            // textEditThemDVT
-            // 
-            this.textEditThemDVT.Location = new System.Drawing.Point(521, 260);
-            this.textEditThemDVT.MaxLength = 15;
-            this.textEditThemDVT.Name = "textEditThemDVT";
-            this.textEditThemDVT.Size = new System.Drawing.Size(201, 23);
-            this.textEditThemDVT.TabIndex = 3;
-            // 
             // ThemVT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -222,7 +222,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemVT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThemVT_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ThemVT_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

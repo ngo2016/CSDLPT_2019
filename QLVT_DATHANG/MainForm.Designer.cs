@@ -38,8 +38,8 @@
             this.btnWarehouse = new DevExpress.XtraBars.BarButtonItem();
             this.btnCreateAcc = new DevExpress.XtraBars.BarButtonItem();
             this.btnLapDonDatHang = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLapPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLapPhieuXuat = new DevExpress.XtraBars.BarButtonItem();
             this.btnInDanhMucVatTu = new DevExpress.XtraBars.BarButtonItem();
             this.btnInDanhSachNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat = new DevExpress.XtraBars.BarButtonItem();
@@ -64,12 +64,12 @@
             this.labelNhomNV = new DevExpress.XtraEditors.LabelControl();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.label2 = new System.Windows.Forms.Label();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -78,9 +78,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -96,8 +96,8 @@
             this.btnWarehouse,
             this.btnCreateAcc,
             this.btnLapDonDatHang,
-            this.barButtonItem2,
-            this.barButtonItem1,
+            this.btnLapPhieuNhap,
+            this.btnLapPhieuXuat,
             this.btnInDanhMucVatTu,
             this.btnInDanhSachNhanVien,
             this.btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat,
@@ -181,23 +181,23 @@
             this.btnLapDonDatHang.Name = "btnLapDonDatHang";
             this.btnLapDonDatHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapDonDatHang_ItemClick);
             // 
-            // barButtonItem2
+            // btnLapPhieuNhap
             // 
-            this.barButtonItem2.Caption = "Lập phiếu nhập";
-            this.barButtonItem2.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.Glyph")));
-            this.barButtonItem2.Id = 13;
-            this.barButtonItem2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.LargeGlyph")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.btnLapPhieuNhap.Caption = "Lập phiếu nhập";
+            this.btnLapPhieuNhap.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLapPhieuNhap.Glyph")));
+            this.btnLapPhieuNhap.Id = 13;
+            this.btnLapPhieuNhap.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnLapPhieuNhap.LargeGlyph")));
+            this.btnLapPhieuNhap.Name = "btnLapPhieuNhap";
+            this.btnLapPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapPhieuNhap_ItemClick);
             // 
-            // barButtonItem1
+            // btnLapPhieuXuat
             // 
-            this.barButtonItem1.Caption = "Lập phiếu xuất";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
-            this.barButtonItem1.Id = 14;
-            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.btnLapPhieuXuat.Caption = "Lập phiếu xuất";
+            this.btnLapPhieuXuat.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLapPhieuXuat.Glyph")));
+            this.btnLapPhieuXuat.Id = 14;
+            this.btnLapPhieuXuat.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnLapPhieuXuat.LargeGlyph")));
+            this.btnLapPhieuXuat.Name = "btnLapPhieuXuat";
+            this.btnLapPhieuXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapPhieuXuat_ItemClick);
             // 
             // btnInDanhMucVatTu
             // 
@@ -327,8 +327,8 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLapDonDatHang);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnLapPhieuNhap);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnLapPhieuXuat);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // repositoryItemProgressBar1
@@ -401,41 +401,11 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 179);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(696, 215, 312, 437);
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(1224, 323);
             this.layoutControl1.TabIndex = 7;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.emptySpaceItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1224, 323);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(221, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(746, 269);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.label2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(967, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(231, 297);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
             // 
             // label2
             // 
@@ -446,6 +416,29 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "https://github.com/ngo2016";
             // 
+            // label1
+            // 
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(215, 291);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "https://github.com/Sang2306";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.emptySpaceItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1224, 323);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.label1;
@@ -455,14 +448,22 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // label1
+            // layoutControlItem2
             // 
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(16, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 291);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "https://github.com/Sang2306";
+            this.layoutControlItem2.Control = this.label2;
+            this.layoutControlItem2.Location = new System.Drawing.Point(967, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(231, 297);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(221, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(746, 297);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // MainForm
             // 
@@ -475,7 +476,7 @@
             this.Controls.Add(this.labelMaNV);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -492,9 +493,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,11 +517,11 @@
         private DevExpress.XtraBars.BarButtonItem btnCreateAcc;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
         private DevExpress.XtraBars.BarButtonItem btnLapDonDatHang;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem btnLapPhieuNhap;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnLapPhieuXuat;
         private DevExpress.XtraBars.BarButtonItem btnInDanhMucVatTu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btnInDanhSachNhanVien;

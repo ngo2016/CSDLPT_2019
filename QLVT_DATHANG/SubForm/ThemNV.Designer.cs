@@ -44,12 +44,12 @@
             this.numericLuong = new System.Windows.Forms.NumericUpDown();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.textEditThemDiaChi = new System.Windows.Forms.TextBox();
+            this.textEditThemTenNV = new System.Windows.Forms.TextBox();
+            this.textEditThemHoNV = new System.Windows.Forms.TextBox();
             this.numericThemMaNV = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.textEditThemHoNV = new System.Windows.Forms.TextBox();
-            this.textEditThemTenNV = new System.Windows.Forms.TextBox();
-            this.textEditThemDiaChi = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.textEditThemTrangThai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaCN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLuong)).BeginInit();
@@ -270,6 +270,30 @@
             this.groupControl1.Size = new System.Drawing.Size(742, 510);
             this.groupControl1.TabIndex = 22;
             // 
+            // textEditThemDiaChi
+            // 
+            this.textEditThemDiaChi.Location = new System.Drawing.Point(110, 433);
+            this.textEditThemDiaChi.MaxLength = 100;
+            this.textEditThemDiaChi.Name = "textEditThemDiaChi";
+            this.textEditThemDiaChi.Size = new System.Drawing.Size(202, 23);
+            this.textEditThemDiaChi.TabIndex = 23;
+            // 
+            // textEditThemTenNV
+            // 
+            this.textEditThemTenNV.Location = new System.Drawing.Point(110, 285);
+            this.textEditThemTenNV.MaxLength = 10;
+            this.textEditThemTenNV.Name = "textEditThemTenNV";
+            this.textEditThemTenNV.Size = new System.Drawing.Size(202, 23);
+            this.textEditThemTenNV.TabIndex = 2;
+            // 
+            // textEditThemHoNV
+            // 
+            this.textEditThemHoNV.Location = new System.Drawing.Point(110, 214);
+            this.textEditThemHoNV.MaxLength = 40;
+            this.textEditThemHoNV.Name = "textEditThemHoNV";
+            this.textEditThemHoNV.Size = new System.Drawing.Size(202, 23);
+            this.textEditThemHoNV.TabIndex = 1;
+            // 
             // numericThemMaNV
             // 
             this.numericThemMaNV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -313,30 +337,6 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // textEditThemHoNV
-            // 
-            this.textEditThemHoNV.Location = new System.Drawing.Point(110, 214);
-            this.textEditThemHoNV.MaxLength = 40;
-            this.textEditThemHoNV.Name = "textEditThemHoNV";
-            this.textEditThemHoNV.Size = new System.Drawing.Size(202, 23);
-            this.textEditThemHoNV.TabIndex = 1;
-            // 
-            // textEditThemTenNV
-            // 
-            this.textEditThemTenNV.Location = new System.Drawing.Point(110, 285);
-            this.textEditThemTenNV.MaxLength = 10;
-            this.textEditThemTenNV.Name = "textEditThemTenNV";
-            this.textEditThemTenNV.Size = new System.Drawing.Size(202, 23);
-            this.textEditThemTenNV.TabIndex = 2;
-            // 
-            // textEditThemDiaChi
-            // 
-            this.textEditThemDiaChi.Location = new System.Drawing.Point(110, 433);
-            this.textEditThemDiaChi.MaxLength = 100;
-            this.textEditThemDiaChi.Name = "textEditThemDiaChi";
-            this.textEditThemDiaChi.Size = new System.Drawing.Size(202, 23);
-            this.textEditThemDiaChi.TabIndex = 23;
-            // 
             // ThemNV
             // 
             this.Appearance.Options.UseFont = true;
@@ -354,7 +354,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Nhân Viên";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThemNV_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ThemNV_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.textEditThemTrangThai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditThemMaCN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLuong)).EndInit();

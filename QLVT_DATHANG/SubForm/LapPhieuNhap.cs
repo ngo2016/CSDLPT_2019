@@ -19,10 +19,6 @@ namespace QLVT_DATHANG.SubForm
         {
             InitializeComponent();
 
-            this.labelMaNV.Text = "MÃ NHÂN VIÊN: " + Program.username;
-            this.labelTenNV.Text = "TÊN: " + Program.hoten;
-            this.labelNhomNV.Text = "NHÓM: " + Program.group;
-
             // Phân quyền login
             if (Program.group == "USER")
             {
@@ -70,6 +66,7 @@ namespace QLVT_DATHANG.SubForm
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
             this.tenCNComboBox.SelectedValue = Program.servername;
+            this.ngayDateTimePicker.MaxDate = DateTime.Today;
 
             //bật lại kiểm tra ràng buộc
             cN1.EnforceConstraints = true;
@@ -93,7 +90,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Notification", MessageBoxButtons.OK);
+                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -145,6 +142,8 @@ namespace QLVT_DATHANG.SubForm
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
+
+            this.ngayDateTimePicker.MaxDate = DateTime.Today;
         }
 
         private void tenKhoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,27 +172,16 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
-        private bool checkValidate(TextEdit tb, string str)
-        {
-            if (tb.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tb.Focus();
-                return false;
-            }
-            return true;
-        }
-
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (cTPNBindingSource.Count > 0)
             {
-                MessageBox.Show("Phiếu nhập đã có chi tiết phiếu. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Phiếu nhập đã có chi tiết phiếu. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (!checkValidate(maPhieuNhapTextEdit, "Field mã phiếu nhập không được để trống!")) return;
-                if (!checkValidate(maSoDonDatHangTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
+                if (!Program.checkValidate(maPhieuNhapTextEdit, "Field mã phiếu nhập không được để trống!")) return;
+                if (!Program.checkValidate(maSoDonDatHangTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
 
                 string cmd = "EXEC sp_xoaphieunhap '" + this.maPhieuNhapTextEdit.Text + "'";
                 SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
@@ -224,7 +212,7 @@ namespace QLVT_DATHANG.SubForm
 
             if (soluong > soluongtrongDDH)
             {
-                MessageBox.Show("Không được nhập quá số lượng đã đặt (" + soluongtrongDDH + ")", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không được nhập quá số lượng đã đặt (" + soluongtrongDDH + ")", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.cTPNTableAdapter.Fill(this.cN1.CTPN);
                 soluongDDH.Close();
                 return;

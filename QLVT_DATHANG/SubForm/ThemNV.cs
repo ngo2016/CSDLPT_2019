@@ -34,7 +34,7 @@ namespace QLVT_DATHANG.SubForm
             if (!canCreate)
             {
                 MessageBox.Show("Vui lòng kiểm tra lại các field đã nhập\nCác field không được bỏ trống\nField Lương phải lớn hơn 4000000",
-                    "Cảnh báo", MessageBoxButtons.OK);
+                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -54,7 +54,7 @@ namespace QLVT_DATHANG.SubForm
             kiemtratontai.Parameters.Add("@MANV", SqlDbType.Int).Value = manv;
             if (Program.execStoreProcedureWithReturnValue(kiemtratontai) == 1)
             {
-                MessageBox.Show("Đã tồn tại mã nhân viên " + manv);
+                MessageBox.Show("Đã tồn tại mã nhân viên " + manv, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -71,7 +71,7 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@TrangThaiXoa", SqlDbType.Int).Value = xoa;
             Program.execStoreProcedure(sqlcmd);
 
-            MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.textEditThemHoNV.Text = "";
             this.textEditThemTenNV.Text = "";
@@ -140,11 +140,6 @@ namespace QLVT_DATHANG.SubForm
                     e.Cancel = true;
                 }
             }
-        }
-
-        private void ThemNV_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
         }
 
         private void numericLuong_ValueChanged(object sender, EventArgs e)

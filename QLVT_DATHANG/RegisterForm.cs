@@ -28,21 +28,10 @@ namespace QLVT_DATHANG
             }
         }
 
-        private bool checkValidate(TextBox tb, string str)
-        {
-            if (tb.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tb.Focus();
-                return false;
-            }
-            return true;
-        }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (!checkValidate(tbLogin, "Login name không được để trống!")) return;
-            if (!checkValidate(tbPassword, "Password không được để trống!")) return;
+            if (!Program.checkValidate(tbLogin, "Login name không được để trống!")) return;
+            if (!Program.checkValidate(tbPassword, "Password không được để trống!")) return;
             if (!(rdCongTy.Checked || rdChiNhanh.Checked || rdUser.Checked))
             {
                 MessageBox.Show("Role không được để trống!", "Cảnh báo",
@@ -87,6 +76,13 @@ namespace QLVT_DATHANG
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            this.tbLogin.Text = "";
+            this.tbPassword.Text = "";
+            this.rdCongTy.Checked = false;
+            this.rdChiNhanh.Checked = false;
+            this.rdUser.Checked = false;
+
             this.Close();
         }
 
@@ -116,10 +112,6 @@ namespace QLVT_DATHANG
                 if (dr == DialogResult.No)
                 {
                     e.Cancel = true;
-                }
-                else if (dr == DialogResult.Yes)
-                {
-                    Program.flagCloseRegisterForm = true;
                 }
             }
         }

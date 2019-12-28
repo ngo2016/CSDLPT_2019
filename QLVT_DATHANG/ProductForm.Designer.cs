@@ -50,11 +50,11 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.donViTinhTextEdit = new System.Windows.Forms.TextBox();
+            this.tenVTTextEdit = new System.Windows.Forms.TextBox();
             this.soLuongTonSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cN1 = new QLVT_DATHANG.CN1();
-            this.donViTinhTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.tenVTTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.maVTTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -85,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cN1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donViTinhTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenVTTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maVTTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -282,12 +280,12 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.donViTinhTextEdit);
+            this.groupControl1.Controls.Add(this.tenVTTextEdit);
             this.groupControl1.Controls.Add(sOLUONGTONLabel);
             this.groupControl1.Controls.Add(this.soLuongTonSpinEdit);
             this.groupControl1.Controls.Add(dVTLabel);
-            this.groupControl1.Controls.Add(this.donViTinhTextEdit);
             this.groupControl1.Controls.Add(tENVTLabel);
-            this.groupControl1.Controls.Add(this.tenVTTextEdit);
             this.groupControl1.Controls.Add(mAVTLabel);
             this.groupControl1.Controls.Add(this.maVTTextEdit);
             this.groupControl1.Controls.Add(this.label2);
@@ -298,6 +296,24 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(805, 715);
             this.groupControl1.TabIndex = 4;
+            // 
+            // donViTinhTextEdit
+            // 
+            this.donViTinhTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vattuBindingSource, "DVT", true));
+            this.donViTinhTextEdit.Location = new System.Drawing.Point(614, 552);
+            this.donViTinhTextEdit.MaxLength = 15;
+            this.donViTinhTextEdit.Name = "donViTinhTextEdit";
+            this.donViTinhTextEdit.Size = new System.Drawing.Size(158, 23);
+            this.donViTinhTextEdit.TabIndex = 2;
+            // 
+            // tenVTTextEdit
+            // 
+            this.tenVTTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vattuBindingSource, "TENVT", true));
+            this.tenVTTextEdit.Location = new System.Drawing.Point(316, 632);
+            this.tenVTTextEdit.MaxLength = 30;
+            this.tenVTTextEdit.Name = "tenVTTextEdit";
+            this.tenVTTextEdit.Size = new System.Drawing.Size(159, 23);
+            this.tenVTTextEdit.TabIndex = 1;
             // 
             // soLuongTonSpinEdit
             // 
@@ -311,7 +327,7 @@
             this.soLuongTonSpinEdit.MenuManager = this.barManager1;
             this.soLuongTonSpinEdit.Name = "soLuongTonSpinEdit";
             this.soLuongTonSpinEdit.Size = new System.Drawing.Size(159, 22);
-            this.soLuongTonSpinEdit.TabIndex = 10;
+            this.soLuongTonSpinEdit.TabIndex = 3;
             this.soLuongTonSpinEdit.Enter += new System.EventHandler(this.soLuongTonSpinEdit_Enter);
             this.soLuongTonSpinEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soLuongTonSpinEdit_KeyPress);
             // 
@@ -324,26 +340,6 @@
             // 
             this.cN1.DataSetName = "CN1";
             this.cN1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // donViTinhTextEdit
-            // 
-            this.donViTinhTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vattuBindingSource, "DVT", true));
-            this.donViTinhTextEdit.Location = new System.Drawing.Point(613, 549);
-            this.donViTinhTextEdit.MenuManager = this.barManager1;
-            this.donViTinhTextEdit.Name = "donViTinhTextEdit";
-            this.donViTinhTextEdit.Size = new System.Drawing.Size(159, 22);
-            this.donViTinhTextEdit.TabIndex = 8;
-            this.donViTinhTextEdit.Enter += new System.EventHandler(this.donViTinhTextEdit_Enter);
-            // 
-            // tenVTTextEdit
-            // 
-            this.tenVTTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vattuBindingSource, "TENVT", true));
-            this.tenVTTextEdit.Location = new System.Drawing.Point(316, 629);
-            this.tenVTTextEdit.MenuManager = this.barManager1;
-            this.tenVTTextEdit.Name = "tenVTTextEdit";
-            this.tenVTTextEdit.Size = new System.Drawing.Size(159, 22);
-            this.tenVTTextEdit.TabIndex = 6;
-            this.tenVTTextEdit.Enter += new System.EventHandler(this.tenVTTextEdit_Enter);
             // 
             // maVTTextEdit
             // 
@@ -530,7 +526,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.LookAndFeel.SkinName = "Metropolis";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "ProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductForm";
@@ -543,8 +539,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cN1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donViTinhTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenVTTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maVTTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -586,9 +580,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTENVT;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONGTON;
-        private DevExpress.XtraEditors.SpinEdit soLuongTonSpinEdit;
-        private DevExpress.XtraEditors.TextEdit donViTinhTextEdit;
-        private DevExpress.XtraEditors.TextEdit tenVTTextEdit;
         private DevExpress.XtraEditors.TextEdit maVTTextEdit;
         private DevExpress.XtraEditors.LabelControl labelNhomNV;
         private DevExpress.XtraEditors.LabelControl labelTenNV;
@@ -599,5 +590,8 @@
         private CN1TableAdapters.CTPNTableAdapter cTPNTableAdapter;
         private System.Windows.Forms.BindingSource cTDDHBindingSource;
         private CN1TableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
+        private System.Windows.Forms.TextBox tenVTTextEdit;
+        private System.Windows.Forms.TextBox donViTinhTextEdit;
+        private DevExpress.XtraEditors.SpinEdit soLuongTonSpinEdit;
     }
 }

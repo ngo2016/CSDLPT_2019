@@ -64,21 +64,10 @@ namespace QLVT_DATHANG
             this.Close();
         }
 
-        private bool checkValidate(TextEdit tb, string str)
-        {
-            if (tb.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tb.Focus();
-                return false;
-            }
-            return true;
-        }
-
         private void btnSaveStorage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!checkValidate(tenKhoTextEdit, "Field tên kho không được để trống!")) return;
-            if (!checkValidate(diaChiTextEdit, "Field địa chỉ không được để trống!")) return;
+            if (!Program.checkValidate(tenKhoTextEdit, "Field tên kho không được để trống!")) return;
+            if (!Program.checkValidate(diaChiTextEdit, "Field địa chỉ không được để trống!")) return;
 
             // lay thong tin kho hien tai
             string makho = this.maKhoTextEdit.Text;
@@ -196,7 +185,7 @@ namespace QLVT_DATHANG
             else if (dr == DialogResult.Yes)
             {
                 MessageBox.Show("Kho đã bị xóa!", "Thông báo",
-                             MessageBoxButtons.OK);
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 string cmd = "EXEC sp_xoakho '" + this.maKhoTextEdit.Text + "'";
                 SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
@@ -225,7 +214,7 @@ namespace QLVT_DATHANG
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Notification", MessageBoxButtons.OK);
+                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

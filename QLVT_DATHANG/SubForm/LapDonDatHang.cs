@@ -18,10 +18,6 @@ namespace QLVT_DATHANG.SubForm
         {
             InitializeComponent();
 
-            this.labelMaNV.Text = "MÃ NHÂN VIÊN: " + Program.username;
-            this.labelTenNV.Text = "TÊN: " + Program.hoten;
-            this.labelNhomNV.Text = "NHÓM: " + Program.group;
-
             // Phân quyền login
             if (Program.group == "USER")
             {
@@ -80,6 +76,7 @@ namespace QLVT_DATHANG.SubForm
             this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
 
             this.tenCNComboBox.SelectedValue = Program.servername;
+            this.ngayLapDateEdit.MaxDate = DateTime.Today;
 
             //bật lại kiểm tra ràng buộc
             cN1.EnforceConstraints = true;
@@ -128,7 +125,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Notification", MessageBoxButtons.OK);
+                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -162,6 +159,8 @@ namespace QLVT_DATHANG.SubForm
             this.cTDDHTableAdapter.Connection.ConnectionString = Program.connectString;
             this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
 
+            this.ngayLapDateEdit.MaxDate = DateTime.Today;
+
             //bật lại kiểm tra ràng buộc
             cN1.EnforceConstraints = true;
         }
@@ -192,27 +191,16 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
-        private bool checkValidate(TextEdit tb, string str)
-        {
-            if (tb.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tb.Focus();
-                return false;
-            }
-            return true;
-        }
-
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (cTDDHBindingSource.Count > 0)
             {
-                MessageBox.Show("Đơn đặt hàng đã có chi tiết đơn. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Đơn đặt hàng đã có chi tiết đơn. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (!checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
-                if (!checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
+                if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
+                if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
 
                 string cmd = "EXEC sp_xoaddh '" + this.maSoDDHTextEdit.Text + "'";
                 SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
@@ -272,17 +260,17 @@ namespace QLVT_DATHANG.SubForm
             //văng lỗi theo mã
             if (checkIf == 2627)
             {
-                MessageBox.Show("Mã đơn đặt hàng đã tồn tại", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Mã đơn đặt hàng đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (checkIf == 547)
             {
-                MessageBox.Show("Mã nhân viên hoặc mã kho không tồn tại", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Mã nhân viên hoặc mã kho không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (checkIf == 0)
             {
-                MessageBox.Show("Thêm đơn đặt hàng thành công", "Xong", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm đơn đặt hàng thành công", "Xong", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnReload.PerformClick();
                 return;
             }

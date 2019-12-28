@@ -42,9 +42,6 @@ namespace QLVT_DATHANG
         public static Report.TongHopNhapXuat tongHopNhapXuat;
 
         public static bool flagCloseRegisterForm;
-        public static bool flagCloseFormThemNV;
-        public static bool flagCloseFormThemVT;
-        public static bool flagCloseFormThemKho;
 
         public static int reportFlag = 0;
 
@@ -70,6 +67,19 @@ namespace QLVT_DATHANG
         public static int chiNhanh = 0;
 
         public static BindingSource bdsDanhSachPhanManh = new BindingSource();  // giữ bdsPhanManh khi đăng nhập
+
+
+        //kiểm tra các textbox có rỗng hay không
+        public static bool checkValidate(TextBox tb, string str)
+        {
+            if (tb.Text.Trim().Equals(""))
+            {
+                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tb.Focus();
+                return false;
+            }
+            return true;
+        }
 
         //kiem tra chuoi rong
         public static bool isEmpty(TextBox value)

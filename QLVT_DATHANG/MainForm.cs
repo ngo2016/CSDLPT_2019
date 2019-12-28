@@ -31,44 +31,31 @@ namespace QLVT_DATHANG
         private void btnFormEmployee_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.employeeForm = new EmployeeForm();
-            Program.employeeForm.ShowDialog(this);
-
+            Program.employeeForm.Show();
         }
 
         private void btnExit_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.loginForm.Visible = true;
-            this.Visible = false;
+            this.Close();
         }
 
         private void btnWarehouse_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.storageForm = new StorageForm();
-            Program.storageForm.ShowDialog(this);
+            Program.storageForm.Show();
         }
 
         private void btnSupplies_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.productForm = new ProductForm();
-            Program.productForm.ShowDialog(this);
+            Program.productForm.Show();
         }
 
         private void btnLapDonDatHang_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.addDDHForm = new SubForm.LapDonDatHang();
-            Program.addDDHForm.ShowDialog(this);
-        }
-
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Program.addPhieuNhapForm = new SubForm.LapPhieuNhap();
-            Program.addPhieuNhapForm.ShowDialog(this);
-        }
-
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Program.addPhieuXuatForm = new SubForm.LapPhieuXuat();
-            Program.addPhieuXuatForm.ShowDialog(this);
+            Program.addDDHForm.Show();
         }
 
         private void btnCreateAcc_ItemClick(object sender, ItemClickEventArgs e)
@@ -92,7 +79,6 @@ namespace QLVT_DATHANG
         private void btnInBangKeChiTietSoLuong_TriGiaHangNhapHoacXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
             Report.KeKhai_Select_From_To fromTo = new Report.KeKhai_Select_From_To();
-
             fromTo.ShowDialog(this);
         }
 
@@ -118,6 +104,18 @@ namespace QLVT_DATHANG
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Program.loginForm.Visible = true;
+        }
+
+        private void btnLapPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Program.addPhieuNhapForm = new SubForm.LapPhieuNhap();
+            Program.addPhieuNhapForm.Show();
+        }
+
+        private void btnLapPhieuXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Program.addPhieuXuatForm = new SubForm.LapPhieuXuat();
+            Program.addPhieuXuatForm.Show();
         }
     }
 }

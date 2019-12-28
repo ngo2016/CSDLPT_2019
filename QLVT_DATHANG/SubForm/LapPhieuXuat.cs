@@ -18,10 +18,6 @@ namespace QLVT_DATHANG.SubForm
         {
             InitializeComponent();
 
-            this.labelMaNV.Text = "MÃ NHÂN VIÊN: " + Program.username;
-            this.labelTenNV.Text = "TÊN: " + Program.hoten;
-            this.labelNhomNV.Text = "NHÓM: " + Program.group;
-
             // Phân quyền login
             if (Program.group == "USER")
             {
@@ -70,6 +66,8 @@ namespace QLVT_DATHANG.SubForm
 
             this.tenCNComboBox1.SelectedValue = Program.servername;
 
+            this.ngayLapDateEdit.MaxDate = DateTime.Today;
+
             //bật lại kiểm tra ràng buộc
             cN1.EnforceConstraints = true;
         }
@@ -92,7 +90,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Notification", MessageBoxButtons.OK);
+                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -132,6 +130,8 @@ namespace QLVT_DATHANG.SubForm
             this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
 
+            this.ngayLapDateEdit.MaxDate = DateTime.Today;
+
             cN1.EnforceConstraints = true;
         }
 
@@ -165,7 +165,7 @@ namespace QLVT_DATHANG.SubForm
         {
             if (cTPXBindingSource.Count > 0)
             {
-                MessageBox.Show("Phiếu xuất đã có chi tiết phiếu. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Phiếu xuất đã có chi tiết phiếu. Xin vui lòng xoá chi tiết phiếu trước.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -227,37 +227,26 @@ namespace QLVT_DATHANG.SubForm
             //văng lỗi theo mã
             if (checkIf == 2627)
             {
-                MessageBox.Show("Mã phiếu xuất đã tồn tại", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Mã phiếu xuất đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (checkIf == 547)
             {
-                MessageBox.Show("Mã nhân viên hoặc mã kho không tồn tại", "Lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Mã nhân viên hoặc mã kho không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (checkIf == 0)
             {
-                MessageBox.Show("Thêm phiếu xuất thành công", "Xong", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm phiếu xuất thành công", "Xong", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnReload.PerformClick();
                 return;
             }
         }
 
-        private bool checkValidate(TextEdit tb, string str)
-        {
-            if (tb.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(str, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tb.Focus();
-                return false;
-            }
-            return true;
-        }
-
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!checkValidate(maPhieuXuatTextEdit, "Field mã phiếu xuất không được để trống!")) return;
-            if (!checkValidate(hoTenKhachHangTextEdit, "Field họ tên khách hàng không được để trống!")) return;
+            if (!Program.checkValidate(maPhieuXuatTextEdit, "Field mã phiếu xuất không được để trống!")) return;
+            if (!Program.checkValidate(hoTenKhachHangTextEdit, "Field họ tên khách hàng không được để trống!")) return;
 
             // lay thong tin phieu xuat hien tai
             string mapx = this.maPhieuXuatTextEdit.Text;
@@ -287,10 +276,7 @@ namespace QLVT_DATHANG.SubForm
                 string manv = this.maNVSpinEdit.Text;
                 this.hoTenComboBox.SelectedValue = int.Parse(manv);
             }
-            catch (Exception)
-            {
-
-            }
+            catch (Exception) { }
         }
     }
 }
