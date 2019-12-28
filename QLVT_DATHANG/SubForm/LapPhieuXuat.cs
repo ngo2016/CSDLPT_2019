@@ -270,7 +270,7 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSubformDel_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Đơn đặt hàng sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+            DialogResult dr = MessageBox.Show("Chi tiết phiếu xuất sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.No)
             {
@@ -278,13 +278,22 @@ namespace QLVT_DATHANG.SubForm
             }
             else if (dr == DialogResult.Yes)
             {
-                //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
-                this.cTPXBindingSource.RemoveCurrent();
+                try
+                {
+                    //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
+                    this.cTPXBindingSource.RemoveCurrent();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không có chi tiết phiếu xuất để xóa!", "Thông báo",
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 this.cTPXBindingSource.EndEdit();
                 this.cTPXTableAdapter.Update(this.cN1);
                 this.cTPXTableAdapter.Fill(this.cN1.CTPX);
 
-                MessageBox.Show("Đơn đặt hàng đã bị xóa!", "Thông báo",
+                MessageBox.Show("Chi tiết phiếu xuất đã bị xóa!", "Thông báo",
                              MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             }
         }

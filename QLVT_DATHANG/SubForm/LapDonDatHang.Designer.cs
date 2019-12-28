@@ -408,7 +408,7 @@
             // 
             // colNhaCC
             // 
-            this.colNhaCC.Caption = "Nhà";
+            this.colNhaCC.Caption = "Nhà cung cấp";
             this.colNhaCC.FieldName = "NhaCC";
             this.colNhaCC.Name = "colNhaCC";
             this.colNhaCC.Visible = true;

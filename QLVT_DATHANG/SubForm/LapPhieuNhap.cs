@@ -248,8 +248,17 @@ namespace QLVT_DATHANG.SubForm
             }
             else if (dr == DialogResult.Yes)
             {
-                //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
-                this.cTPNBindingSource.RemoveCurrent();
+                try
+                {
+                    //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
+                    this.cTPNBindingSource.RemoveCurrent();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không có chi tiết phiếu nhập để xóa!", "Thông báo",
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 this.cTPNBindingSource.EndEdit();
                 this.cTPNTableAdapter.Update(this.cN1);
                 // fill lại dữ liệu cho subform

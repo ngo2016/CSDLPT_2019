@@ -244,8 +244,17 @@ namespace QLVT_DATHANG.SubForm
             }
             else if (dr == DialogResult.Yes)
             {
-                //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
-                this.cTDDHBindingSource.RemoveCurrent();
+                try
+                {
+                    //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
+                    this.cTDDHBindingSource.RemoveCurrent();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không có chi tiết đơn đặt hàng để xóa!", "Thông báo",
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 MessageBox.Show("Chi tiết đơn đặt hàng đã bị xóa!", "Thông báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 this.btnSubformAdd.PerformClick();
