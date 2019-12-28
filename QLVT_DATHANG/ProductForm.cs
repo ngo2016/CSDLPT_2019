@@ -32,7 +32,7 @@ namespace QLVT_DATHANG
             // Phân quyền login
             if (Program.group == "USER")
             {
-
+                this.btnAddProduct.Enabled = false;
             }
             else if (Program.group == "CHINHANH")
             {

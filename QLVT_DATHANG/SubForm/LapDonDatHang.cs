@@ -236,9 +236,20 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSubformDel_Click(object sender, EventArgs e)
         {
-            //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
-            this.cTDDHBindingSource.RemoveCurrent();
-            this.btnSubformAdd.PerformClick();
+            DialogResult dr = MessageBox.Show("Chi tiết đơn đặt hàng sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.No)
+            {
+                return;
+            }
+            else if (dr == DialogResult.Yes)
+            {
+                //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
+                this.cTDDHBindingSource.RemoveCurrent();
+                MessageBox.Show("Chi tiết đơn đặt hàng đã bị xóa!", "Thông báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                this.btnSubformAdd.PerformClick();
+            }
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

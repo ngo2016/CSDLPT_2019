@@ -56,7 +56,7 @@ namespace QLVT_DATHANG
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
             this.tenCNComboBox.SelectedValue = Program.servername;
-
+            oldKhoData = getKhoCurrentData();
         }
 
         private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -105,6 +105,7 @@ namespace QLVT_DATHANG
             catch (Exception)
             {
             }
+            MessageBox.Show("Đã lưu thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

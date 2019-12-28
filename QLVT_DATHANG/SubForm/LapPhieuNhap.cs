@@ -240,12 +240,24 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSubformDel_Click(object sender, EventArgs e)
         {
-            //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
-            this.cTPNBindingSource.RemoveCurrent();
-            this.cTPNBindingSource.EndEdit();
-            this.cTPNTableAdapter.Update(this.cN1);
-            // fill lại dữ liệu cho subform
-            this.cTPNTableAdapter.Fill(this.cN1.CTPN);
+            DialogResult dr = MessageBox.Show("Chi tiết phiếu nhập sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.No)
+            {
+                return;
+            }
+            else if (dr == DialogResult.Yes)
+            {
+                //xóa phần tử hiện tại trong bảng(con trỏ ở đâu xóa ở đó)
+                this.cTPNBindingSource.RemoveCurrent();
+                this.cTPNBindingSource.EndEdit();
+                this.cTPNTableAdapter.Update(this.cN1);
+                // fill lại dữ liệu cho subform
+                this.cTPNTableAdapter.Fill(this.cN1.CTPN);
+
+                MessageBox.Show("Chi tiết phiếu nhập đã bị xóa!", "Thông báo",
+                             MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

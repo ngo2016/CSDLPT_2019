@@ -38,6 +38,7 @@ namespace QLVT_DATHANG
             if (Program.group == "USER")
             {
                 this.addButton.Enabled = false;
+                this.btnMove.Enabled = false;
             }
             else if (Program.group == "CHINHANH")
             {
@@ -70,6 +71,7 @@ namespace QLVT_DATHANG
             // TODO: This line of code loads data into the 'cN1.DatHang' table. You can move, or remove it, as needed.
             this.datHangTableAdapter.Fill(this.cN1.DatHang);
             this.tenChiNhanhComboBox.SelectedValue = Program.servername;
+            oldNVData = getNVCurrentData();
         }
 
         private void exitButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -111,7 +113,7 @@ namespace QLVT_DATHANG
 
         private void eraseButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (this.trangThaiXoaTextEdit.Text=="1")
+            if (this.trangThaiXoaTextEdit.Text == "1")
             {
                 MessageBox.Show("Nhân viên đã bị xóa rồi. Xin vui lòng không xoá nữa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -204,6 +206,8 @@ namespace QLVT_DATHANG
             }
 
             canUpdate = true;
+
+            MessageBox.Show("Đã lưu thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -308,14 +312,14 @@ namespace QLVT_DATHANG
 
         private void btnMove_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           string manv = this.maNhanVienTextEdit.Text;
-           string macn = Program.chiNhanh == 1 ? "CN2" : "CN1";
-           SqlCommand sqlcmd = new SqlCommand("sp_chuyenChiNhanhNhanVien", Program.connect);
-           sqlcmd.CommandType = CommandType.StoredProcedure;
-           sqlcmd.Parameters.AddWithValue("@MANV", manv);
-           sqlcmd.Parameters.AddWithValue("@MACN", macn);
-           Program.execStoreProcedure(sqlcmd);
-           reloadButton.PerformClick();
+            string manv = this.maNhanVienTextEdit.Text;
+            string macn = Program.chiNhanh == 1 ? "CN2" : "CN1";
+            SqlCommand sqlcmd = new SqlCommand("sp_chuyenChiNhanhNhanVien", Program.connect);
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            sqlcmd.Parameters.AddWithValue("@MANV", manv);
+            sqlcmd.Parameters.AddWithValue("@MACN", macn);
+            Program.execStoreProcedure(sqlcmd);
+            reloadButton.PerformClick();
         }
 
         private void luongSpinEdit_EditValueChanged(object sender, EventArgs e)
