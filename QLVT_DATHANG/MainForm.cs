@@ -31,7 +31,7 @@ namespace QLVT_DATHANG
         private void btnFormEmployee_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.employeeForm = new EmployeeForm();
-            Program.employeeForm.Show();
+            Program.employeeForm.ShowDialog();
         }
 
         private void btnExit_ItemClick(object sender, ItemClickEventArgs e)
@@ -43,19 +43,19 @@ namespace QLVT_DATHANG
         private void btnWarehouse_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.storageForm = new StorageForm();
-            Program.storageForm.Show();
+            Program.storageForm.ShowDialog();
         }
 
         private void btnSupplies_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.productForm = new ProductForm();
-            Program.productForm.Show();
+            Program.productForm.ShowDialog();
         }
 
         private void btnLapDonDatHang_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.addDDHForm = new SubForm.LapDonDatHang();
-            Program.addDDHForm.Show();
+            Program.addDDHForm.ShowDialog();
         }
 
         private void btnCreateAcc_ItemClick(object sender, ItemClickEventArgs e)
@@ -109,13 +109,13 @@ namespace QLVT_DATHANG
         private void btnLapPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.addPhieuNhapForm = new SubForm.LapPhieuNhap();
-            Program.addPhieuNhapForm.Show();
+            Program.addPhieuNhapForm.ShowDialog();
         }
 
         private void btnLapPhieuXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
             Program.addPhieuXuatForm = new SubForm.LapPhieuXuat();
-            Program.addPhieuXuatForm.Show();
+            Program.addPhieuXuatForm.ShowDialog();
         }
     }
 }

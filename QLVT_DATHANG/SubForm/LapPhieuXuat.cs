@@ -180,15 +180,65 @@ namespace QLVT_DATHANG.SubForm
         private void btnSubformAdd_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.cTPXBindingSource.EndEdit();
-            this.cTPXTableAdapter.Update(this.cN1);
+
+            //lấy data từ cellSoLuong của CTPN
+            int soluong = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
+            string maPX = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value.ToString();
+            string maVT = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
+
+            SqlCommand sqlCommand = new SqlCommand("sp_timSoLuongTonVatTu", Program.connect);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@MAVT", maVT);
+
+            int soLuongTon = Program.execStoreProcedureWithReturnValue(sqlCommand);
+
+            if (soluong > soLuongTon)
+            {
+                this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value = soLuongTon;
+                MessageBox.Show("Không được xuất số lượng vượt quá số lượng tồn trong kho", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //TODO: viết sp thêm ctpx
+
+            SqlCommand sqlCommand2 = new SqlCommand("sp_updateSoLuongTonVatTu", Program.connect);
+            sqlCommand2.CommandType = CommandType.StoredProcedure;
+            sqlCommand2.Parameters.AddWithValue("@MAVT", maVT);
+            sqlCommand2.Parameters.AddWithValue("@MAPX", maPX);
+            sqlCommand2.Parameters.AddWithValue("@SOLUONGMOI", soluong);
+            Program.execStoreProcedure(sqlCommand2);
+
             // fill lại dữ liệu cho subform
             this.cTPXTableAdapter.Fill(this.cN1.CTPX);
         }
 
         private void btnSubformWrite_Click(object sender, EventArgs e)
         {
-            btnSubformAdd.PerformClick();
+            this.Validate();
+
+            //lấy data từ cellSoLuong của CTPN
+            int soluong = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
+            string maPX = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value.ToString();
+            string maVT = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
+
+            try
+            {
+                SqlCommand sqlCommand2 = new SqlCommand("sp_updateSoLuongTonVatTu", Program.connect);
+                sqlCommand2.CommandType = CommandType.StoredProcedure;
+                sqlCommand2.Parameters.AddWithValue("@MAVT", maVT);
+                sqlCommand2.Parameters.AddWithValue("@MAPX", maPX);
+                sqlCommand2.Parameters.AddWithValue("@SOLUONGMOI", soluong);
+
+                Program.execStoreProcedure(sqlCommand2);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Số lượng mới không hợp lệ\n- Không được < Số lượng tồn\n- Không được <= 0", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // fill lại dữ liệu cho subform
+            this.cTPXTableAdapter.Fill(this.cN1.CTPX);
         }
 
         private void btnSubformDel_Click(object sender, EventArgs e)
@@ -277,6 +327,37 @@ namespace QLVT_DATHANG.SubForm
                 this.hoTenComboBox.SelectedValue = int.Parse(manv);
             }
             catch (Exception) { }
+        }
+
+        private void cTPXDataGridView_MouseUp(object sender, MouseEventArgs e)
+        {
+            //lấy data từ cellSoLuong của CTPN
+            
+            if (this.cTPXDataGridView.CurrentRow.IsNewRow)
+            {
+                btnSubformWrite.Enabled = false;
+
+                object cell1 = this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value;
+                object cell2 = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value;
+                object cell3 = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value;
+                object cell4 = this.cTPXDataGridView.CurrentRow.Cells["cellDonGia"].Value;
+
+                if ( string.IsNullOrEmpty(cell1.ToString()) || string.IsNullOrEmpty(cell2.ToString()) || 
+                    string.IsNullOrEmpty(cell3.ToString()) || string.IsNullOrEmpty(cell4.ToString()) )
+                {
+                    btnSubformAdd.Enabled = false;
+                }
+                else
+                {
+                    btnSubformAdd.Enabled = true;
+                }
+
+            }
+            else
+            {
+                btnSubformWrite.Enabled = true;
+                btnSubformAdd.Enabled = false;
+            }
         }
     }
 }

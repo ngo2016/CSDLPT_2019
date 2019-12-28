@@ -52,7 +52,9 @@ namespace QLVT_DATHANG.SubForm
             DataRowView row_data = row as DataRowView;
             string maDDH = row_data.Row.ItemArray[0].ToString();
 
-            LapPhieuNhap_AddNew_Confirm confirm = new LapPhieuNhap_AddNew_Confirm(maDDH);
+            DateTime ngay = Convert.ToDateTime(row_data.Row.ItemArray[1].ToString());
+
+            LapPhieuNhap_AddNew_Confirm confirm = new LapPhieuNhap_AddNew_Confirm(maDDH, ngay);
             confirm.Activate();
             confirm.Show();
             this.Visible = false;

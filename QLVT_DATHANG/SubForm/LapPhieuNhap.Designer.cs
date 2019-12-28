@@ -70,6 +70,8 @@
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.maSoDonDatHangTextEdit = new System.Windows.Forms.TextBox();
+            this.maPhieuNhapTextEdit = new System.Windows.Forms.TextBox();
             this.ngayDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tenKhoComboBox = new System.Windows.Forms.ComboBox();
             this.khoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -91,8 +93,6 @@
             this.vattuTableAdapter = new QLVT_DATHANG.CN1TableAdapters.VattuTableAdapter();
             this.v_DS_NhanVienTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_NhanVienTableAdapter();
             this.khoTableAdapter = new QLVT_DATHANG.CN1TableAdapters.KhoTableAdapter();
-            this.maPhieuNhapTextEdit = new System.Windows.Forms.TextBox();
-            this.maSoDonDatHangTextEdit = new System.Windows.Forms.TextBox();
             tENCNLabel = new System.Windows.Forms.Label();
             mAPNLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -401,6 +401,7 @@
             this.phieuNhapGridControl.TabIndex = 6;
             this.phieuNhapGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.phieuNhapGridControl.MouseCaptureChanged += new System.EventHandler(this.phieuNhapGridControl_MouseCaptureChanged);
             // 
             // gridView1
             // 
@@ -486,6 +487,24 @@
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(398, 382);
             this.groupControl2.TabIndex = 8;
+            // 
+            // maSoDonDatHangTextEdit
+            // 
+            this.maSoDonDatHangTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuNhapBindingSource, "MasoDDH", true));
+            this.maSoDonDatHangTextEdit.Location = new System.Drawing.Point(141, 145);
+            this.maSoDonDatHangTextEdit.MaxLength = 8;
+            this.maSoDonDatHangTextEdit.Name = "maSoDonDatHangTextEdit";
+            this.maSoDonDatHangTextEdit.Size = new System.Drawing.Size(209, 23);
+            this.maSoDonDatHangTextEdit.TabIndex = 2;
+            // 
+            // maPhieuNhapTextEdit
+            // 
+            this.maPhieuNhapTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuNhapBindingSource, "MAPN", true));
+            this.maPhieuNhapTextEdit.Location = new System.Drawing.Point(141, 46);
+            this.maPhieuNhapTextEdit.MaxLength = 8;
+            this.maPhieuNhapTextEdit.Name = "maPhieuNhapTextEdit";
+            this.maPhieuNhapTextEdit.Size = new System.Drawing.Size(209, 23);
+            this.maPhieuNhapTextEdit.TabIndex = 1;
             // 
             // ngayDateTimePicker
             // 
@@ -680,24 +699,6 @@
             // khoTableAdapter
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
-            // 
-            // maPhieuNhapTextEdit
-            // 
-            this.maPhieuNhapTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuNhapBindingSource, "MAPN", true));
-            this.maPhieuNhapTextEdit.Location = new System.Drawing.Point(141, 46);
-            this.maPhieuNhapTextEdit.MaxLength = 8;
-            this.maPhieuNhapTextEdit.Name = "maPhieuNhapTextEdit";
-            this.maPhieuNhapTextEdit.Size = new System.Drawing.Size(209, 23);
-            this.maPhieuNhapTextEdit.TabIndex = 1;
-            // 
-            // maSoDonDatHangTextEdit
-            // 
-            this.maSoDonDatHangTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuNhapBindingSource, "MasoDDH", true));
-            this.maSoDonDatHangTextEdit.Location = new System.Drawing.Point(141, 145);
-            this.maSoDonDatHangTextEdit.MaxLength = 8;
-            this.maSoDonDatHangTextEdit.Name = "maSoDonDatHangTextEdit";
-            this.maSoDonDatHangTextEdit.Size = new System.Drawing.Size(209, 23);
-            this.maSoDonDatHangTextEdit.TabIndex = 2;
             // 
             // LapPhieuNhap
             // 

@@ -23,7 +23,7 @@ namespace QLVT_DATHANG.SubForm
 
         private string maDDH;
 
-        public LapPhieuNhap_AddNew_Confirm(string maDDH = null)
+        public LapPhieuNhap_AddNew_Confirm(string maDDH, DateTime ngay)
         {
             this.maDDH = maDDH;
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace QLVT_DATHANG.SubForm
             dateTimePicker.CustomFormat = "yyyy-MM-dd";
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.dateTimePicker.MaxDate = DateTime.Today;
+            this.dateTimePicker.MinDate = ngay;
 
             maNVTextBox = new TextBox();
             maNVTextBox.Text = Program.username;

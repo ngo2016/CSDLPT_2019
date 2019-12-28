@@ -72,6 +72,8 @@
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.hoTenKhachHangTextEdit = new System.Windows.Forms.TextBox();
+            this.maPhieuXuatTextEdit = new System.Windows.Forms.TextBox();
             this.maNVSpinEdit = new DevExpress.XtraEditors.TextEdit();
             this.ngayLapDateEdit = new System.Windows.Forms.DateTimePicker();
             this.tenKhoComboBox = new System.Windows.Forms.ComboBox();
@@ -81,11 +83,7 @@
             this.maKhoTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.cTPXDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnSubformAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformWrite = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,8 +93,10 @@
             this.tenCNComboBox1 = new System.Windows.Forms.ComboBox();
             this.v_DS_NhanVienTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_NhanVienTableAdapter();
             this.khoTableAdapter = new QLVT_DATHANG.CN1TableAdapters.KhoTableAdapter();
-            this.maPhieuXuatTextEdit = new System.Windows.Forms.TextBox();
-            this.hoTenKhachHangTextEdit = new System.Windows.Forms.TextBox();
+            this.cellMaPX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellMaVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cellSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tENCNLabel = new System.Windows.Forms.Label();
             mAPXLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -502,6 +502,24 @@
             this.groupControl2.Size = new System.Drawing.Size(389, 358);
             this.groupControl2.TabIndex = 12;
             // 
+            // hoTenKhachHangTextEdit
+            // 
+            this.hoTenKhachHangTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuXuatBindingSource, "HOTENKH", true));
+            this.hoTenKhachHangTextEdit.Location = new System.Drawing.Point(168, 142);
+            this.hoTenKhachHangTextEdit.MaxLength = 100;
+            this.hoTenKhachHangTextEdit.Name = "hoTenKhachHangTextEdit";
+            this.hoTenKhachHangTextEdit.Size = new System.Drawing.Size(178, 23);
+            this.hoTenKhachHangTextEdit.TabIndex = 2;
+            // 
+            // maPhieuXuatTextEdit
+            // 
+            this.maPhieuXuatTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuXuatBindingSource, "MAPX", true));
+            this.maPhieuXuatTextEdit.Location = new System.Drawing.Point(168, 43);
+            this.maPhieuXuatTextEdit.MaxLength = 8;
+            this.maPhieuXuatTextEdit.Name = "maPhieuXuatTextEdit";
+            this.maPhieuXuatTextEdit.Size = new System.Drawing.Size(178, 23);
+            this.maPhieuXuatTextEdit.TabIndex = 1;
+            // 
             // maNVSpinEdit
             // 
             this.maNVSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.phieuXuatBindingSource, "MANV", true));
@@ -584,10 +602,10 @@
             this.cTPXDataGridView.AutoGenerateColumns = false;
             this.cTPXDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cTPXDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.cellMaPX,
+            this.cellMaVT,
+            this.cellSoLuong,
+            this.cellDonGia});
             this.cTPXDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.cTPXDataGridView.DataSource = this.cTPXBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -604,40 +622,12 @@
             this.cTPXDataGridView.RowTemplate.Height = 24;
             this.cTPXDataGridView.Size = new System.Drawing.Size(696, 329);
             this.cTPXDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MAPX";
-            this.dataGridViewTextBoxColumn1.HeaderText = "MAPX";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MAVT";
-            this.dataGridViewTextBoxColumn2.DataSource = this.vattuBindingSource;
-            this.dataGridViewTextBoxColumn2.DisplayMember = "TENVT";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MAVT";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.ValueMember = "MAVT";
+            this.cTPXDataGridView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cTPXDataGridView_MouseUp);
             // 
             // vattuBindingSource
             // 
             this.vattuBindingSource.DataMember = "Vattu";
             this.vattuBindingSource.DataSource = this.cN1;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.HeaderText = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DONGIA";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DONGIA";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // contextMenuStrip1
             // 
@@ -705,23 +695,36 @@
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
             // 
-            // maPhieuXuatTextEdit
+            // cellMaPX
             // 
-            this.maPhieuXuatTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuXuatBindingSource, "MAPX", true));
-            this.maPhieuXuatTextEdit.Location = new System.Drawing.Point(168, 43);
-            this.maPhieuXuatTextEdit.MaxLength = 8;
-            this.maPhieuXuatTextEdit.Name = "maPhieuXuatTextEdit";
-            this.maPhieuXuatTextEdit.Size = new System.Drawing.Size(178, 23);
-            this.maPhieuXuatTextEdit.TabIndex = 1;
+            this.cellMaPX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cellMaPX.DataPropertyName = "MAPX";
+            this.cellMaPX.HeaderText = "Mã phiếu xuất";
+            this.cellMaPX.Name = "cellMaPX";
+            this.cellMaPX.Width = 119;
             // 
-            // hoTenKhachHangTextEdit
+            // cellMaVT
             // 
-            this.hoTenKhachHangTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.phieuXuatBindingSource, "HOTENKH", true));
-            this.hoTenKhachHangTextEdit.Location = new System.Drawing.Point(168, 142);
-            this.hoTenKhachHangTextEdit.MaxLength = 100;
-            this.hoTenKhachHangTextEdit.Name = "hoTenKhachHangTextEdit";
-            this.hoTenKhachHangTextEdit.Size = new System.Drawing.Size(178, 23);
-            this.hoTenKhachHangTextEdit.TabIndex = 2;
+            this.cellMaVT.DataPropertyName = "MAVT";
+            this.cellMaVT.DataSource = this.vattuBindingSource;
+            this.cellMaVT.DisplayMember = "TENVT";
+            this.cellMaVT.HeaderText = "Mã vật tư";
+            this.cellMaVT.Name = "cellMaVT";
+            this.cellMaVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cellMaVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cellMaVT.ValueMember = "MAVT";
+            // 
+            // cellSoLuong
+            // 
+            this.cellSoLuong.DataPropertyName = "SOLUONG";
+            this.cellSoLuong.HeaderText = "Số lượng";
+            this.cellSoLuong.Name = "cellSoLuong";
+            // 
+            // cellDonGia
+            // 
+            this.cellDonGia.DataPropertyName = "DONGIA";
+            this.cellDonGia.HeaderText = "Đơn giá";
+            this.cellDonGia.Name = "cellDonGia";
             // 
             // LapPhieuXuat
             // 
@@ -815,10 +818,6 @@
         private DevExpress.XtraEditors.TextEdit maKhoTextEdit;
         private CN1TableAdapters.VattuTableAdapter vattuTableAdapter;
         private System.Windows.Forms.BindingSource vattuBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private System.Windows.Forms.ComboBox tenCNComboBox1;
         private System.Windows.Forms.BindingSource v_DS_NhanVienBindingSource;
@@ -835,5 +834,9 @@
         private DevExpress.XtraEditors.TextEdit maNVSpinEdit;
         private System.Windows.Forms.TextBox hoTenKhachHangTextEdit;
         private System.Windows.Forms.TextBox maPhieuXuatTextEdit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellMaPX;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cellMaVT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellDonGia;
     }
 }

@@ -195,13 +195,16 @@ namespace QLVT_DATHANG.SubForm
         {
             this.Validate();
 
+            //lấy data từ cellSoLuong của CTPN
             int soluong = int.Parse(this.cTPNDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
 
+            //lấy maDDH trong Phiếu nhập
             GridView gridView = phieuNhapGridControl.FocusedView as GridView;
             object row = gridView.GetRow(gridView.FocusedRowHandle);
             DataRowView row_data = row as DataRowView;
             string maDDH = row_data.Row.ItemArray[2].ToString();
 
+            //lấy data từ cellMaVT của CTPN
             string maVT = this.cTPNDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
 
             String sp_laysoluongtrongddh = "EXEC sp_laysoluongtrongddh '" + maDDH + "', '" + maVT + "'";
@@ -263,6 +266,26 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@MAKHO", SqlDbType.NChar).Value = makho;
             Program.execStoreProcedure(sqlcmd);
             this.btnReload.PerformClick();
+        }
+
+        private void phieuNhapGridControl_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            //lấy maDDH trong Phiếu nhập
+            GridView gridView = phieuNhapGridControl.FocusedView as GridView;
+            object row = gridView.GetRow(gridView.FocusedRowHandle);
+            DataRowView row_data = row as DataRowView;
+            string maDDH = row_data.Row.ItemArray[2].ToString();
+
+            String sp_timNgayDDH = "EXEC sp_timNgayDDH '" + maDDH + "'";
+            SqlDataReader dataReader = Program.ExecSqlDataReader(sp_timNgayDDH);
+
+            //doc ket qua tu sp_dangnhap có 1 cột "NGAY"
+            dataReader.Read();
+
+            this.ngayDateTimePicker.MinDate = dataReader.GetDateTime(0);
+
+            //đóng datareader để phòng lỗi vặt
+            dataReader.Close();
         }
     }
 }
