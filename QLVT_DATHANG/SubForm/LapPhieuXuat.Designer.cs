@@ -622,6 +622,7 @@
             this.cTPXDataGridView.RowTemplate.Height = 24;
             this.cTPXDataGridView.Size = new System.Drawing.Size(696, 329);
             this.cTPXDataGridView.TabIndex = 0;
+            this.cTPXDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.cTPXDataGridView_CellEndEdit);
             this.cTPXDataGridView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cTPXDataGridView_MouseUp);
             // 
             // cellMaPX
