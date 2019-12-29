@@ -38,13 +38,13 @@ namespace QLVT_DATHANG
 
         private void executeLogin()
         {
-
             if (this.usernameTxtBox.Text.Trim() == "")
             {
                 MessageBox.Show("Tài khoản không được bỏ trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 usernameTxtBox.Focus();
                 return;
             }
+
             if (this.passwordTxtBox.Text.Trim() == "")
             {
                 MessageBox.Show("Mật khẩu không được bỏ trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -54,7 +54,8 @@ namespace QLVT_DATHANG
 
             Program.servername = this.tenChiNhanhComboBox.SelectedValue.ToString(); //ten chi nhanh dang nhap CHINHANH1 | CHINHANH2
             Program.serverLogin = this.usernameTxtBox.Text; //login name de dang nhap vao server
-            Program.password = passwordTxtBox.Text; //mat khau de dang nhap server
+            Program.password = passwordTxtBox.Text; //mat khau de dang nhap server (truyền vào connection string để kết nối tới data source)
+
             if (Program.KetNoi() == 0)
             {
                 return;
@@ -62,11 +63,13 @@ namespace QLVT_DATHANG
 
             String sp_dangnhap = "EXEC SP_DANGNHAP '" + Program.serverLogin + "'";
             Program.dataReader = Program.ExecSqlDataReader(sp_dangnhap);
+
             if (Program.dataReader == null)
             {
                 MessageBox.Show("Đăng nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             try
             {
                 //doc ket qua tu sp_dangnhap có 3 cột ("USERNAME", "HOTEN", "NHOM")
@@ -77,6 +80,7 @@ namespace QLVT_DATHANG
                 MessageBox.Show("Login bạn nhập không được hỗ trợ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             //sau khi thuc thi sp_dangnhap ta co    0           1       2
             //                                      manhanvien  hoten   group
             Program.username = Program.dataReader.GetString(0);

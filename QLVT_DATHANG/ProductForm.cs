@@ -57,6 +57,8 @@ namespace QLVT_DATHANG
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.Vattu' table. You can move, or remove it, as needed.
+            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
             // TODO: This line of code loads data into the 'cN1.CTDDH' table. You can move, or remove it, as needed.
             this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
             // TODO: This line of code loads data into the 'cN1.CTPN' table. You can move, or remove it, as needed.

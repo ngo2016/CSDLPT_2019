@@ -51,10 +51,10 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.donViTinhTextEdit = new System.Windows.Forms.TextBox();
-            this.tenVTTextEdit = new System.Windows.Forms.TextBox();
-            this.soLuongTonSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cN1 = new QLVT_DATHANG.CN1();
+            this.tenVTTextEdit = new System.Windows.Forms.TextBox();
+            this.soLuongTonSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.maVTTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -75,6 +75,9 @@
             this.cTPNTableAdapter = new QLVT_DATHANG.CN1TableAdapters.CTPNTableAdapter();
             this.cTDDHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cTDDHTableAdapter = new QLVT_DATHANG.CN1TableAdapters.CTDDHTableAdapter();
+            this.qLVT_DATHANGDataSet = new QLVT_DATHANG.QLVT_DATHANGDataSet();
+            this.vattuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vattuTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter();
             mAVTLabel = new System.Windows.Forms.Label();
             tENVTLabel = new System.Windows.Forms.Label();
             dVTLabel = new System.Windows.Forms.Label();
@@ -82,15 +85,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cN1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maVTTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // mAVTLabel
@@ -299,16 +304,26 @@
             // 
             // donViTinhTextEdit
             // 
-            this.donViTinhTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vattuBindingSource, "DVT", true));
+            this.donViTinhTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vattuBindingSource1, "DVT", true));
             this.donViTinhTextEdit.Location = new System.Drawing.Point(614, 552);
             this.donViTinhTextEdit.MaxLength = 15;
             this.donViTinhTextEdit.Name = "donViTinhTextEdit";
             this.donViTinhTextEdit.Size = new System.Drawing.Size(158, 23);
             this.donViTinhTextEdit.TabIndex = 2;
             // 
+            // vattuBindingSource
+            // 
+            this.vattuBindingSource.DataMember = "Vattu";
+            this.vattuBindingSource.DataSource = this.cN1;
+            // 
+            // cN1
+            // 
+            this.cN1.DataSetName = "CN1";
+            this.cN1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tenVTTextEdit
             // 
-            this.tenVTTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vattuBindingSource, "TENVT", true));
+            this.tenVTTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vattuBindingSource1, "TENVT", true));
             this.tenVTTextEdit.Location = new System.Drawing.Point(316, 632);
             this.tenVTTextEdit.MaxLength = 30;
             this.tenVTTextEdit.Name = "tenVTTextEdit";
@@ -317,7 +332,7 @@
             // 
             // soLuongTonSpinEdit
             // 
-            this.soLuongTonSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vattuBindingSource, "SOLUONGTON", true));
+            this.soLuongTonSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vattuBindingSource1, "SOLUONGTON", true));
             this.soLuongTonSpinEdit.EditValue = new decimal(new int[] {
             0,
             0,
@@ -331,19 +346,9 @@
             this.soLuongTonSpinEdit.Enter += new System.EventHandler(this.soLuongTonSpinEdit_Enter);
             this.soLuongTonSpinEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soLuongTonSpinEdit_KeyPress);
             // 
-            // vattuBindingSource
-            // 
-            this.vattuBindingSource.DataMember = "Vattu";
-            this.vattuBindingSource.DataSource = this.cN1;
-            // 
-            // cN1
-            // 
-            this.cN1.DataSetName = "CN1";
-            this.cN1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // maVTTextEdit
             // 
-            this.maVTTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vattuBindingSource, "MAVT", true));
+            this.maVTTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vattuBindingSource1, "MAVT", true));
             this.maVTTextEdit.Enabled = false;
             this.maVTTextEdit.Location = new System.Drawing.Point(316, 549);
             this.maVTTextEdit.MenuManager = this.barManager1;
@@ -372,7 +377,7 @@
             // 
             // vattuGridControl
             // 
-            this.vattuGridControl.DataSource = this.vattuBindingSource;
+            this.vattuGridControl.DataSource = this.vattuBindingSource1;
             this.vattuGridControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.vattuGridControl.Location = new System.Drawing.Point(2, 27);
             this.vattuGridControl.MainView = this.gridView1;
@@ -510,6 +515,20 @@
             // 
             this.cTDDHTableAdapter.ClearBeforeFill = true;
             // 
+            // qLVT_DATHANGDataSet
+            // 
+            this.qLVT_DATHANGDataSet.DataSetName = "QLVT_DATHANGDataSet";
+            this.qLVT_DATHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vattuBindingSource1
+            // 
+            this.vattuBindingSource1.DataMember = "Vattu";
+            this.vattuBindingSource1.DataSource = this.qLVT_DATHANGDataSet;
+            // 
+            // vattuTableAdapter1
+            // 
+            this.vattuTableAdapter1.ClearBeforeFill = true;
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -536,15 +555,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cN1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maVTTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,5 +614,8 @@
         private System.Windows.Forms.TextBox tenVTTextEdit;
         private System.Windows.Forms.TextBox donViTinhTextEdit;
         private DevExpress.XtraEditors.SpinEdit soLuongTonSpinEdit;
+        private QLVT_DATHANGDataSet qLVT_DATHANGDataSet;
+        private System.Windows.Forms.BindingSource vattuBindingSource1;
+        private QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter vattuTableAdapter1;
     }
 }

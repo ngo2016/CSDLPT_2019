@@ -172,9 +172,9 @@ namespace QLVT_DATHANG
                 Program.connect.Open();
                 return 1;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\n-Xem lại user name và password.\n-Xem lại chi nhánh!\n" + e.Message, "DoAn.exe", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\n-Xem lại user name và password.\n-Xem lại chi nhánh!\n", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
         }

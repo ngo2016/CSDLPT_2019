@@ -45,6 +45,8 @@ namespace QLVT_DATHANG.SubForm
 
         private void LapDonDatHang_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.Vattu' table. You can move, or remove it, as needed.
+            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
             //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
             cN1.EnforceConstraints = false;
 

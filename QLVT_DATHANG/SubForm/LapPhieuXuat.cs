@@ -38,6 +38,8 @@ namespace QLVT_DATHANG.SubForm
 
         private void LapPhieuXuat_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.Vattu' table. You can move, or remove it, as needed.
+            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
             //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
             cN1.EnforceConstraints = false;
 
@@ -198,25 +200,24 @@ namespace QLVT_DATHANG.SubForm
             try
             {
                 //lấy data từ cellSoLuong của CTPN
-                int soluong = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
-                string maPX = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value.ToString();
-                string maVT = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
-                int donGia = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellDonGia"].Value.ToString());
+                foreach (var item in cTPXDataGridView.Rows)
+                {
+                    DataGridViewRow row = item as DataGridViewRow;
 
+                    int soluong = int.Parse(row.Cells["cellSoLuong"].Value.ToString());
+                    string maPX = row.Cells["cellMaPX"].Value.ToString();
+                    string maVT = row.Cells["cellMaVT"].Value.ToString();
+                    int donGia = int.Parse(row.Cells["cellDonGia"].Value.ToString());
 
+                    SqlCommand sqlCommand = new SqlCommand("sp_updateCTPX", Program.connect);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@MAPX", maPX);
+                    sqlCommand.Parameters.AddWithValue("@MAVT", maVT);
+                    sqlCommand.Parameters.AddWithValue("@SOLUONGMOI", soluong);
+                    sqlCommand.Parameters.AddWithValue("@DONGIA", donGia);
 
-                //SqlCommand sqlCommand = new SqlCommand("sp_updateCTPX", Program.connect);
-                //sqlCommand.CommandType = CommandType.StoredProcedure;
-                //sqlCommand.Parameters.AddWithValue("@MAVT", maVT);
-
-                //int soLuongTon = Program.execStoreProcedureWithReturnValue(sqlCommand);
-
-                //if (soluong > soLuongTon)
-                //{
-                //    this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value = soLuongTon;
-                //    MessageBox.Show("Không được xuất số lượng vượt quá số lượng tồn trong kho", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
+                    Program.execStoreProcedure(sqlCommand);
+                }
             }
             catch (Exception)
             {
@@ -234,16 +235,11 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSubformDel_Click(object sender, EventArgs e)
         {
-            if (this.cTPXDataGridView.RowCount==0)
+            //trường hợp ko có chi tiết phiếu xuất
+            if (this.cTPXDataGridView.RowCount == 0)
             {
                 MessageBox.Show("Không có chi tiết phiếu xuất để xóa!", "Thông báo",
                          MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (cTPXDataGridView.AllowUserToAddRows == true)
-            {
-                cTPXDataGridView.AllowUserToAddRows = false;
                 return;
             }
 
@@ -268,7 +264,7 @@ namespace QLVT_DATHANG.SubForm
                 this.cTPXTableAdapter.Update(this.cN1);
                 this.cTPXTableAdapter.Fill(this.cN1.CTPX);
 
-                MessageBox.Show("Chi tiết phiếu xuất đã bị xóa!", "Thông báo",
+                MessageBox.Show("Chi tiết phiếu xuất đã bị xóa!\nVui lòng cập nhật lại số lượng tồn vật tư nếu cần.", "Thông báo",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
