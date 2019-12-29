@@ -195,39 +195,33 @@ namespace QLVT_DATHANG.SubForm
         {
             this.Validate();
 
-            //lấy data từ cellSoLuong của CTPN
-            int soluong = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
-            string maPX = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value.ToString();
-            string maVT = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
-            int donGia = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellDonGia"].Value.ToString());
-
-            SqlCommand sqlCommand = new SqlCommand("sp_timSoLuongTonVatTu", Program.connect);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@MAVT", maVT);
-
-            int soLuongTon = Program.execStoreProcedureWithReturnValue(sqlCommand);
-
-            if (soluong > soLuongTon)
+            try
             {
-                this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value = soLuongTon;
-                MessageBox.Show("Không được xuất số lượng vượt quá số lượng tồn trong kho", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //lấy data từ cellSoLuong của CTPN
+                int soluong = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
+                string maPX = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value.ToString();
+                string maVT = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
+                int donGia = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellDonGia"].Value.ToString());
+
+
+
+                //SqlCommand sqlCommand = new SqlCommand("sp_updateCTPX", Program.connect);
+                //sqlCommand.CommandType = CommandType.StoredProcedure;
+                //sqlCommand.Parameters.AddWithValue("@MAVT", maVT);
+
+                //int soLuongTon = Program.execStoreProcedureWithReturnValue(sqlCommand);
+
+                //if (soluong > soLuongTon)
+                //{
+                //    this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value = soLuongTon;
+                //    MessageBox.Show("Không được xuất số lượng vượt quá số lượng tồn trong kho", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
+            }
+            catch (Exception)
+            {
                 return;
             }
-
-            SqlCommand sqlCommand3 = new SqlCommand("sp_themCTPX", Program.connect);
-            sqlCommand3.CommandType = CommandType.StoredProcedure;
-            sqlCommand3.Parameters.AddWithValue("@MAPX", maPX);
-            sqlCommand3.Parameters.AddWithValue("@MAVT", maVT);
-            sqlCommand3.Parameters.AddWithValue("@SOLUONG", soluong);
-            sqlCommand3.Parameters.AddWithValue("@DONGIA", donGia);
-            Program.execStoreProcedure(sqlCommand3);
-
-            SqlCommand sqlCommand2 = new SqlCommand("sp_updateSoLuongTonVatTu", Program.connect);
-            sqlCommand2.CommandType = CommandType.StoredProcedure;
-            sqlCommand2.Parameters.AddWithValue("@MAVT", maVT);
-            sqlCommand2.Parameters.AddWithValue("@MAPX", maPX);
-            sqlCommand2.Parameters.AddWithValue("@SOLUONGMOI", soluong);
-            Program.execStoreProcedure(sqlCommand2);
 
             // fill lại dữ liệu cho subform
             this.cTPXTableAdapter.Fill(this.cN1.CTPX);
@@ -235,39 +229,24 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSubformWrite_Click(object sender, EventArgs e)
         {
-            this.Validate();
-
-            //lấy data từ cellSoLuong của CTPN
-            int soluong = int.Parse(this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value.ToString());
-            string maPX = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value.ToString();
-            string maVT = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value.ToString();
-
-            SqlCommand sqlCommand = new SqlCommand("sp_timSoLuongTonVatTu", Program.connect);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@MAVT", maVT);
-
-            try
-            {
-                SqlCommand sqlCommand2 = new SqlCommand("sp_updateSoLuongTonVatTu", Program.connect);
-                sqlCommand2.CommandType = CommandType.StoredProcedure;
-                sqlCommand2.Parameters.AddWithValue("@MAVT", maVT);
-                sqlCommand2.Parameters.AddWithValue("@MAPX", maPX);
-                sqlCommand2.Parameters.AddWithValue("@SOLUONGMOI", soluong);
-
-                Program.execStoreProcedure(sqlCommand2);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Số lượng mới không hợp lệ\n- Không được < Số lượng tồn\n- Không được <= 0", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // fill lại dữ liệu cho subform
-            this.cTPXTableAdapter.Fill(this.cN1.CTPX);
+            btnSubformAdd.PerformClick();
         }
 
         private void btnSubformDel_Click(object sender, EventArgs e)
         {
+            if (this.cTPXDataGridView.RowCount==0)
+            {
+                MessageBox.Show("Không có chi tiết phiếu xuất để xóa!", "Thông báo",
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (cTPXDataGridView.AllowUserToAddRows == true)
+            {
+                cTPXDataGridView.AllowUserToAddRows = false;
+                return;
+            }
+
             DialogResult dr = MessageBox.Show("Chi tiết phiếu xuất sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.No)
@@ -283,8 +262,6 @@ namespace QLVT_DATHANG.SubForm
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Không có chi tiết phiếu xuất để xóa!", "Thông báo",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 this.cTPXBindingSource.EndEdit();
@@ -292,7 +269,7 @@ namespace QLVT_DATHANG.SubForm
                 this.cTPXTableAdapter.Fill(this.cN1.CTPX);
 
                 MessageBox.Show("Chi tiết phiếu xuất đã bị xóa!", "Thông báo",
-                             MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -375,42 +352,6 @@ namespace QLVT_DATHANG.SubForm
                 this.hoTenComboBox.SelectedValue = int.Parse(manv);
             }
             catch (Exception) { }
-        }
-
-        private void cTPXDataGridView_MouseUp(object sender, MouseEventArgs e)
-        {
-            //lấy data từ cellSoLuong của CTPN
-
-            //if (this.cTPXDataGridView.CurrentRow.IsNewRow)
-            //{
-            //    btnSubformWrite.Enabled = false;
-
-            //    object cell1 = this.cTPXDataGridView.CurrentRow.Cells["cellSoLuong"].Value;
-            //    object cell2 = this.cTPXDataGridView.CurrentRow.Cells["cellMaPX"].Value;
-            //    object cell3 = this.cTPXDataGridView.CurrentRow.Cells["cellMaVT"].Value;
-            //    object cell4 = this.cTPXDataGridView.CurrentRow.Cells["cellDonGia"].Value;
-
-            //    if (string.IsNullOrEmpty(cell1.ToString()) || string.IsNullOrEmpty(cell2.ToString()) ||
-            //        string.IsNullOrEmpty(cell3.ToString()) || string.IsNullOrEmpty(cell4.ToString()))
-            //    {
-            //        btnSubformAdd.Enabled = false;
-            //    }
-            //    else
-            //    {
-            //        btnSubformAdd.Enabled = true;
-            //    }
-
-            //}
-            //else
-            //{
-            //    btnSubformWrite.Enabled = true;
-            //    btnSubformAdd.Enabled = false;
-            //}
-        }
-
-        private void cTPXDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            cTPXDataGridView.AllowUserToAddRows = false;
         }
     }
 }
