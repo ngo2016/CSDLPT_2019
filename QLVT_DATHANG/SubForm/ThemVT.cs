@@ -101,7 +101,7 @@ namespace QLVT_DATHANG.SubForm
                 return;
             }
 
-            //neu chua ton tai trong he thong ta se tao nhan vien
+            //neu chua ton tai trong he thong ta se thêm vật tư
             SqlCommand sqlcmd = new SqlCommand("sp_themvattu", Program.connect);
             sqlcmd.CommandType = CommandType.StoredProcedure;
             sqlcmd.Parameters.Add("@MAVT", SqlDbType.NChar).Value = mavt;

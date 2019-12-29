@@ -77,7 +77,7 @@ namespace QLVT_DATHANG
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.vattuTableAdapter.Fill(this.cN1.Vattu);
+            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
         }
 
         private void btnSaveProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

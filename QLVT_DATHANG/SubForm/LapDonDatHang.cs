@@ -238,6 +238,14 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSubformDel_Click(object sender, EventArgs e)
         {
+            //trường hợp ko có chi tiết phiếu xuất
+            if (this.cTDDHDataGridView.RowCount == 0)
+            {
+                MessageBox.Show("Không có chi tiết đơn đặt hàng để xóa!", "Thông báo",
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             DialogResult dr = MessageBox.Show("Chi tiết đơn đặt hàng sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.No)
@@ -253,13 +261,14 @@ namespace QLVT_DATHANG.SubForm
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Không có chi tiết đơn đặt hàng để xóa!", "Thông báo",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+                this.cTDDHBindingSource.EndEdit();
+                this.cTDDHTableAdapter.Update(this.cN1);
+                this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
+
                 MessageBox.Show("Chi tiết đơn đặt hàng đã bị xóa!", "Thông báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                this.btnSubformAdd.PerformClick();
             }
         }
 
