@@ -107,9 +107,9 @@
             this.xrLabel4.StylePriority.UseTextAlignment = false;
             xrSummary1.FormatString = "{0:0.00%}";
             xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Percentage;
-            xrSummary1.IgnoreNullValues = true;
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrLabel4.Summary = xrSummary1;
+            this.xrLabel4.Text = "0.00%";
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel5
@@ -124,6 +124,7 @@
             this.xrLabel5.SizeF = new System.Drawing.SizeF(124.1667F, 36F);
             this.xrLabel5.StylePriority.UseBorders = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
+            this.xrLabel5.Text = "0.0";
             this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable2
@@ -173,7 +174,7 @@
             this.xrTableCell10.StyleName = "DataField";
             this.xrTableCell10.StylePriority.UseBorders = false;
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
-            this.xrTableCell10.Text = "xrTableCell10";
+            this.xrTableCell10.Text = "0.0";
             this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell10.Weight = 122.64447792768479D;
             // 
@@ -192,6 +193,7 @@
             xrSummary2.Func = DevExpress.XtraReports.UI.SummaryFunc.Percentage;
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell12.Summary = xrSummary2;
+            this.xrTableCell12.Text = "0.00%";
             this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell12.Weight = 124.95707187652585D;
             // 
