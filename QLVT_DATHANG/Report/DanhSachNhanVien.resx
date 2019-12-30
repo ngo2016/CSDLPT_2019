@@ -117,52 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MainServer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="Server1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="customSqlQuery1.Sql" xml:space="preserve">
-    <value>select "NhanVien"."MANV", "NhanVien"."HO" + N' ' + 
-       "NhanVien"."TEN" as N'Họ tên', "NhanVien"."DIACHI",
-       "NhanVien"."NGAYSINH", "NhanVien"."LUONG",
-       "NhanVien"."MACN",
-       "NhanVien"."rowguid"
-  from "dbo"."NhanVien" "NhanVien" where TrangThaiXoa=0
-</value>
-  </data>
-  <data name="MainServer.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0iTWFpblNlcnZlciI+PFZpZXcgTmFtZT0iUXVlcnkiPjxGaWVsZCBOYW1lPSJNQU5WIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iSOG7jSB0w6puIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRJQUNISSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOR0FZU0lOSCIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IkxVT05HIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9Ik1BQ04iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icm93Z3VpZCIgVHlwZT0iR3VpZCIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
-  </data>
-  <metadata name="chiNhanhTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="v_DS_NhanVien_ReportTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 103</value>
   </metadata>
-  <metadata name="Server1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 146</value>
-  </metadata>
-  <data name="customSqlQuery2.Sql" xml:space="preserve">
-    <value>select "NhanVien"."MANV", "NhanVien"."HO" + N' ' + 
-       "NhanVien"."TEN" as N'Họ tên', "NhanVien"."DIACHI",
-       "NhanVien"."NGAYSINH", "NhanVien"."LUONG",
-       "NhanVien"."MACN",
-       "NhanVien"."rowguid"
-  from "dbo"."NhanVien" "NhanVien" where TrangThaiXoa=0
-</value>
-  </data>
-  <data name="Server1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0iU2VydmVyMSI+PFZpZXcgTmFtZT0iUXVlcnkiPjxGaWVsZCBOYW1lPSJNQU5WIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iSOG7jSB0w6puIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRJQUNISSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOR0FZU0lOSCIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IkxVT05HIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9Ik1BQ04iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icm93Z3VpZCIgVHlwZT0iR3VpZCIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
-  </data>
-  <metadata name="Server2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 189</value>
-  </metadata>
-  <data name="customSqlQuery3.Sql" xml:space="preserve">
-    <value>select "NhanVien"."MANV", "NhanVien"."HO" + N' ' + 
-       "NhanVien"."TEN" as N'Họ tên', "NhanVien"."DIACHI",
-       "NhanVien"."NGAYSINH", "NhanVien"."LUONG",
-       "NhanVien"."MACN",
-       "NhanVien"."rowguid"
-  from "dbo"."NhanVien" "NhanVien" where TrangThaiXoa=0
-</value>
-  </data>
-  <data name="Server2.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0iU2VydmVyMiI+PFZpZXcgTmFtZT0iUXVlcnkiPjxGaWVsZCBOYW1lPSJNQU5WIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iSOG7jSB0w6puIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRJQUNISSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOR0FZU0lOSCIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IkxVT05HIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9Ik1BQ04iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icm93Z3VpZCIgVHlwZT0iR3VpZCIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
-  </data>
 </root>

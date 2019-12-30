@@ -14,8 +14,10 @@ namespace QLVT_DATHANG
 {
     public partial class ProductForm : DevExpress.XtraEditors.XtraForm
     {
+        //dữ liệu cũ
         private static string oldVTData = null;
 
+        //stack để undo
         private static Stack<string> _maVT = new Stack<string>();
         private static Stack<string> _tenVT = new Stack<string>();
         private static Stack<string> _dvt = new Stack<string>();
@@ -50,23 +52,22 @@ namespace QLVT_DATHANG
         private void vattuBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.vattuBindingSource.EndEdit();
+            this.vattuBindingSource1.EndEdit();
             this.tableAdapterManager.UpdateAll(this.cN1);
-
         }
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.Vattu' table. You can move, or remove it, as needed.
+            //ko cần set lại constring vì lấy dữ liệu vật tư trực tiếp từ main server
             this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
-            // TODO: This line of code loads data into the 'cN1.CTDDH' table. You can move, or remove it, as needed.
-            this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
-            // TODO: This line of code loads data into the 'cN1.CTPN' table. You can move, or remove it, as needed.
-            this.cTPNTableAdapter.Fill(this.cN1.CTPN);
-            // TODO: This line of code loads data into the 'cN1.CTPX' table. You can move, or remove it, as needed.
-            this.cTPXTableAdapter.Fill(this.cN1.CTPX);
-            // TODO: This line of code loads data into the 'cN1.Vattu' table. You can move, or remove it, as needed.
-            this.vattuTableAdapter.Fill(this.cN1.Vattu);
+            
+            this.cTDDHTableAdapter1.Fill(this.qLVT_DATHANGDataSet.CTDDH);
+            
+            this.cTPNTableAdapter1.Fill(this.qLVT_DATHANGDataSet.CTPN);
+            
+            this.cTPXTableAdapter1.Fill(this.qLVT_DATHANGDataSet.CTPX);
+
+            //mới load form lấy dữ liệu đưa vào stack để tránh lỗi null
             oldVTData = getVTCurrentData();
         }
 
@@ -82,6 +83,7 @@ namespace QLVT_DATHANG
 
         private void btnSaveProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //validate rỗng
             if (!Program.checkValidate(donViTinhTextEdit, "Field đơn vị tính không được để trống!")) return;
             if (!Program.checkValidate(tenVTTextEdit, "Field tên vật tư không được để trống!")) return;
 
@@ -116,42 +118,52 @@ namespace QLVT_DATHANG
             }
 
             MessageBox.Show("Đã lưu thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             this.btnReload.PerformClick();
         }
 
         private void btnDelProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (cTDDHBindingSource.Count > 0)
+            //cho vào try catch để tránh lỗi null
+            try
             {
-                MessageBox.Show("Vật tư đã có chi tiết đơn đặt hàng. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (cTPNBindingSource.Count > 0)
-            {
-                MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu nhập. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (cTPXBindingSource.Count > 0)
-            {
-                MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu xuất. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                DialogResult dr = MessageBox.Show("Vật tư sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.No)
+                if (cTDDHBindingSource.Count > 0)
                 {
-                    return;
+                    MessageBox.Show("Vật tư đã có chi tiết đơn đặt hàng. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (dr == DialogResult.Yes)
+                if (cTPNBindingSource.Count > 0)
                 {
-                    MessageBox.Show("Vật tư đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu nhập. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (cTPXBindingSource.Count > 0)
+                {
+                    MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu xuất. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("Vật tư sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else if (dr == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Vật tư đã bị xóa!", "Thông báo",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    string cmd = "EXEC sp_xoavattu '" + this.maVTTextEdit.Text + "'";
-                    SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
-                    sqlcmd.CommandType = CommandType.Text;
-                    Program.execStoreProcedure(sqlcmd);
-                    btnReload.PerformClick();
+                        string cmd = "EXEC sp_xoavattu '" + this.maVTTextEdit.Text + "'";
+                        SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
+                        sqlcmd.CommandType = CommandType.Text;
+                        Program.execStoreProcedure(sqlcmd);
+
+                        btnReload.PerformClick();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                return;
             }
         }
 
@@ -159,11 +171,13 @@ namespace QLVT_DATHANG
         {
             try
             {
+                //lấy dữ liệu trong stack ra để undo
                 string mavt = _maVT.Pop();
                 string tenvt = _tenVT.Pop();
                 string dvt = _dvt.Pop();
                 int slt = _soLuongTon.Pop();
 
+                //update lại vào trong db
                 SqlCommand sqlcmd = new SqlCommand("sp_updatevattu", Program.connect);
                 sqlcmd.CommandType = CommandType.StoredProcedure;
                 sqlcmd.Parameters.Add("@MAVT", SqlDbType.NChar).Value = mavt;
@@ -175,11 +189,12 @@ namespace QLVT_DATHANG
 
                 this.btnReload.PerformClick();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
 
+        //đưa dữ liệu vào stack để undo
         public string getVTCurrentData()
         {
             string chuoi = null;

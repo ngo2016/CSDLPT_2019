@@ -370,7 +370,7 @@
             this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(330F, 35F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel15.SizeF = new System.Drawing.SizeF(148.0435F, 18F);
+            this.xrLabel15.SizeF = new System.Drawing.SizeF(148.0434F, 18F);
             this.xrLabel15.StyleName = "FieldCaption";
             this.xrLabel15.StylePriority.UseBorders = false;
             this.xrLabel15.StylePriority.UseTextAlignment = false;

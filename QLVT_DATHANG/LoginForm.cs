@@ -75,7 +75,7 @@ namespace QLVT_DATHANG
                 //doc ket qua tu sp_dangnhap có 3 cột ("USERNAME", "HOTEN", "NHOM")
                 Program.dataReader.Read();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Login bạn nhập không được hỗ trợ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

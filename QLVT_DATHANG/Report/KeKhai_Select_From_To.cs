@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
+using DevExpress.XtraReports.UI;
 
 namespace QLVT_DATHANG.Report
 {
@@ -41,9 +42,10 @@ namespace QLVT_DATHANG.Report
             BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.endDate = endDate;
             BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.lableTitle = phieuNhap ? "BẢNG KÊ KHAI CHI TIẾT NHẬP" :
                 "BẢNG KÊ KHAI CHI TIẾT XUẤT";
-            
-            Program.reviewKeKhai = new Report.ReviewKeKhai();
-            Program.reviewKeKhai.ShowDialog(this);
+
+            Report.BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat n = new Report.BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat();
+            ReportPrintTool m = new ReportPrintTool(n);
+            m.ShowPreviewDialog();
         }
     }
 }

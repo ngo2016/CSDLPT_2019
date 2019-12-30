@@ -32,19 +32,12 @@ namespace QLVT_DATHANG
         public static SubForm.ThemNV addEmployeeForm;
         public static SubForm.LapPhieuNhap_AddNew addNewPhieuNhap;
 
-        public static Report.ReviewDanhSachVatTu reviewDanhSachVatTu;
         public static Report.MenuDanhSachNhanVien menuDanhSachNhanVien;
-        public static Report.ReviewDanhSachNhanVien reviewDanhSachNhanVien;
-        public static Report.DanhSachNhanVien danhSachNhanVien;
-        public static Report.ReviewKeKhai reviewKeKhai;
         public static Report.MenuHoatDongNhanVien menuHoatDongNhanVien;
         public static Report.MenuTongHopNhapXuat menuTongHopNhapXuat;
-        public static Report.TongHopNhapXuat tongHopNhapXuat;
 
         public static bool flagCloseRegisterForm;
-
-        public static int reportFlag = 0;
-
+        
         public static SqlConnection connect = new SqlConnection();
         public static String connectString = "";
         public static SqlDataReader dataReader;

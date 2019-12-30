@@ -14,6 +14,7 @@ namespace QLVT_DATHANG
 {
     public partial class EmployeeForm : DevExpress.XtraEditors.XtraForm
     {
+        //stack để thực hiện chức năng undo
         private static Stack<string> _maNV = new Stack<string>();
         private static Stack<string> _ho = new Stack<string>();
         private static Stack<string> _ten = new Stack<string>();
@@ -23,8 +24,6 @@ namespace QLVT_DATHANG
         private static Stack<string> _xoa = new Stack<string>();
 
         private static string oldNVData = null;
-
-        private static bool canUpdate = false;
 
         public EmployeeForm()
         {
@@ -59,18 +58,21 @@ namespace QLVT_DATHANG
         {
             //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
             cN1.EnforceConstraints = false;
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
-            // TODO: This line of code loads data into the 'cN1.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.cN1.NhanVien);
-            // TODO khi thay doi chi nhanh thi fill nhanVienTableAdapter voi this.cN2.NhanVien
 
-            // TODO: This line of code loads data into the 'cN1.PhieuNhap' table. You can move, or remove it, as needed.
+            this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
+
+            this.nhanVienTableAdapter.Fill(this.cN1.NhanVien);
+
             this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
-            // TODO: This line of code loads data into the 'cN1.PhieuXuat' table. You can move, or remove it, as needed.
+
             this.phieuXuatTableAdapter.Fill(this.cN1.PhieuXuat);
-            // TODO: This line of code loads data into the 'cN1.DatHang' table. You can move, or remove it, as needed.
+
             this.datHangTableAdapter.Fill(this.cN1.DatHang);
+
+            //set chi nhánh là server name chọn trong combobox đăng nhập (cũng có trong connect string)
             this.tenChiNhanhComboBox.SelectedValue = Program.servername;
+
+            //mới vào thì set old data để tránh bị lỗi null ref
             oldNVData = getNVCurrentData();
         }
 
@@ -83,7 +85,6 @@ namespace QLVT_DATHANG
         {
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
-            // TODO: This line of code loads data into the 'cN1.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.cN1.NhanVien);
         }
 
@@ -104,46 +105,54 @@ namespace QLVT_DATHANG
             {
                 this.reloadButton.PerformClick();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Kết nối Server thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
 
         private void eraseButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (this.trangThaiXoaTextEdit.Text == "1")
+            //cho vào try catch để tránh lỗi null
+            try
             {
-                MessageBox.Show("Nhân viên đã bị xóa rồi. Xin vui lòng không xoá nữa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (phieuNhapBindingSource.Count > 0)
-            {
-                MessageBox.Show("Nhân viên đã lập phiếu nhập. Xin vui lòng xoá phiếu nhập trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (phieuXuatBindingSource.Count > 0)
-            {
-                MessageBox.Show("Nhân viên đã lập phiếu xuất. Xin vui lòng xoá phiếu xuất trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (datHangBindingSource.Count > 0)
-            {
-                MessageBox.Show("Nhân viên đã lập phiếu đơn đặt hàng. Xin vui lòng xoá đơn đặt hàng trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                DialogResult dr = MessageBox.Show("Nhân viên sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.No)
+                if (this.trangThaiXoaTextEdit.Text == "1")
                 {
+                    MessageBox.Show("Nhân viên đã bị xóa rồi. Xin vui lòng không xoá nữa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if (dr == DialogResult.Yes)
+                if (phieuNhapBindingSource.Count > 0)
                 {
-                    MessageBox.Show("Nhân viên đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.trangThaiXoaTextEdit.Text = "1";
+                    MessageBox.Show("Nhân viên đã lập phiếu nhập. Xin vui lòng xoá phiếu nhập trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                if (phieuXuatBindingSource.Count > 0)
+                {
+                    MessageBox.Show("Nhân viên đã lập phiếu xuất. Xin vui lòng xoá phiếu xuất trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (datHangBindingSource.Count > 0)
+                {
+                    MessageBox.Show("Nhân viên đã lập phiếu đơn đặt hàng. Xin vui lòng xoá đơn đặt hàng trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("Nhân viên sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else if (dr == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Nhân viên đã bị xóa!", "Thông báo",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.trangThaiXoaTextEdit.Text = "1";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return;
             }
         }
 
@@ -154,6 +163,7 @@ namespace QLVT_DATHANG
 
         public void updateNhanVien()
         {
+            //validate rỗng, minvalue
             if (!Program.checkValidate(hoTextEdit, "Field họ không được để trống!")) return;
             if (!Program.checkValidate(tenTextEdit, "Field tên không được để trống!")) return;
             if (!Program.checkValidate(diaChiTextEdit, "Field địa chỉ không được để trống!")) return;
@@ -202,10 +212,12 @@ namespace QLVT_DATHANG
                 _luong.Push(decimal.Parse(arrayOldNVData[6]));
                 _xoa.Push(arrayOldNVData[7]);
 
+                //set lại old data để undo
                 oldNVData = newNVData;
             }
 
-            canUpdate = true;
+            //reload lại dữ liệu ridview
+            this.reloadButton.PerformClick();
 
             MessageBox.Show("Đã lưu thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -214,16 +226,13 @@ namespace QLVT_DATHANG
         private void writeButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             updateNhanVien();
-            if (canUpdate)
-            {
-                this.reloadButton.PerformClick();
-            }
         }
 
         private void undoButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
+                //lấy dữ liệu trong stack ra
                 string manv = _maNV.Pop();
                 string ho = _ho.Pop();
                 string ten = _ten.Pop();
@@ -232,6 +241,7 @@ namespace QLVT_DATHANG
                 decimal luong = _luong.Pop();
                 string xoa = _xoa.Pop();
 
+                //update lại vào trong db
                 SqlCommand sqlcmd = new SqlCommand("sp_updatenhanvien", Program.connect);
                 sqlcmd.CommandType = CommandType.StoredProcedure;
                 sqlcmd.Parameters.Add("@MANV", SqlDbType.Int).Value = manv;
@@ -244,13 +254,15 @@ namespace QLVT_DATHANG
 
                 Program.execStoreProcedure(sqlcmd);
 
+                //reload lại dữ liệu ridview
                 this.reloadButton.PerformClick();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
 
+        //hàm lấy dữ liệu đưa vào stack để undo
         public string getNVCurrentData()
         {
             string chuoi = null;

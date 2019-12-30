@@ -17,10 +17,12 @@ namespace QLVT_DATHANG
         public MainForm()
         {
             InitializeComponent();
+
             this.labelMaNV.Text = "MÃ NHÂN VIÊN: " + Program.username;
             this.labelTenNV.Text = "TÊN: " + Program.hoten;
             this.labelNhomNV.Text = "NHÓM: " + Program.group;
 
+            //phân quyền
             if (Program.group == "USER")
             {
                 this.btnCreateAcc.Enabled = false;
@@ -66,8 +68,9 @@ namespace QLVT_DATHANG
 
         private void btnInDanhMucVatTu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Program.reviewDanhSachVatTu = new Report.ReviewDanhSachVatTu();
-            Program.reviewDanhSachVatTu.ShowDialog(this);
+            Report.DanhSachVatTu n = new Report.DanhSachVatTu();
+            ReportPrintTool m = new ReportPrintTool(n);
+            m.ShowPreviewDialog();
         }
 
         private void btnInDanhSachNhanVien_ItemClick(object sender, ItemClickEventArgs e)

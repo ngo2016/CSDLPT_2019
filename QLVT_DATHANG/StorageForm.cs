@@ -150,7 +150,7 @@ namespace QLVT_DATHANG
 
                 this.btnReload.PerformClick();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

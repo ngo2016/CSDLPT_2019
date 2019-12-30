@@ -201,24 +201,6 @@
     <Compile Include="Report\MenuTongHopNhapXuat.Designer.cs">
       <DependentUpon>MenuTongHopNhapXuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report\ReviewDanhSachNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report\ReviewDanhSachNhanVien.Designer.cs">
-      <DependentUpon>ReviewDanhSachNhanVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Report\ReviewDanhSachVatTu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report\ReviewDanhSachVatTu.Designer.cs">
-      <DependentUpon>ReviewDanhSachVatTu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Report\ReviewKeKhai.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report\ReviewKeKhai.Designer.cs">
-      <DependentUpon>ReviewKeKhai.cs</DependentUpon>
-    </Compile>
     <Compile Include="Report\TongHopNhapXuat.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -342,15 +324,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\MenuTongHopNhapXuat.resx">
       <DependentUpon>MenuTongHopNhapXuat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\ReviewDanhSachNhanVien.resx">
-      <DependentUpon>ReviewDanhSachNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\ReviewDanhSachVatTu.resx">
-      <DependentUpon>ReviewDanhSachVatTu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\ReviewKeKhai.resx">
-      <DependentUpon>ReviewKeKhai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\TongHopNhapXuat.resx">
       <DependentUpon>TongHopNhapXuat.cs</DependentUpon>

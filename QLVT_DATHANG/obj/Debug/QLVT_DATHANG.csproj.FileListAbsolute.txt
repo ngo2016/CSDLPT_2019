@@ -58,9 +58,6 @@ D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHA
 D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.MenuDanhSachNhanVien.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.MenuHoatDongNhanVien.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.MenuTongHopNhapXuat.resources
-D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.ReviewDanhSachNhanVien.resources
-D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.ReviewDanhSachVatTu.resources
-D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.ReviewKeKhai.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.Report.TongHopNhapXuat.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.StorageForm.resources
 D:\Temp\PTIT\T2_CSDLPT\DoAn\CSDLPT_2019-master\QLVT_DATHANG\obj\Debug\QLVT_DATHANG.SubForm.LapDonDatHang.resources

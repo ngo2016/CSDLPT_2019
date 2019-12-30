@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters msSqlConnectionParameters1 = new DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachNhanVien));
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery3 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -45,7 +39,6 @@
             this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.MainServer = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.pageHeaderBand1 = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -72,11 +65,11 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.chiNhanhTableAdapter = new QLVT_DATHANG.CN1TableAdapters.ChiNhanhTableAdapter();
-            this.Server1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
-            this.Server2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.Server1 = new QLVT_DATHANG.CN1();
+            this.v_DS_NhanVien_ReportTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_NhanVien_ReportTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Server1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -118,13 +111,12 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell8.CanGrow = false;
             this.xrTableCell8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.MANV")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "V_DS_NhanVien_Report.MANV")});
             this.xrTableCell8.Dpi = 100F;
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.StyleName = "DataField";
             this.xrTableCell8.StylePriority.UseBorders = false;
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
-            this.xrTableCell8.Text = "xrTableCell8";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell8.Weight = 45.031298904538339D;
             // 
@@ -133,7 +125,7 @@
             this.xrTableCell10.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell10.CanGrow = false;
             this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.Họ tên")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "V_DS_NhanVien_Report.HOTEN")});
             this.xrTableCell10.Dpi = 100F;
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StyleName = "DataField";
@@ -147,13 +139,12 @@
             this.xrTableCell12.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell12.CanGrow = false;
             this.xrTableCell12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.DIACHI")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "V_DS_NhanVien_Report.DIACHI")});
             this.xrTableCell12.Dpi = 100F;
             this.xrTableCell12.Name = "xrTableCell12";
             this.xrTableCell12.StyleName = "DataField";
             this.xrTableCell12.StylePriority.UseBorders = false;
             this.xrTableCell12.StylePriority.UseTextAlignment = false;
-            this.xrTableCell12.Text = "xrTableCell12";
             this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell12.Weight = 99.29682810131186D;
             // 
@@ -162,13 +153,12 @@
             this.xrTableCell14.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell14.CanGrow = false;
             this.xrTableCell14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.LUONG")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "V_DS_NhanVien_Report.LUONG", "{0:#,##0.0}")});
             this.xrTableCell14.Dpi = 100F;
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StyleName = "DataField";
             this.xrTableCell14.StylePriority.UseBorders = false;
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
-            this.xrTableCell14.Text = "xrTableCell14";
             this.xrTableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell14.Weight = 96.808565190513747D;
             // 
@@ -177,13 +167,12 @@
             this.xrTableCell16.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell16.CanGrow = false;
             this.xrTableCell16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.MACN")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "V_DS_NhanVien_Report.MACN")});
             this.xrTableCell16.Dpi = 100F;
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.StyleName = "DataField";
             this.xrTableCell16.StylePriority.UseBorders = false;
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
-            this.xrTableCell16.Text = "xrTableCell16";
             this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell16.Weight = 55.35157071443416D;
             // 
@@ -192,13 +181,12 @@
             this.xrTableCell18.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell18.CanGrow = false;
             this.xrTableCell18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.NGAYSINH", "{0:dd/MM/yyy}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "V_DS_NhanVien_Report.NGAYSINH", "{0:dd/MM/yyy}")});
             this.xrTableCell18.Dpi = 100F;
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.StyleName = "DataField";
             this.xrTableCell18.StylePriority.UseBorders = false;
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
-            this.xrTableCell18.Text = "xrTableCell18";
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell18.Weight = 187.5612031518279D;
             // 
@@ -217,20 +205,6 @@
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // MainServer
-            // 
-            this.MainServer.ConnectionName = "QLVT_DATHANGConnectionString";
-            msSqlConnectionParameters1.AuthorizationType = DevExpress.DataAccess.ConnectionParameters.MsSqlAuthorizationType.Windows;
-            msSqlConnectionParameters1.DatabaseName = "QLVT_DATHANG";
-            msSqlConnectionParameters1.ServerName = "HEROSEEKER\\MAINSERVER";
-            this.MainServer.ConnectionParameters = msSqlConnectionParameters1;
-            this.MainServer.Name = "MainServer";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = resources.GetString("customSqlQuery1.Sql");
-            this.MainServer.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.MainServer.ResultSchemaSerializable = resources.GetString("MainServer.ResultSchemaSerializable");
             // 
             // pageHeaderBand1
             // 
@@ -507,29 +481,14 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // chiNhanhTableAdapter
-            // 
-            this.chiNhanhTableAdapter.ClearBeforeFill = true;
-            // 
             // Server1
             // 
-            this.Server1.ConnectionName = "QLVT_DATHANG.Properties.Settings.QLVT_DATHANGConnectionServer1";
-            this.Server1.Name = "Server1";
-            customSqlQuery2.Name = "Query";
-            customSqlQuery2.Sql = resources.GetString("customSqlQuery2.Sql");
-            this.Server1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery2});
-            this.Server1.ResultSchemaSerializable = resources.GetString("Server1.ResultSchemaSerializable");
+            this.Server1.DataSetName = "CN1";
+            this.Server1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // Server2
+            // v_DS_NhanVien_ReportTableAdapter
             // 
-            this.Server2.ConnectionName = "QLVT_DATHANG.Properties.Settings.QLVT_DATHANGConnectionServer2";
-            this.Server2.Name = "Server2";
-            customSqlQuery3.Name = "Query";
-            customSqlQuery3.Sql = resources.GetString("customSqlQuery3.Sql");
-            this.Server2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery3});
-            this.Server2.ResultSchemaSerializable = resources.GetString("Server2.ResultSchemaSerializable");
+            this.v_DS_NhanVien_ReportTableAdapter.ClearBeforeFill = true;
             // 
             // DanhSachNhanVien
             // 
@@ -540,12 +499,8 @@
             this.pageHeaderBand1,
             this.pageFooterBand1,
             this.reportHeaderBand1});
-            this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.MainServer,
-            this.Server1,
-            this.Server2});
-            this.DataAdapter = this.chiNhanhTableAdapter;
-            this.DataMember = "Query";
+            this.DataAdapter = this.v_DS_NhanVien_ReportTableAdapter;
+            this.DataMember = "V_DS_NhanVien_Report";
             this.DataSource = this.Server1;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
@@ -556,6 +511,7 @@
             this.DataSourceDemanded += new System.EventHandler<System.EventArgs>(this.DanhSachNhanVien_DataSourceDemanded);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Server1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -573,7 +529,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell18;
-        private DevExpress.DataAccess.Sql.SqlDataSource MainServer;
         private DevExpress.XtraReports.UI.PageHeaderBand pageHeaderBand1;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow3;
@@ -600,8 +555,7 @@
         private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         private DevExpress.XtraReports.UI.XRControlStyle DataField;
-        private CN1TableAdapters.ChiNhanhTableAdapter chiNhanhTableAdapter;
-        private DevExpress.DataAccess.Sql.SqlDataSource Server1;
-        private DevExpress.DataAccess.Sql.SqlDataSource Server2;
+        private CN1 Server1;
+        private CN1TableAdapters.V_DS_NhanVien_ReportTableAdapter v_DS_NhanVien_ReportTableAdapter;
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace QLVT_DATHANG.Report
 {
@@ -37,15 +38,13 @@ namespace QLVT_DATHANG.Report
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            if (this.tenCNComboBox.Enabled != false)
-            {
-                Program.servername = this.tenCNComboBox.SelectedValue.ToString();
-                Program.reportFlag = int.Parse(Program.servername[Program.servername.Length - 1].ToString());
-            }
-
-            // load form review
-            Program.reviewDanhSachNhanVien = new ReviewDanhSachNhanVien();
-            Program.reviewDanhSachNhanVien.ShowDialog(this);
+            //Do quyen cong ty dc chon chi nhanh nen phai dung htkn de dang nhap vao bat ky chi nhanh nao
+            string connection_str = "Data Source=" + this.tenCNComboBox.SelectedValue + ";Initial Catalog=" +
+                          Program.database + ";User ID=" +
+                          Program.remoteLogin + ";password=" + Program.remotePassword;
+            Report.DanhSachNhanVien n = new Report.DanhSachNhanVien(connection_str);
+            ReportPrintTool m = new ReportPrintTool(n);
+            m.ShowPreviewDialog();
         }
     }
 }

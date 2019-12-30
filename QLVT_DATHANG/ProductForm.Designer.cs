@@ -51,8 +51,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.donViTinhTextEdit = new System.Windows.Forms.TextBox();
-            this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cN1 = new QLVT_DATHANG.CN1();
+            this.vattuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.qLVT_DATHANGDataSet = new QLVT_DATHANG.QLVT_DATHANGDataSet();
             this.tenVTTextEdit = new System.Windows.Forms.TextBox();
             this.soLuongTonSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.maVTTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -64,20 +64,20 @@
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.vattuTableAdapter = new QLVT_DATHANG.CN1TableAdapters.VattuTableAdapter();
             this.tableAdapterManager = new QLVT_DATHANG.CN1TableAdapters.TableAdapterManager();
             this.labelNhomNV = new DevExpress.XtraEditors.LabelControl();
             this.labelTenNV = new DevExpress.XtraEditors.LabelControl();
             this.labelMaNV = new DevExpress.XtraEditors.LabelControl();
             this.cTPXBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTPXTableAdapter = new QLVT_DATHANG.CN1TableAdapters.CTPXTableAdapter();
             this.cTPNBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTPNTableAdapter = new QLVT_DATHANG.CN1TableAdapters.CTPNTableAdapter();
             this.cTDDHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTDDHTableAdapter = new QLVT_DATHANG.CN1TableAdapters.CTDDHTableAdapter();
-            this.qLVT_DATHANGDataSet = new QLVT_DATHANG.QLVT_DATHANGDataSet();
-            this.vattuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vattuTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter();
+            this.vattuTableAdapter = new QLVT_DATHANG.CN1TableAdapters.VattuTableAdapter();
+            this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cN1 = new QLVT_DATHANG.CN1();
+            this.cTPXTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.CTPXTableAdapter();
+            this.cTPNTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.CTPNTableAdapter();
+            this.cTDDHTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.CTDDHTableAdapter();
             mAVTLabel = new System.Windows.Forms.Label();
             tENVTLabel = new System.Windows.Forms.Label();
             dVTLabel = new System.Windows.Forms.Label();
@@ -85,8 +85,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cN1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maVTTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
@@ -94,8 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cN1)).BeginInit();
             this.SuspendLayout();
             // 
             // mAVTLabel
@@ -311,15 +311,15 @@
             this.donViTinhTextEdit.Size = new System.Drawing.Size(158, 23);
             this.donViTinhTextEdit.TabIndex = 2;
             // 
-            // vattuBindingSource
+            // vattuBindingSource1
             // 
-            this.vattuBindingSource.DataMember = "Vattu";
-            this.vattuBindingSource.DataSource = this.cN1;
+            this.vattuBindingSource1.DataMember = "Vattu";
+            this.vattuBindingSource1.DataSource = this.qLVT_DATHANGDataSet;
             // 
-            // cN1
+            // qLVT_DATHANGDataSet
             // 
-            this.cN1.DataSetName = "CN1";
-            this.cN1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.qLVT_DATHANGDataSet.DataSetName = "QLVT_DATHANGDataSet";
+            this.qLVT_DATHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tenVTTextEdit
             // 
@@ -436,10 +436,6 @@
             this.colSOLUONGTON.Visible = true;
             this.colSOLUONGTON.VisibleIndex = 3;
             // 
-            // vattuTableAdapter
-            // 
-            this.vattuTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -490,44 +486,47 @@
             // 
             // cTPXBindingSource
             // 
-            this.cTPXBindingSource.DataMember = "FK_CTPX_VatTu";
-            this.cTPXBindingSource.DataSource = this.vattuBindingSource;
-            // 
-            // cTPXTableAdapter
-            // 
-            this.cTPXTableAdapter.ClearBeforeFill = true;
+            this.cTPXBindingSource.DataMember = "CTPX";
+            this.cTPXBindingSource.DataSource = this.qLVT_DATHANGDataSet;
             // 
             // cTPNBindingSource
             // 
-            this.cTPNBindingSource.DataMember = "FK_CTPN_VatTu";
-            this.cTPNBindingSource.DataSource = this.vattuBindingSource;
-            // 
-            // cTPNTableAdapter
-            // 
-            this.cTPNTableAdapter.ClearBeforeFill = true;
+            this.cTPNBindingSource.DataMember = "CTPN";
+            this.cTPNBindingSource.DataSource = this.qLVT_DATHANGDataSet;
             // 
             // cTDDHBindingSource
             // 
-            this.cTDDHBindingSource.DataMember = "FK_CTDDH_VatTu";
-            this.cTDDHBindingSource.DataSource = this.vattuBindingSource;
-            // 
-            // cTDDHTableAdapter
-            // 
-            this.cTDDHTableAdapter.ClearBeforeFill = true;
-            // 
-            // qLVT_DATHANGDataSet
-            // 
-            this.qLVT_DATHANGDataSet.DataSetName = "QLVT_DATHANGDataSet";
-            this.qLVT_DATHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vattuBindingSource1
-            // 
-            this.vattuBindingSource1.DataMember = "Vattu";
-            this.vattuBindingSource1.DataSource = this.qLVT_DATHANGDataSet;
+            this.cTDDHBindingSource.DataMember = "CTDDH";
+            this.cTDDHBindingSource.DataSource = this.qLVT_DATHANGDataSet;
             // 
             // vattuTableAdapter1
             // 
             this.vattuTableAdapter1.ClearBeforeFill = true;
+            // 
+            // vattuTableAdapter
+            // 
+            this.vattuTableAdapter.ClearBeforeFill = true;
+            // 
+            // vattuBindingSource
+            // 
+            this.vattuBindingSource.DataMember = "Vattu";
+            // 
+            // cN1
+            // 
+            this.cN1.DataSetName = "CN1";
+            this.cN1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cTPXTableAdapter1
+            // 
+            this.cTPXTableAdapter1.ClearBeforeFill = true;
+            // 
+            // cTPNTableAdapter1
+            // 
+            this.cTPNTableAdapter1.ClearBeforeFill = true;
+            // 
+            // cTDDHTableAdapter1
+            // 
+            this.cTDDHTableAdapter1.ClearBeforeFill = true;
             // 
             // ProductForm
             // 
@@ -555,8 +554,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cN1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soLuongTonSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maVTTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
@@ -564,8 +563,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cN1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,10 +587,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private System.Windows.Forms.BindingSource vattuBindingSource;
-        private CN1 cN1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private CN1TableAdapters.VattuTableAdapter vattuTableAdapter;
         private CN1TableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl vattuGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -606,16 +602,19 @@
         private DevExpress.XtraEditors.LabelControl labelTenNV;
         private DevExpress.XtraEditors.LabelControl labelMaNV;
         private System.Windows.Forms.BindingSource cTPXBindingSource;
-        private CN1TableAdapters.CTPXTableAdapter cTPXTableAdapter;
         private System.Windows.Forms.BindingSource cTPNBindingSource;
-        private CN1TableAdapters.CTPNTableAdapter cTPNTableAdapter;
         private System.Windows.Forms.BindingSource cTDDHBindingSource;
-        private CN1TableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
         private System.Windows.Forms.TextBox tenVTTextEdit;
         private System.Windows.Forms.TextBox donViTinhTextEdit;
         private DevExpress.XtraEditors.SpinEdit soLuongTonSpinEdit;
         private QLVT_DATHANGDataSet qLVT_DATHANGDataSet;
         private System.Windows.Forms.BindingSource vattuBindingSource1;
         private QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter vattuTableAdapter1;
+        private CN1TableAdapters.VattuTableAdapter vattuTableAdapter;
+        private System.Windows.Forms.BindingSource vattuBindingSource;
+        private CN1 cN1;
+        private QLVT_DATHANGDataSetTableAdapters.CTPXTableAdapter cTPXTableAdapter1;
+        private QLVT_DATHANGDataSetTableAdapters.CTPNTableAdapter cTPNTableAdapter1;
+        private QLVT_DATHANGDataSetTableAdapters.CTDDHTableAdapter cTDDHTableAdapter1;
     }
 }

@@ -69,7 +69,7 @@ namespace QLVT_DATHANG.SubForm
                     this.layoutControl2.AddItem(chiTietDDH.GetString(1), nud);
                     this.items.Add(nud);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     chiTietDDH.Close();
                     break;
@@ -109,7 +109,7 @@ namespace QLVT_DATHANG.SubForm
             {
                 Program.execStoreProcedure(sqlcmd1);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Mã phiếu nhập đã tồn tại\nHoặc nhân viên đã chuyển chi nhánh\nHoặc không có nhân viên có mã " + manvLapPhieuNhap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
