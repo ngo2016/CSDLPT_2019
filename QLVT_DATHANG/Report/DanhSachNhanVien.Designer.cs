@@ -192,7 +192,7 @@
             this.xrTableCell18.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell18.CanGrow = false;
             this.xrTableCell18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.NGAYSINH")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.NGAYSINH", "{0:dd/MM/yyy}")});
             this.xrTableCell18.Dpi = 100F;
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.StyleName = "DataField";

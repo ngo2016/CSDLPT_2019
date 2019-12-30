@@ -39,7 +39,7 @@
             System.Windows.Forms.Label hOTENLabel;
             System.Windows.Forms.Label tENKHOLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LapPhieuXuat));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -83,22 +83,22 @@
             this.maKhoTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.cTPXDataGridView = new System.Windows.Forms.DataGridView();
-            this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cellMaPX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellMaVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.vatTuBdsMain = new System.Windows.Forms.BindingSource(this.components);
+            this.cellSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnSubformAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformWrite = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformDel = new System.Windows.Forms.ToolStripMenuItem();
             this.cTPXBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.tenCNComboBox1 = new System.Windows.Forms.ComboBox();
             this.v_DS_NhanVienTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_NhanVienTableAdapter();
             this.khoTableAdapter = new QLVT_DATHANG.CN1TableAdapters.KhoTableAdapter();
-            this.vatTuBdsMain = new System.Windows.Forms.BindingSource(this.components);
             this.vattuTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter();
-            this.cellMaPX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellMaVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cellSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tENCNLabel = new System.Windows.Forms.Label();
             mAPXLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -126,12 +126,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTPXDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vatTuBdsMain)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vatTuBdsMain)).BeginInit();
             this.SuspendLayout();
             // 
             // tENCNLabel
@@ -455,6 +455,8 @@
             // colNGAY
             // 
             this.colNGAY.Caption = "Ngày";
+            this.colNGAY.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAY.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAY.FieldName = "NGAY";
             this.colNGAY.Name = "colNGAY";
             this.colNGAY.Visible = true;
@@ -611,14 +613,14 @@
             this.cellDonGia});
             this.cTPXDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.cTPXDataGridView.DataSource = this.cTPXBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cTPXDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cTPXDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.cTPXDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cTPXDataGridView.Location = new System.Drawing.Point(2, 27);
             this.cTPXDataGridView.Name = "cTPXDataGridView";
@@ -626,10 +628,41 @@
             this.cTPXDataGridView.Size = new System.Drawing.Size(696, 329);
             this.cTPXDataGridView.TabIndex = 0;
             // 
-            // vattuBindingSource
+            // cellMaPX
             // 
-            this.vattuBindingSource.DataMember = "Vattu";
-            this.vattuBindingSource.DataSource = this.cN1;
+            this.cellMaPX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cellMaPX.DataPropertyName = "MAPX";
+            this.cellMaPX.HeaderText = "Mã phiếu xuất";
+            this.cellMaPX.Name = "cellMaPX";
+            this.cellMaPX.Width = 119;
+            // 
+            // cellMaVT
+            // 
+            this.cellMaVT.DataPropertyName = "MAVT";
+            this.cellMaVT.DataSource = this.vatTuBdsMain;
+            this.cellMaVT.DisplayMember = "TENVT";
+            this.cellMaVT.HeaderText = "Mã vật tư";
+            this.cellMaVT.Name = "cellMaVT";
+            this.cellMaVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cellMaVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cellMaVT.ValueMember = "MAVT";
+            // 
+            // vatTuBdsMain
+            // 
+            this.vatTuBdsMain.DataMember = "Vattu";
+            this.vatTuBdsMain.DataSource = this.qLVT_DATHANGDataSet;
+            // 
+            // cellSoLuong
+            // 
+            this.cellSoLuong.DataPropertyName = "SOLUONG";
+            this.cellSoLuong.HeaderText = "Số lượng";
+            this.cellSoLuong.Name = "cellSoLuong";
+            // 
+            // cellDonGia
+            // 
+            this.cellDonGia.DataPropertyName = "DONGIA";
+            this.cellDonGia.HeaderText = "Đơn giá";
+            this.cellDonGia.Name = "cellDonGia";
             // 
             // contextMenuStrip1
             // 
@@ -666,6 +699,11 @@
             this.cTPXBindingSource.DataMember = "FK_CTPX_PX";
             this.cTPXBindingSource.DataSource = this.phieuXuatBindingSource;
             // 
+            // vattuBindingSource
+            // 
+            this.vattuBindingSource.DataMember = "Vattu";
+            this.vattuBindingSource.DataSource = this.cN1;
+            // 
             // groupControl4
             // 
             this.groupControl4.Controls.Add(tENCNLabel1);
@@ -697,45 +735,9 @@
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
             // 
-            // vatTuBdsMain
-            // 
-            this.vatTuBdsMain.DataMember = "Vattu";
-            this.vatTuBdsMain.DataSource = this.qLVT_DATHANGDataSet;
-            // 
             // vattuTableAdapter1
             // 
             this.vattuTableAdapter1.ClearBeforeFill = true;
-            // 
-            // cellMaPX
-            // 
-            this.cellMaPX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cellMaPX.DataPropertyName = "MAPX";
-            this.cellMaPX.HeaderText = "Mã phiếu xuất";
-            this.cellMaPX.Name = "cellMaPX";
-            this.cellMaPX.Width = 119;
-            // 
-            // cellMaVT
-            // 
-            this.cellMaVT.DataPropertyName = "MAVT";
-            this.cellMaVT.DataSource = this.vatTuBdsMain;
-            this.cellMaVT.DisplayMember = "TENVT";
-            this.cellMaVT.HeaderText = "Mã vật tư";
-            this.cellMaVT.Name = "cellMaVT";
-            this.cellMaVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cellMaVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cellMaVT.ValueMember = "MAVT";
-            // 
-            // cellSoLuong
-            // 
-            this.cellSoLuong.DataPropertyName = "SOLUONG";
-            this.cellSoLuong.HeaderText = "Số lượng";
-            this.cellSoLuong.Name = "cellSoLuong";
-            // 
-            // cellDonGia
-            // 
-            this.cellDonGia.DataPropertyName = "DONGIA";
-            this.cellDonGia.HeaderText = "Đơn giá";
-            this.cellDonGia.Name = "cellDonGia";
             // 
             // LapPhieuXuat
             // 
@@ -779,13 +781,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cTPXDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vatTuBdsMain)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vatTuBdsMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

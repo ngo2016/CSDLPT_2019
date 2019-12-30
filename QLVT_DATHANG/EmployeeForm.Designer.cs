@@ -643,6 +643,8 @@
             // colNGAYSINH
             // 
             this.colNGAYSINH.Caption = "Ngày Sinh";
+            this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.Name = "colNGAYSINH";
             this.colNGAYSINH.Visible = true;

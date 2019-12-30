@@ -81,17 +81,17 @@
             this.maNVSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.cTPNDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellMaVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cellSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnSubformDel = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformWrite = new System.Windows.Forms.ToolStripMenuItem();
             this.cTPNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.v_DS_NhanVienTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_NhanVienTableAdapter();
             this.khoTableAdapter = new QLVT_DATHANG.CN1TableAdapters.KhoTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellMaVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cellSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vattuTableAdapter = new QLVT_DATHANG.CN1TableAdapters.VattuTableAdapter();
             this.vattuTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter();
             tENCNLabel = new System.Windows.Forms.Label();
@@ -430,6 +430,8 @@
             // colNGAY
             // 
             this.colNGAY.Caption = "Ngày";
+            this.colNGAY.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAY.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAY.FieldName = "NGAY";
             this.colNGAY.Name = "colNGAY";
             this.colNGAY.Visible = true;
@@ -618,10 +620,49 @@
             this.cTPNDataGridView.Size = new System.Drawing.Size(682, 354);
             this.cTPNDataGridView.TabIndex = 0;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MAPN";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã phiếu nhập";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 122;
+            // 
+            // cellMaVT
+            // 
+            this.cellMaVT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cellMaVT.DataPropertyName = "MAVT";
+            this.cellMaVT.DataSource = this.vattuBindingSource;
+            this.cellMaVT.DisplayMember = "TENVT";
+            this.cellMaVT.HeaderText = "Tên vật tư";
+            this.cellMaVT.Name = "cellMaVT";
+            this.cellMaVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cellMaVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cellMaVT.ValueMember = "MAVT";
+            this.cellMaVT.Width = 98;
+            // 
             // vattuBindingSource
             // 
             this.vattuBindingSource.DataMember = "Vattu";
             this.vattuBindingSource.DataSource = this.qLVT_DATHANGDataSet;
+            // 
+            // cellSoLuong
+            // 
+            this.cellSoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cellSoLuong.DataPropertyName = "SOLUONG";
+            this.cellSoLuong.HeaderText = "Số lượng";
+            this.cellSoLuong.Name = "cellSoLuong";
+            this.cellSoLuong.ToolTipText = "Số lượng hàng nhập (không được quá số lượng hàng đặt)";
+            this.cellSoLuong.Width = 88;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DONGIA";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Đơn giá";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // contextMenuStrip1
             // 
@@ -657,45 +698,6 @@
             // khoTableAdapter
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MAPN";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã phiếu nhập";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 122;
-            // 
-            // cellMaVT
-            // 
-            this.cellMaVT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cellMaVT.DataPropertyName = "MAVT";
-            this.cellMaVT.DataSource = this.vattuBindingSource;
-            this.cellMaVT.DisplayMember = "TENVT";
-            this.cellMaVT.HeaderText = "Tên vật tư";
-            this.cellMaVT.Name = "cellMaVT";
-            this.cellMaVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cellMaVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cellMaVT.ValueMember = "MAVT";
-            this.cellMaVT.Width = 98;
-            // 
-            // cellSoLuong
-            // 
-            this.cellSoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cellSoLuong.DataPropertyName = "SOLUONG";
-            this.cellSoLuong.HeaderText = "Số lượng";
-            this.cellSoLuong.Name = "cellSoLuong";
-            this.cellSoLuong.ToolTipText = "Số lượng hàng nhập (không được quá số lượng hàng đặt)";
-            this.cellSoLuong.Width = 88;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DONGIA";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Đơn giá";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // vattuTableAdapter
             // 

@@ -79,28 +79,28 @@
             this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.cTDDHDataGridView = new System.Windows.Forms.DataGridView();
-            this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.vattuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.qLVT_DATHANGDataSet = new QLVT_DATHANG.QLVT_DATHANGDataSet();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnSubformAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformWrite = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformDel = new System.Windows.Forms.ToolStripMenuItem();
             this.cTDDHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vattuTableAdapter = new QLVT_DATHANG.CN1TableAdapters.VattuTableAdapter();
             this.v_DS_NhanVienTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_NhanVienTableAdapter();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.tenCNComboBox = new System.Windows.Forms.ComboBox();
             this.v_DS_PHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.qLVT_DATHANGDataSet = new QLVT_DATHANG.QLVT_DATHANGDataSet();
             this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.v_DS_PHANMANHTableAdapter = new QLVT_DATHANG.CN1TableAdapters.V_DS_PHANMANHTableAdapter();
             this.v_DS_PHANMANHTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.TableAdapterManager();
-            this.vattuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vattuTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tENCNLabel = new System.Windows.Forms.Label();
             masoDDHLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -125,15 +125,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tENCNLabel
@@ -404,6 +404,8 @@
             // colNGAY
             // 
             this.colNGAY.Caption = "Ngày";
+            this.colNGAY.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAY.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAY.FieldName = "NGAY";
             this.colNGAY.Name = "colNGAY";
             this.colNGAY.Visible = true;
@@ -589,10 +591,44 @@
             this.cTDDHDataGridView.Size = new System.Drawing.Size(561, 312);
             this.cTDDHDataGridView.TabIndex = 0;
             // 
-            // vattuBindingSource
+            // dataGridViewTextBoxColumn1
             // 
-            this.vattuBindingSource.DataMember = "Vattu";
-            this.vattuBindingSource.DataSource = this.cN1;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MasoDDH";
+            this.dataGridViewTextBoxColumn1.HeaderText = "MasoDDH";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "MAVT";
+            this.dataGridViewTextBoxColumn2.DataSource = this.vattuBindingSource1;
+            this.dataGridViewTextBoxColumn2.DisplayMember = "TENVT";
+            this.dataGridViewTextBoxColumn2.HeaderText = "MAVT";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn2.ValueMember = "MAVT";
+            // 
+            // vattuBindingSource1
+            // 
+            this.vattuBindingSource1.DataMember = "Vattu";
+            this.vattuBindingSource1.DataSource = this.qLVT_DATHANGDataSet;
+            // 
+            // qLVT_DATHANGDataSet
+            // 
+            this.qLVT_DATHANGDataSet.DataSetName = "QLVT_DATHANGDataSet";
+            this.qLVT_DATHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "SOLUONG";
+            this.dataGridViewTextBoxColumn3.HeaderText = "SOLUONG";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DONGIA";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DONGIA";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // contextMenuStrip1
             // 
@@ -628,6 +664,11 @@
             // 
             this.cTDDHBindingSource.DataMember = "FK_CTDDH_DatHang";
             this.cTDDHBindingSource.DataSource = this.datHangBindingSource;
+            // 
+            // vattuBindingSource
+            // 
+            this.vattuBindingSource.DataMember = "Vattu";
+            this.vattuBindingSource.DataSource = this.cN1;
             // 
             // vattuTableAdapter
             // 
@@ -665,11 +706,6 @@
             this.v_DS_PHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
             this.v_DS_PHANMANHBindingSource1.DataSource = this.qLVT_DATHANGDataSet;
             // 
-            // qLVT_DATHANGDataSet
-            // 
-            this.qLVT_DATHANGDataSet.DataSetName = "QLVT_DATHANGDataSet";
-            this.qLVT_DATHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // v_DS_PHANMANHBindingSource
             // 
             this.v_DS_PHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
@@ -699,43 +735,9 @@
             this.tableAdapterManager1.UpdateOrder = QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager1.VattuTableAdapter = null;
             // 
-            // vattuBindingSource1
-            // 
-            this.vattuBindingSource1.DataMember = "Vattu";
-            this.vattuBindingSource1.DataSource = this.qLVT_DATHANGDataSet;
-            // 
             // vattuTableAdapter1
             // 
             this.vattuTableAdapter1.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MasoDDH";
-            this.dataGridViewTextBoxColumn1.HeaderText = "MasoDDH";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MAVT";
-            this.dataGridViewTextBoxColumn2.DataSource = this.vattuBindingSource1;
-            this.dataGridViewTextBoxColumn2.DisplayMember = "TENVT";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MAVT";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.ValueMember = "MAVT";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.HeaderText = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DONGIA";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DONGIA";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // LapDonDatHang
             // 
@@ -776,16 +778,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
