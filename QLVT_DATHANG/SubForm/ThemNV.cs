@@ -17,6 +17,7 @@ namespace QLVT_DATHANG.SubForm
         public ThemNV()
         {
             InitializeComponent();
+            //set cứng mã chi nhánh
             this.textEditThemMaCN.Text = "CN" + Program.chiNhanh;
         }
 
@@ -27,6 +28,7 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //chỉ đc thêm nhân viên khi validate xong
             bool canCreate = !textEditThemHoNV.Text.Equals("") && !textEditThemTenNV.Text.Equals("")
                 && !numericThemMaNV.Value.Equals(null) && !textEditThemDiaChi.Text.Equals("")
                 && numericLuong.Value >= 4000000;
@@ -73,6 +75,7 @@ namespace QLVT_DATHANG.SubForm
 
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            //thêm xong reset các field lại để đóng form ko hỏi
             this.textEditThemHoNV.Text = "";
             this.textEditThemTenNV.Text = "";
             this.numericThemMaNV.Value = 0;
@@ -126,6 +129,7 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
+        //khi form đang đóng thì kiểm tra xem các field có đang nhập liệu hay ko
         private void ThemNV_FormClosing(object sender, FormClosingEventArgs e)
         {
             bool isNonEmpty = !textEditThemHoNV.Text.Equals("") || !textEditThemTenNV.Text.Equals("")
@@ -142,6 +146,7 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
+        //từ động set lại lương 4 củ khi nhập ít hơn
         private void numericLuong_ValueChanged(object sender, EventArgs e)
         {
             if (numericLuong.Value < 4000000)

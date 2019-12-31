@@ -37,7 +37,7 @@ namespace QLVT_DATHANG
         public static Report.MenuTongHopNhapXuat menuTongHopNhapXuat;
 
         public static bool flagCloseRegisterForm;
-        
+
         public static SqlConnection connect = new SqlConnection();
         public static String connectString = "";
         public static SqlDataReader dataReader;

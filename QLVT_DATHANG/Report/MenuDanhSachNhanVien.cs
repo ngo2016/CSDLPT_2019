@@ -18,6 +18,7 @@ namespace QLVT_DATHANG.Report
         {
             InitializeComponent();
 
+            //phân quyền login
             if (Program.group == "CONGTY")
             {
                 this.tenCNComboBox.Enabled = true;
@@ -26,8 +27,9 @@ namespace QLVT_DATHANG.Report
 
         private void MenuDanhSachNhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
+
+            //đặt combobox là server đang đăng nhập
             this.tenCNComboBox.SelectedValue = Program.servername;
         }
 
@@ -38,7 +40,7 @@ namespace QLVT_DATHANG.Report
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            //Do quyen cong ty dc chon chi nhanh nen phai dung htkn de dang nhap vao bat ky chi nhanh nao
+            //quyền công ty đc chọn chi nhánh -> dùng htkn để đăng nhập vào tất cả chi nhánh
             string connection_str = "Data Source=" + this.tenCNComboBox.SelectedValue + ";Initial Catalog=" +
                           Program.database + ";User ID=" +
                           Program.remoteLogin + ";password=" + Program.remotePassword;

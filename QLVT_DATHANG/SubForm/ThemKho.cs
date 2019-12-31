@@ -17,6 +17,7 @@ namespace QLVT_DATHANG.SubForm
         public ThemKho()
         {
             InitializeComponent();
+            //set cứng mã chi nhánh
             this.textEditThemMaCN.Text = "CN" + Program.chiNhanh;
         }
 
@@ -75,6 +76,7 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //chỉ đc tạo mới khi validate xong
             bool canCreate = !textEditThemMaKho.Text.Equals("") && !textEditThemTenKho.Text.Equals("")
                 && !textEditThemDiachi.Text.Equals("");
 
@@ -118,13 +120,15 @@ namespace QLVT_DATHANG.SubForm
             MessageBox.Show("Thêm mới thành công",
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.textEditThemMaKho.Text="";
-            this.textEditThemTenKho.Text="";
-            this.textEditThemDiachi.Text="";
+            //set lại các field để đóng form ko hỏi
+            this.textEditThemMaKho.Text = "";
+            this.textEditThemTenKho.Text = "";
+            this.textEditThemDiachi.Text = "";
 
             this.Close();
         }
 
+        //khi đóng form thì kiểm xem có đang nhập liệu giữa chừng hay ko
         private void ThemKho_FormClosing(object sender, FormClosingEventArgs e)
         {
             bool isNonEmpty = !textEditThemMaKho.Text.Equals("") || !textEditThemTenKho.Text.Equals("")

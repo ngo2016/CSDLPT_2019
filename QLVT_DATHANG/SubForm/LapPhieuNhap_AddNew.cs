@@ -24,29 +24,29 @@ namespace QLVT_DATHANG.SubForm
             this.Validate();
             this.dDH_ChuaCo_PNBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.cN1);
-
         }
 
         private void LapPhieuNhap_AddNew_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cN1.DDH_ChuaCo_PN' table. You can move, or remove it, as needed.
-            this.dDH_ChuaCo_PNTableAdapter.Fill(this.cN1.DDH_ChuaCo_PN);
+            //tắt ràng buộc để load form ko bị lỗi null ref
             cN1.EnforceConstraints = false;
 
-            // TODO: This line of code loads data into the 'cN1.DatHang' table. You can move, or remove it, as needed.
+            //set lại connect string để khi đăng nhập lại or đổi chi nhánh
             this.dDH_ChuaCo_PNTableAdapter.Connection.ConnectionString = Program.connectString;
             this.dDH_ChuaCo_PNTableAdapter.Fill(this.cN1.DDH_ChuaCo_PN);
 
+            //bật lại ràng buộc
+            cN1.EnforceConstraints = true;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            Program.addPhieuNhapForm.Visible = true;
         }
 
         private void btnLapPhieuNhap_Click(object sender, EventArgs e)
         {
+            //lấy mã đơn đặt hàng dựa vào item đầu [0] của gridView
             GridView gridView = datHangGridControl.FocusedView as GridView;
             object row = gridView.GetRow(gridView.FocusedRowHandle);
             DataRowView row_data = row as DataRowView;
@@ -55,9 +55,7 @@ namespace QLVT_DATHANG.SubForm
             DateTime ngay = Convert.ToDateTime(row_data.Row.ItemArray[1].ToString());
 
             LapPhieuNhap_AddNew_Confirm confirm = new LapPhieuNhap_AddNew_Confirm(maDDH, ngay);
-            confirm.Activate();
-            confirm.Show();
-            this.Visible = false;
+            confirm.ShowDialog();
         }
     }
 }

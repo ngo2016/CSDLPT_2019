@@ -14,6 +14,7 @@ namespace QLVT_DATHANG.SubForm
 {
     public partial class LapPhieuNhap_AddNew_Confirm : DevExpress.XtraEditors.XtraForm
     {
+        //set động các field dữ liệu
         private TextBox maPhieuNhapTextBox;
         private TextBox maDDHTextBox;
         private TextBox maNVTextBox;
@@ -79,7 +80,6 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Program.addNewPhieuNhap.Visible = true;
             this.Close();
         }
 
@@ -128,9 +128,9 @@ namespace QLVT_DATHANG.SubForm
                 sqlcmd.Parameters.AddWithValue("@SOLUONG", soluong);
                 Program.execStoreProcedure(sqlcmd);
             }
-            Program.addPhieuNhapForm.Visible = true;
             Program.addPhieuNhapForm.btnReload.PerformClick();
 
+            Program.addNewPhieuNhap.Close();
             this.Close();
         }
 

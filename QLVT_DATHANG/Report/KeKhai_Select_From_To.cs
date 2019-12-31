@@ -36,6 +36,7 @@ namespace QLVT_DATHANG.Report
             //phieu nhap = false -> dang chon phieu xuat
             bool phieuNhap = this.radioButtonPhieuNhap.Checked;
 
+            //gán gía trị cho các tham số của sp, label động
             BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.congty = congty;
             BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.phieuNhap = phieuNhap;
             BangKeChiTietSoLuong_TriGiaHangNhapHoacXuat.startDate = startDate;

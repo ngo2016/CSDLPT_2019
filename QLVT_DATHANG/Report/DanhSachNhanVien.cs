@@ -8,9 +8,13 @@ namespace QLVT_DATHANG.Report
 {
     public partial class DanhSachNhanVien : DevExpress.XtraReports.UI.XtraReport
     {
+        //connect string của form
         private string connection_str;
+
+        //gửi vào connect string của app
         public DanhSachNhanVien(string connection_str)
         {
+            //gán connect của form là connect của app
             this.connection_str = connection_str;
             InitializeComponent();
         }

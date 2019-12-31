@@ -30,14 +30,17 @@ namespace QLVT_DATHANG.Report
 
         private void MenuHoatDongNhanVien_Load(object sender, EventArgs e)
         {
-            if (Program.group=="CONGTY")
+            //nếu là login công ty thì gán constring của main server
+            if (Program.group == "CONGTY")
             {
                 this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = "Data Source=HEROSEEKER\\MAINSERVER;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
             }
             else
             {
-            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;  
-            }          
+                //login còn lại thì gán constring hiện tại
+                this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
+            }
+
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
         }
 
@@ -48,8 +51,11 @@ namespace QLVT_DATHANG.Report
 
         private void btnReview_Click(object sender, EventArgs e)
         {
+            //lấy mã nhân viên dựa vào text của combobox
             int maNV = int.Parse(this.maNVComboBox.Text);
+            //gán vào tham số truyền đi để cho vào sp
             Report.HoatDongNhanVien n = new Report.HoatDongNhanVien(maNV, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            //gán vào label
             n.lbMaNV.Text = this.maNVComboBox.Text;
 
             String sp_layThongTinNhanVien = "EXEC sp_layThongTinNhanVien '" + maNV + "'";
@@ -68,13 +74,14 @@ namespace QLVT_DATHANG.Report
             catch (Exception)
             {
                 MessageBox.Show("Không tìm thấy thông tin của mã nhân viên " + maNV, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //đóng dataReader để khi sử dụng lại ko lỗi
                 dataReader.Close();
                 return;
             }
             //sau khi thuc thi sp_layThongTinNhanVien ta co    0           1           2           3
             //                                                 HOTEN       DIACHI      NGAYSINH    LUONG
             n.lbHoTen.Text = dataReader.GetString(0);
-            
+
             n.lbDiaChi.Text = dataReader.GetString(1);
             n.lbNgaySinh.Text = dataReader[2].ToString();
             n.lbLuong.Text = dataReader[3].ToString();
@@ -88,8 +95,11 @@ namespace QLVT_DATHANG.Report
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            //lấy mã nhân viên dựa vào text của combobox
             int maNV = int.Parse(this.maNVComboBox.Text);
+            //gán vào tham số truyền đi để cho vào sp
             Report.HoatDongNhanVien n = new Report.HoatDongNhanVien(maNV, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            //gán vào label            
             n.lbMaNV.Text = this.maNVComboBox.Text;
 
             String sp_layThongTinNhanVien = "EXEC sp_layThongTinNhanVien '" + maNV + "'";
@@ -108,6 +118,7 @@ namespace QLVT_DATHANG.Report
             catch (Exception)
             {
                 MessageBox.Show("Không tìm thấy thông tin của mã nhân viên " + maNV, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //đóng dataReader để khi sử dụng lại ko lỗi
                 dataReader.Close();
                 return;
             }
@@ -122,10 +133,13 @@ namespace QLVT_DATHANG.Report
             //đóng bảng chỉ đọc và ngắt kết nối
             dataReader.Close();
 
+            //hiện dialog chọn chổ lưu file
             SaveFileDialog svg = new SaveFileDialog();
             svg.Title = "Lưu file pdf";
             svg.Filter = "PDF(*.pdf)|*.pdf";
             svg.ShowDialog();
+
+            //nếu đường dẫn là hợp lệ (ko null / rỗng)
             if (!String.IsNullOrEmpty(svg.FileName))
             {
                 string reportPath = svg.FileName;

@@ -60,11 +60,11 @@ namespace QLVT_DATHANG
         {
             //ko cần set lại constring vì lấy dữ liệu vật tư trực tiếp từ main server
             this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
-            
+
             this.cTDDHTableAdapter1.Fill(this.qLVT_DATHANGDataSet.CTDDH);
-            
+
             this.cTPNTableAdapter1.Fill(this.qLVT_DATHANGDataSet.CTPN);
-            
+
             this.cTPXTableAdapter1.Fill(this.qLVT_DATHANGDataSet.CTPX);
 
             //mới load form lấy dữ liệu đưa vào stack để tránh lỗi null

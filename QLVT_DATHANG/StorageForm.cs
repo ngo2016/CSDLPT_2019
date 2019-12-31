@@ -53,7 +53,7 @@ namespace QLVT_DATHANG
         private void StorageForm_Load(object sender, EventArgs e)
         {
             this.khoTableAdapter.Fill(this.cN1.Kho);
-            
+
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
             //set hiển thị selected value là servername
@@ -223,12 +223,12 @@ namespace QLVT_DATHANG
             //khi thay đổi có cái = null nên sẽ không thể tostring đc
             string server = this.tenCNComboBox.SelectedValue != null ? this.tenCNComboBox.SelectedValue.ToString() : "null";
             Program.chuyenChiNhanh(server);
-            
+
             try
             {
                 this.btnReload.PerformClick();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Kết nối Server thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

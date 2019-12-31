@@ -62,7 +62,7 @@ namespace QLVT_DATHANG.SubForm
 
         private void numericSoLuongTon_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13)//enter
             {
                 this.btnSave.PerformClick();
             }
@@ -70,6 +70,7 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //chỉ đc tạo mới vật tư khi validate xong
             bool canCreate = !textEditThemMaVT.Text.Equals("") && !textEditThemTenVT.Text.Equals("")
                 && numericSoLuongTon.Value >= 0 && !textEditThemDVT.Text.Equals("");
 
@@ -112,6 +113,7 @@ namespace QLVT_DATHANG.SubForm
 
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            //thêm xong set lại các field như ban đầu để đóng form ko hỏi
             this.textEditThemMaVT.Text = "";
             this.textEditThemTenVT.Text = "";
             this.numericSoLuongTon.Value = 0;
@@ -120,6 +122,7 @@ namespace QLVT_DATHANG.SubForm
             this.Close();
         }
 
+        //khi đóng form thì kiểm field xem có đang nhập hay ko
         private void ThemVT_FormClosing(object sender, FormClosingEventArgs e)
         {
             bool isNonEmpty = !textEditThemMaVT.Text.Equals("") || !textEditThemTenVT.Text.Equals("")

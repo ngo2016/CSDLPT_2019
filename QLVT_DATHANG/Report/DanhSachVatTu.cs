@@ -12,6 +12,5 @@ namespace QLVT_DATHANG.Report
         {
             InitializeComponent();
         }
-
     }
 }

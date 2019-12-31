@@ -45,45 +45,35 @@ namespace QLVT_DATHANG.SubForm
 
         private void LapDonDatHang_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.Vattu' table. You can move, or remove it, as needed.
-            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
             //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
             cN1.EnforceConstraints = false;
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.v_DS_PHANMANHTableAdapter1.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
             this.vattuTableAdapter.Fill(this.cN1.Vattu);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.datHangTableAdapter.Connection.ConnectionString = Program.connectString;
             this.datHangTableAdapter.Fill(this.cN1.DatHang);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.nhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.nhanVienTableAdapter.Fill(this.cN1.NhanVien);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.cTDDHTableAdapter.Connection.ConnectionString = Program.connectString;
             this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
 
+            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
+
+            //set chi nhánh đang chọn giống trong combobox lúc login
             this.tenCNComboBox.SelectedValue = Program.servername;
+            //ngày sinh max là hôm nay
             this.ngayLapDateEdit.MaxDate = DateTime.Today;
 
             //bật lại kiểm tra ràng buộc
             cN1.EnforceConstraints = true;
         }
 
+        //đổi tên nhân viên trong combobox thì text mã nhân vên update theo
         private void hoTenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -92,6 +82,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
+                return;
             }
         }
 
@@ -111,7 +102,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
-
+                return;
             }
         }
 
@@ -125,9 +116,9 @@ namespace QLVT_DATHANG.SubForm
             {
                 this.btnReload.PerformClick();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Kết nối Server thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -167,6 +158,7 @@ namespace QLVT_DATHANG.SubForm
             cN1.EnforceConstraints = true;
         }
 
+        //combobox kho change -> mã kho text change
         private void khoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -175,6 +167,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
+                return;
             }
         }
 
@@ -195,37 +188,48 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (cTDDHBindingSource.Count > 0)
+            //cho vào try catch để tránh lỗi vặt (null ref)
+            try
             {
-                MessageBox.Show("Đơn đặt hàng đã có chi tiết đơn. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (cTDDHBindingSource.Count > 0)
+                {
+                    MessageBox.Show("Đơn đặt hàng đã có chi tiết đơn. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("Đơn đặt hàng sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else if (dr == DialogResult.Yes)
+                    {
+                        string cmd = "EXEC sp_xoaddh '" + this.maSoDDHTextEdit.Text + "'";
+                        SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
+                        sqlcmd.CommandType = CommandType.Text;
+                        Program.execStoreProcedure(sqlcmd);
+
+                        MessageBox.Show("Đơn đặt hàng đã bị xóa!", "Thông báo",
+                                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        btnReload.PerformClick();
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                DialogResult dr = MessageBox.Show("Đơn đặt hàng sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.No)
-                {
-                    return;
-                }
-                else if (dr == DialogResult.Yes)
-                {
-                    string cmd = "EXEC sp_xoaddh '" + this.maSoDDHTextEdit.Text + "'";
-                    SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
-                    sqlcmd.CommandType = CommandType.Text;
-                    Program.execStoreProcedure(sqlcmd);
-
-                    MessageBox.Show("Đơn đặt hàng đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    btnReload.PerformClick();
-                }
+                return;
             }
         }
 
         private void btnSubformAdd_Click(object sender, EventArgs e)
         {
+            //bật tự động validate
             this.Validate();
+            //kết thúc edit và lưu vào dataset
             this.cTDDHBindingSource.EndEdit();
+            //update lên db
             this.cTDDHTableAdapter.Update(this.cN1);
             // fill lại dữ liệu cho subform
             this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
@@ -275,12 +279,14 @@ namespace QLVT_DATHANG.SubForm
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string hoten = this.hoTenComboBox.Text;
+
             if (hoten.Contains("Đã chuyển"))
             {
                 MessageBox.Show("Nhân viên lập đơn hàng đã chuyển sang chi nhánh khác. Xin vui lòng chọn nhân viên khác", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            //validate rỗng
             if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
             if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
 
@@ -322,6 +328,7 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //validate rỗng
             if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
             if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
 
@@ -342,6 +349,7 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@MANV", SqlDbType.Int).Value = manv;
             sqlcmd.Parameters.Add("@MAKHO", SqlDbType.NChar).Value = makho;
             Program.execStoreProcedure(sqlcmd);
+
             this.btnReload.PerformClick();
         }
     }

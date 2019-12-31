@@ -39,35 +39,26 @@ namespace QLVT_DATHANG.SubForm
 
         private void LapPhieuNhap_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.Vattu' table. You can move, or remove it, as needed.
-            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
             //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
             cN1.EnforceConstraints = false;
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connectString;
             this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
             this.vattuTableAdapter.Fill(this.cN1.Vattu);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.cTPNTableAdapter.Connection.ConnectionString = Program.connectString;
             this.cTPNTableAdapter.Fill(this.cN1.CTPN);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
 
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
+            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
+
+            //set combobox chi nhánh là chi nhánh ta đăng nhập từ đầu
             this.tenCNComboBox.SelectedValue = Program.servername;
+            //max day là ngày hôm nay
             this.ngayDateTimePicker.MaxDate = DateTime.Today;
 
             //bật lại kiểm tra ràng buộc
@@ -97,6 +88,7 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
+        //tên nhân viên change -> mã nhân viên change
         private void hoTenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -105,6 +97,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
+                return;
             }
         }
 
@@ -119,12 +112,15 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
-
+                return;
             }
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
+            cN1.EnforceConstraints = false;
+
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
@@ -145,9 +141,11 @@ namespace QLVT_DATHANG.SubForm
             this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
 
-            this.ngayDateTimePicker.MaxDate = DateTime.Today;
+            //bật lại kiểm tra ràng buộc
+            cN1.EnforceConstraints = true;
         }
 
+        //tên kho change -> mã kho change
         private void tenKhoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -156,6 +154,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
+                return;
             }
         }
 
@@ -170,7 +169,7 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
-
+                return;
             }
         }
 
@@ -233,8 +232,11 @@ namespace QLVT_DATHANG.SubForm
                 return;
             }
 
+            //end edit và lưu vào data set
             this.cTPNBindingSource.EndEdit();
+            //đóng dataReader để sử dụng lại
             soluongDDH.Close();
+            //update lên db
             this.cTPNTableAdapter.Update(this.cN1);
             // fill lại dữ liệu cho subform
             this.cTPNTableAdapter.Fill(this.cN1.CTPN);
@@ -271,16 +273,16 @@ namespace QLVT_DATHANG.SubForm
             }
         }
 
+        //gọi form thêm phiếu nhập -> chọn đơn đặt hàng chưa có phiếu nhập
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.addNewPhieuNhap = new LapPhieuNhap_AddNew();
-            Program.addNewPhieuNhap.Activate();
-            Program.addNewPhieuNhap.Show();
-            this.Visible = false;
+            Program.addNewPhieuNhap.ShowDialog();
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //validate rỗng
             if (!Program.checkValidate(maPhieuNhapTextEdit, "Field mã phiếu nhập không được để trống!")) return;
             if (!Program.checkValidate(maSoDonDatHangTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
 
@@ -301,6 +303,7 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@MANV", SqlDbType.Int).Value = manv;
             sqlcmd.Parameters.Add("@MAKHO", SqlDbType.NChar).Value = makho;
             Program.execStoreProcedure(sqlcmd);
+
             this.btnReload.PerformClick();
         }
 

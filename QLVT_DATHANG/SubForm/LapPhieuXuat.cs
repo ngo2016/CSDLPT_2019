@@ -38,34 +38,25 @@ namespace QLVT_DATHANG.SubForm
 
         private void LapPhieuXuat_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.Vattu' table. You can move, or remove it, as needed.
-            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
-            //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
+            //tắt kiểm tra ràng buộc trước để tránh load lỗi khi mã nhân viên không có
             cN1.EnforceConstraints = false;
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connectString;
             this.phieuXuatTableAdapter.Fill(this.cN1.PhieuXuat);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
             this.vattuTableAdapter.Fill(this.cN1.Vattu);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.cTPXTableAdapter.Connection.ConnectionString = Program.connectString;
             this.cTPXTableAdapter.Fill(this.cN1.CTPX);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
 
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            //danh sách phân mảnh cho combobox ko cần set lại connect string
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
+            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
+
+            //set combobox chọn chi nhánh giống lúc ta chọn trong login
             this.tenCNComboBox1.SelectedValue = Program.servername;
 
             this.ngayLapDateEdit.MaxDate = DateTime.Today;
@@ -132,11 +123,10 @@ namespace QLVT_DATHANG.SubForm
             this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
 
-            this.ngayLapDateEdit.MaxDate = DateTime.Today;
-
             cN1.EnforceConstraints = true;
         }
 
+        //tên kho change -> mã kho change
         private void tenKhoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -145,9 +135,11 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
+                return;
             }
         }
 
+        //mã kho change -> tên kho change
         private void maKhoTextEdit_TextChanged(object sender, EventArgs e)
         {
             //thay doi ten nhan vien trong combobox khi ma nhan vien thay doi
@@ -159,37 +151,45 @@ namespace QLVT_DATHANG.SubForm
             }
             catch (Exception)
             {
-
+                return;
             }
         }
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (cTPXBindingSource.Count > 0)
+            //cho vào try catch để tránh lỗi vặt (null ref)
+            try
             {
-                MessageBox.Show("Phiếu xuất đã có chi tiết phiếu. Xin vui lòng xoá chi tiết phiếu trước.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (cTPXBindingSource.Count > 0)
+                {
+                    MessageBox.Show("Phiếu xuất đã có chi tiết phiếu. Xin vui lòng xoá chi tiết phiếu trước.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("Phiếu xuất sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+                                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else if (dr == DialogResult.Yes)
+                    {
+
+                        string cmd = "EXEC sp_xoaphieuxuat '" + this.maPhieuXuatTextEdit.Text + "'";
+                        SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
+                        sqlcmd.CommandType = CommandType.Text;
+                        Program.execStoreProcedure(sqlcmd);
+
+                        MessageBox.Show("Phiếu xuất đã bị xóa!", "Thông báo",
+                                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        btnReload.PerformClick();
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                DialogResult dr = MessageBox.Show("Phiếu xuất sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.No)
-                {
-                    return;
-                }
-                else if (dr == DialogResult.Yes)
-                {
-
-                    string cmd = "EXEC sp_xoaphieuxuat '" + this.maPhieuXuatTextEdit.Text + "'";
-                    SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
-                    sqlcmd.CommandType = CommandType.Text;
-                    Program.execStoreProcedure(sqlcmd);
-
-                    MessageBox.Show("Phiếu xuất đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    btnReload.PerformClick();
-                }
+                return;
             }
         }
 
@@ -260,8 +260,11 @@ namespace QLVT_DATHANG.SubForm
                 {
                     return;
                 }
+                //end edit lưu vào dataset
                 this.cTPXBindingSource.EndEdit();
+                //update lên db
                 this.cTPXTableAdapter.Update(this.cN1);
+                //fill lại dữ liệu cho subform
                 this.cTPXTableAdapter.Fill(this.cN1.CTPX);
 
                 MessageBox.Show("Chi tiết phiếu xuất đã bị xóa!\nVui lòng cập nhật lại số lượng tồn vật tư nếu cần.", "Thông báo",
@@ -272,6 +275,7 @@ namespace QLVT_DATHANG.SubForm
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string hoten = this.hoTenComboBox.Text;
+
             if (hoten.Contains("Đã chuyển"))
             {
                 MessageBox.Show("Nhân viên lập phiếu xuất đã chuyển sang chi nhánh khác. Xin vui lòng chọn nhân viên khác", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -295,6 +299,7 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@MAKHO", SqlDbType.NChar).Value = makho;
 
             int checkIf = Program.execStoreProcedureWithReturnValue(sqlcmd);
+
             //văng lỗi theo mã
             if (checkIf == 2627)
             {
@@ -310,12 +315,12 @@ namespace QLVT_DATHANG.SubForm
             {
                 MessageBox.Show("Thêm phiếu xuất thành công", "Xong", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnReload.PerformClick();
-                return;
             }
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //validate rỗng
             if (!Program.checkValidate(maPhieuXuatTextEdit, "Field mã phiếu xuất không được để trống!")) return;
             if (!Program.checkValidate(hoTenKhachHangTextEdit, "Field họ tên khách hàng không được để trống!")) return;
 
@@ -336,6 +341,7 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd.Parameters.Add("@MANV", SqlDbType.Int).Value = manv;
             sqlcmd.Parameters.Add("@MAKHO", SqlDbType.NChar).Value = makho;
             Program.execStoreProcedure(sqlcmd);
+
             this.btnReload.PerformClick();
         }
 
@@ -347,7 +353,7 @@ namespace QLVT_DATHANG.SubForm
                 string manv = this.maNVSpinEdit.Text;
                 this.hoTenComboBox.SelectedValue = int.Parse(manv);
             }
-            catch (Exception) { }
+            catch (Exception) { return; }
         }
     }
 }

@@ -11,9 +11,9 @@ namespace QLVT_DATHANG.Report
         public HoatDongNhanVien(int maNV, DateTime start, DateTime end)
         {
             InitializeComponent();
+            //gán lại connect string đề phòng lỗi khi đăng nhập lại or đổi chi nhánh
             this.sp_hoatDongNhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.sp_hoatDongNhanVienTableAdapter.Fill(HoatDongNhanVienCN1.sp_hoatDongNhanVien, maNV, start, end);
         }
-
     }
 }
