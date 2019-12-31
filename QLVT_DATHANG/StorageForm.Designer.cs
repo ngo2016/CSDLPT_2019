@@ -516,7 +516,6 @@
             this.Name = "StorageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StorageForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StorageForm_FormClosed);
             this.Load += new System.EventHandler(this.StorageForm_Load);
             this.VisibleChanged += new System.EventHandler(this.StorageForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

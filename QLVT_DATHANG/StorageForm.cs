@@ -14,8 +14,10 @@ namespace QLVT_DATHANG
 {
     public partial class StorageForm : DevExpress.XtraEditors.XtraForm
     {
+        //string để so sánh dữ liệu cũ vs mới để xem có đưa vào stack đc ko
         private static string oldKhoData = null;
 
+        //stack để undo
         private static Stack<string> _maKho = new Stack<string>();
         private static Stack<string> _tenKho = new Stack<string>();
         private static Stack<string> _diaChi = new Stack<string>();
@@ -50,12 +52,14 @@ namespace QLVT_DATHANG
 
         private void StorageForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cN1.Kho' table. You can move, or remove it, as needed.
             this.khoTableAdapter.Fill(this.cN1.Kho);
-            // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
+            //set hiển thị selected value là servername
             this.tenCNComboBox.SelectedValue = Program.servername;
+
+            //vừa load form thì lấy làm old data để tránh lỗi null
             oldKhoData = getKhoCurrentData();
         }
 
@@ -66,6 +70,7 @@ namespace QLVT_DATHANG
 
         private void btnSaveStorage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //validate rỗng
             if (!Program.checkValidate(tenKhoTextEdit, "Field tên kho không được để trống!")) return;
             if (!Program.checkValidate(diaChiTextEdit, "Field địa chỉ không được để trống!")) return;
 
@@ -110,12 +115,12 @@ namespace QLVT_DATHANG
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
             this.khoTableAdapter.Fill(this.cN1.Kho);
         }
 
+        //hàm để lấy dữ liệu các text field
         public string getKhoCurrentData()
         {
             string chuoi = null;
@@ -134,11 +139,13 @@ namespace QLVT_DATHANG
         {
             try
             {
+                //lấy dữ liệu từ stack
                 string makho = _maKho.Pop();
                 string tenkho = _tenKho.Pop();
                 string diachi = _diaChi.Pop();
                 string macn = _maCN.Pop();
 
+                //đồng thời update vào db
                 SqlCommand sqlcmd = new SqlCommand("sp_updatekho", Program.connect);
                 sqlcmd.CommandType = CommandType.StoredProcedure;
                 sqlcmd.Parameters.Add("@MAKHO", SqlDbType.NChar).Value = makho;
@@ -177,22 +184,30 @@ namespace QLVT_DATHANG
 
         private void btnDelStorage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Kho sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
+            //cho vào try catch để tránh lỗi null
+            try
+            {
+                DialogResult dr = MessageBox.Show("Kho sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.No)
+                if (dr == DialogResult.No)
+                {
+                    return;
+                }
+                else if (dr == DialogResult.Yes)
+                {
+                    MessageBox.Show("Kho đã bị xóa!", "Thông báo",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    string cmd = "EXEC sp_xoakho '" + this.maKhoTextEdit.Text + "'";
+                    SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
+                    sqlcmd.CommandType = CommandType.Text;
+                    Program.execStoreProcedure(sqlcmd);
+                    btnReload.PerformClick();
+                }
+            }
+            catch (Exception)
             {
                 return;
-            }
-            else if (dr == DialogResult.Yes)
-            {
-                MessageBox.Show("Kho đã bị xóa!", "Thông báo",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                string cmd = "EXEC sp_xoakho '" + this.maKhoTextEdit.Text + "'";
-                SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
-                sqlcmd.CommandType = CommandType.Text;
-                Program.execStoreProcedure(sqlcmd);
-                btnReload.PerformClick();
             }
         }
 
@@ -215,15 +230,9 @@ namespace QLVT_DATHANG
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kết nối Server thất bại! " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Kết nối Server thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }
-
-        private void StorageForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Visible = false;
-            Program.mainForm.Visible = true;
         }
     }
 }
