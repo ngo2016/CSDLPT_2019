@@ -211,7 +211,7 @@ namespace QLVT_DATHANG.SubForm
                         Program.execStoreProcedure(sqlcmd);
 
                         MessageBox.Show("Đơn đặt hàng đã bị xóa!", "Thông báo",
-                                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         btnReload.PerformClick();
                     }
@@ -272,7 +272,7 @@ namespace QLVT_DATHANG.SubForm
                 this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
 
                 MessageBox.Show("Chi tiết đơn đặt hàng đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -320,7 +320,7 @@ namespace QLVT_DATHANG.SubForm
             }
             if (checkIf == 0)
             {
-                MessageBox.Show("Thêm đơn đặt hàng thành công", "Xong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm đơn đặt hàng thành công", "Xong", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.btnReload.PerformClick();
                 return;
             }

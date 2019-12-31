@@ -210,7 +210,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.LookAndFeel.SkinName = "Metropolis";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "ThemKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemKho";

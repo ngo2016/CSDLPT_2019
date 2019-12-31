@@ -54,7 +54,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonNghiepVu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
@@ -115,7 +115,7 @@
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonBaoCao,
-            this.ribbonPage3});
+            this.ribbonNghiepVu});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemProgressBar1,
             this.repositoryItemZoomTrackBar1});
@@ -317,12 +317,12 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.btnTongHopNhapXuat);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
-            // ribbonPage3
+            // ribbonNghiepVu
             // 
-            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonNghiepVu.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
-            this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "Nghiệp vụ";
+            this.ribbonNghiepVu.Name = "ribbonNghiepVu";
+            this.ribbonNghiepVu.Text = "Nghiệp vụ";
             // 
             // ribbonPageGroup1
             // 
@@ -519,7 +519,7 @@
         private DevExpress.XtraBars.BarButtonItem btnLapDonDatHang;
         private DevExpress.XtraBars.BarButtonItem btnLapPhieuNhap;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonBaoCao;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonNghiepVu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem btnLapPhieuXuat;
         private DevExpress.XtraBars.BarButtonItem btnInDanhMucVatTu;

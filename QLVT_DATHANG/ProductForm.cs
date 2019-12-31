@@ -127,15 +127,15 @@ namespace QLVT_DATHANG
             //cho vào try catch để tránh lỗi null
             try
             {
-                if (cTDDHBindingSource.Count > 0)
+                if (gridView1.GetFocusedDataRow().GetChildRows("FK_CTDDH_VatTu").Length > 0)
                 {
                     MessageBox.Show("Vật tư đã có chi tiết đơn đặt hàng. Xin vui lòng xoá chi tiết đơn trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (cTPNBindingSource.Count > 0)
+                if (gridView1.GetFocusedDataRow().GetChildRows("FK_CTPN_VatTu").Length > 0)
                 {
                     MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu nhập. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (cTPXBindingSource.Count > 0)
+                if (gridView1.GetFocusedDataRow().GetChildRows("FK_CTPX_VatTu").Length > 0)
                 {
                     MessageBox.Show("Vật tư đã có chi tiết phiếu phiếu xuất. Xin vui lòng xoá chi tiết phiếu trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

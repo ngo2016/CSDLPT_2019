@@ -46,16 +46,24 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnLapPhieuNhap_Click(object sender, EventArgs e)
         {
-            //lấy mã đơn đặt hàng dựa vào item đầu [0] của gridView
-            GridView gridView = datHangGridControl.FocusedView as GridView;
-            object row = gridView.GetRow(gridView.FocusedRowHandle);
-            DataRowView row_data = row as DataRowView;
-            string maDDH = row_data.Row.ItemArray[0].ToString();
+            //thêm try catch để tránh lỗi vặt
+            try
+            {
+                //lấy mã đơn đặt hàng dựa vào item đầu [0] của gridView
+                GridView gridView = datHangGridControl.FocusedView as GridView;
+                object row = gridView.GetRow(gridView.FocusedRowHandle);
+                DataRowView row_data = row as DataRowView;
+                string maDDH = row_data.Row.ItemArray[0].ToString();
 
-            DateTime ngay = Convert.ToDateTime(row_data.Row.ItemArray[1].ToString());
+                DateTime ngay = Convert.ToDateTime(row_data.Row.ItemArray[1].ToString());
 
-            LapPhieuNhap_AddNew_Confirm confirm = new LapPhieuNhap_AddNew_Confirm(maDDH, ngay);
-            confirm.ShowDialog();
+                LapPhieuNhap_AddNew_Confirm confirm = new LapPhieuNhap_AddNew_Confirm(maDDH, ngay);
+                confirm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

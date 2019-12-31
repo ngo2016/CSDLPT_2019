@@ -582,6 +582,7 @@
             this.maNhanVienTextEdit.Name = "maNhanVienTextEdit";
             this.maNhanVienTextEdit.Size = new System.Drawing.Size(131, 22);
             this.maNhanVienTextEdit.TabIndex = 12;
+            this.maNhanVienTextEdit.TextChanged += new System.EventHandler(this.maNhanVienTextEdit_TextChanged);
             this.maNhanVienTextEdit.Enter += new System.EventHandler(this.maNhanVienTextEdit_Enter);
             // 
             // nhanVienBindingSource1

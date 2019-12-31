@@ -35,6 +35,7 @@ namespace QLVT_DATHANG.SubForm
 
             maPhieuNhapTextBox = new TextBox();
             maPhieuNhapTextBox.Text = "";
+            maPhieuNhapTextBox.MaxLength = 8;
 
             dateTimePicker = new DateTimePicker();
             dateTimePicker.CustomFormat = "yyyy-MM-dd";

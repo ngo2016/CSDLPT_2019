@@ -86,6 +86,18 @@ namespace QLVT_DATHANG
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
             this.nhanVienTableAdapter.Fill(this.cN1.NhanVien);
+
+            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
+
+            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.phieuXuatTableAdapter.Fill(this.cN1.PhieuXuat);
+
+            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+            this.datHangTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.datHangTableAdapter.Fill(this.cN1.DatHang);
         }
 
         private void addButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -121,19 +133,7 @@ namespace QLVT_DATHANG
                 {
                     MessageBox.Show("Nhân viên đã bị xóa rồi. Xin vui lòng không xoá nữa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }
-                if (phieuNhapBindingSource.Count > 0)
-                {
-                    MessageBox.Show("Nhân viên đã lập phiếu nhập. Xin vui lòng xoá phiếu nhập trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (phieuXuatBindingSource.Count > 0)
-                {
-                    MessageBox.Show("Nhân viên đã lập phiếu xuất. Xin vui lòng xoá phiếu xuất trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (datHangBindingSource.Count > 0)
-                {
-                    MessageBox.Show("Nhân viên đã lập phiếu đơn đặt hàng. Xin vui lòng xoá đơn đặt hàng trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }                
                 else
                 {
                     DialogResult dr = MessageBox.Show("Nhân viên sẽ bị xóa! \nBạn có chắn chắn muốn xóa?", "Cảnh báo",
@@ -147,6 +147,7 @@ namespace QLVT_DATHANG
                         MessageBox.Show("Nhân viên đã bị xóa!", "Thông báo",
                                      MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.trangThaiXoaTextEdit.Text = "1";
+                        updateNhanVien();
                     }
                 }
             }
@@ -211,7 +212,6 @@ namespace QLVT_DATHANG
                 _ngaySinh.Push(arrayOldNVData[4]);
                 _luong.Push(decimal.Parse(arrayOldNVData[6]));
                 _xoa.Push(arrayOldNVData[7]);
-
                 //set lại old data để undo
                 oldNVData = newNVData;
             }
@@ -250,7 +250,7 @@ namespace QLVT_DATHANG
                 sqlcmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = diachi;
                 sqlcmd.Parameters.Add("@NGAYSINH", SqlDbType.DateTime).Value = ngaysinh;
                 sqlcmd.Parameters.Add("@LUONG", SqlDbType.Float).Value = luong;
-                sqlcmd.Parameters.Add("@TrangThaiXoa", SqlDbType.Int).Value = xoa;
+                sqlcmd.Parameters.AddWithValue("@TrangThaiXoa", xoa);
 
                 Program.execStoreProcedure(sqlcmd);
 
@@ -340,6 +340,16 @@ namespace QLVT_DATHANG
             {
                 this.luongSpinEdit.Value = 4000000;
             }
+        }
+
+        private void trangThaiXoaTextEdit_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void maNhanVienTextEdit_TextChanged(object sender, EventArgs e)
+        {
+            oldNVData = getNVCurrentData();
         }
     }
 }

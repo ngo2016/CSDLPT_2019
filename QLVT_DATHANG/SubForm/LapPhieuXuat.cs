@@ -181,7 +181,7 @@ namespace QLVT_DATHANG.SubForm
                         Program.execStoreProcedure(sqlcmd);
 
                         MessageBox.Show("Phiếu xuất đã bị xóa!", "Thông báo",
-                                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         btnReload.PerformClick();
                     }
@@ -282,6 +282,10 @@ namespace QLVT_DATHANG.SubForm
                 return;
             }
 
+            //validate rỗng
+            if (!Program.checkValidate(maPhieuXuatTextEdit, "Field mã phiếu xuất không được để trống!")) return;
+            if (!Program.checkValidate(hoTenKhachHangTextEdit, "Field họ tên khách hàng không được để trống!")) return;
+
             string mapx = this.maPhieuXuatTextEdit.Text;
             DateTime ngaylap = this.ngayLapDateEdit.Value;
             string ngayLap = ngaylap.Year.ToString() + "-" + ngaylap.Month.ToString() + "-" + ngaylap.Day.ToString();
@@ -313,7 +317,7 @@ namespace QLVT_DATHANG.SubForm
             }
             if (checkIf == 0)
             {
-                MessageBox.Show("Thêm phiếu xuất thành công", "Xong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm phiếu xuất thành công", "Xong", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.btnReload.PerformClick();
             }
         }

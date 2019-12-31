@@ -27,6 +27,9 @@ namespace QLVT_DATHANG
             {
                 this.btnCreateAcc.Enabled = false;
                 this.ribbonBaoCao.Visible = false;
+            } if (Program.group == "CONGTY")
+            {
+                this.ribbonNghiepVu.Visible = false;
             }
         }
 
