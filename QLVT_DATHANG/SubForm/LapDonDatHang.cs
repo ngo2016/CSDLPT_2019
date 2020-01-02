@@ -52,7 +52,7 @@ namespace QLVT_DATHANG.SubForm
 
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
-            this.vattuTableAdapter.Fill(this.cN1.Vattu);
+            //this.vattuTableAdapter.Fill(this.cN1.Vattu);
 
             this.datHangTableAdapter.Fill(this.cN1.DatHang);
 
@@ -133,8 +133,8 @@ namespace QLVT_DATHANG.SubForm
             this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.vattuTableAdapter.Fill(this.cN1.Vattu);
+            //this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
+            //this.vattuTableAdapter.Fill(this.cN1.Vattu);
 
             //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
             this.datHangTableAdapter.Connection.ConnectionString = Program.connectString;
@@ -227,10 +227,33 @@ namespace QLVT_DATHANG.SubForm
         {
             //bật tự động validate
             this.Validate();
-            //kết thúc edit và lưu vào dataset
-            this.cTDDHBindingSource.EndEdit();
-            //update lên db
-            this.cTDDHTableAdapter.Update(this.cN1);
+
+            try
+            {
+                //lấy data từ cellSoLuong của CTPN
+                foreach (var item in cTDDHDataGridView.Rows)
+                {
+                    DataGridViewRow row = item as DataGridViewRow;
+
+                    int soluong = int.Parse(row.Cells["cellSoLuong"].Value.ToString());
+                    string masoDDH = row.Cells["cellMaSoDDH"].Value.ToString();
+                    string maVT = row.Cells["cellMaVT"].Value.ToString();
+                    int donGia = int.Parse(row.Cells["cellDonGia"].Value.ToString());
+
+                    SqlCommand sqlCommand = new SqlCommand("sp_themCTDDH", Program.connect);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@MASODDH", masoDDH);
+                    sqlCommand.Parameters.AddWithValue("@MAVT", maVT);
+                    sqlCommand.Parameters.AddWithValue("@SOLUONG", soluong);
+                    sqlCommand.Parameters.AddWithValue("@DONGIA", donGia);
+
+                    Program.execStoreProcedure(sqlCommand);
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
             // fill lại dữ liệu cho subform
             this.cTDDHTableAdapter.Fill(this.cN1.CTDDH);
         }
@@ -286,6 +309,10 @@ namespace QLVT_DATHANG.SubForm
                 return;
             }
 
+            //chuẩn hóa input
+            maSoDDHTextEdit.Text = Program.RemoveSpecialCharacters(maSoDDHTextEdit.Text);
+            nhaCungCapTextEdit.Text = Program.RemoveSpecialCharacters(nhaCungCapTextEdit.Text);
+
             //validate rỗng
             if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
             if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;
@@ -328,6 +355,10 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //chuẩn hóa input
+            maSoDDHTextEdit.Text = Program.RemoveSpecialCharacters(maSoDDHTextEdit.Text);
+            nhaCungCapTextEdit.Text = Program.RemoveSpecialCharacters(nhaCungCapTextEdit.Text);
+
             //validate rỗng
             if (!Program.checkValidate(maSoDDHTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;
             if (!Program.checkValidate(nhaCungCapTextEdit, "Field nhà cung cấp không được để trống!")) return;

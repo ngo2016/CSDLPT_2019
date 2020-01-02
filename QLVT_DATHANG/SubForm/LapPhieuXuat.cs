@@ -282,6 +282,10 @@ namespace QLVT_DATHANG.SubForm
                 return;
             }
 
+            //chuẩn hóa input
+            maPhieuXuatTextEdit.Text = Program.RemoveSpecialCharacters(maPhieuXuatTextEdit.Text);
+            hoTenKhachHangTextEdit.Text = Program.RemoveSpecialCharacters(hoTenKhachHangTextEdit.Text);
+
             //validate rỗng
             if (!Program.checkValidate(maPhieuXuatTextEdit, "Field mã phiếu xuất không được để trống!")) return;
             if (!Program.checkValidate(hoTenKhachHangTextEdit, "Field họ tên khách hàng không được để trống!")) return;
@@ -324,6 +328,10 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //chuẩn hóa input
+            maPhieuXuatTextEdit.Text = Program.RemoveSpecialCharacters(maPhieuXuatTextEdit.Text);
+            hoTenKhachHangTextEdit.Text = Program.RemoveSpecialCharacters(hoTenKhachHangTextEdit.Text);
+
             //validate rỗng
             if (!Program.checkValidate(maPhieuXuatTextEdit, "Field mã phiếu xuất không được để trống!")) return;
             if (!Program.checkValidate(hoTenKhachHangTextEdit, "Field họ tên khách hàng không được để trống!")) return;

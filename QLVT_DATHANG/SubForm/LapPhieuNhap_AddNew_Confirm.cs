@@ -106,6 +106,7 @@ namespace QLVT_DATHANG.SubForm
             sqlcmd1.Parameters.AddWithValue("@NGAY", ngayLap);
             sqlcmd1.Parameters.AddWithValue("@MasoDDH", this.maDDH);
             sqlcmd1.Parameters.AddWithValue("@MANV", manvLapPhieuNhap);
+
             try
             {
                 Program.execStoreProcedure(sqlcmd1);

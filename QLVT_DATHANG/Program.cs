@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace QLVT_DATHANG
 {
@@ -86,17 +87,17 @@ namespace QLVT_DATHANG
             return empty;
         }
         //xoa cac ky tu dac biet trong chuoi
-        public static string RemoveSpecialCharacters(string str)
+        public static string RemoveSpecialCharacters(string strIn)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
+            try
             {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_' || c == ' ')
-                {
-                    sb.Append(c);
-                }
+                return Regex.Replace(strIn, @"[^\w{\s}]", "",
+                                     RegexOptions.None, TimeSpan.FromSeconds(1.5));
             }
-            return sb.ToString();
+            catch (RegexMatchTimeoutException)
+            {
+                return String.Empty;
+            }
         }
 
         public static SqlDataReader ExecSqlDataReader(String strLenh)

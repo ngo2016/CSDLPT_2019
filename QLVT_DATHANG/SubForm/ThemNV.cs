@@ -28,6 +28,11 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //chuẩn hóa input
+            textEditThemHoNV.Text = Program.RemoveSpecialCharacters(textEditThemHoNV.Text);
+            textEditThemTenNV.Text = Program.RemoveSpecialCharacters(textEditThemTenNV.Text);
+            textEditThemDiaChi.Text = Program.RemoveSpecialCharacters(textEditThemDiaChi.Text);
+
             //chỉ đc thêm nhân viên khi validate xong
             bool canCreate = !textEditThemHoNV.Text.Equals("") && !textEditThemTenNV.Text.Equals("")
                 && !numericThemMaNV.Value.Equals(null) && !textEditThemDiaChi.Text.Equals("")

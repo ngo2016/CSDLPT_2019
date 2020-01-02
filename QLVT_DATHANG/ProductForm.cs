@@ -83,6 +83,10 @@ namespace QLVT_DATHANG
 
         private void btnSaveProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //chuẩn hóa input
+            donViTinhTextEdit.Text = Program.RemoveSpecialCharacters(donViTinhTextEdit.Text);
+            tenVTTextEdit.Text = Program.RemoveSpecialCharacters(tenVTTextEdit.Text);
+
             //validate rỗng
             if (!Program.checkValidate(donViTinhTextEdit, "Field đơn vị tính không được để trống!")) return;
             if (!Program.checkValidate(tenVTTextEdit, "Field tên vật tư không được để trống!")) return;

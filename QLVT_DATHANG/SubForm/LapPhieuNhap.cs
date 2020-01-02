@@ -39,30 +39,37 @@ namespace QLVT_DATHANG.SubForm
 
         private void LapPhieuNhap_Load(object sender, EventArgs e)
         {
-            //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
-            cN1.EnforceConstraints = false;
+            try
+            {
+                //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
+                cN1.EnforceConstraints = false;
 
-            this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
+                this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
-            this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
+                this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
 
-            this.vattuTableAdapter.Fill(this.cN1.Vattu);
+                this.vattuTableAdapter.Fill(this.cN1.Vattu);
 
-            this.cTPNTableAdapter.Fill(this.cN1.CTPN);
+                this.cTPNTableAdapter.Fill(this.cN1.CTPN);
 
-            this.khoTableAdapter.Fill(this.cN1.Kho);
+                this.khoTableAdapter.Fill(this.cN1.Kho);
 
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
+                this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
 
-            this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
+                this.vattuTableAdapter1.Fill(this.qLVT_DATHANGDataSet.Vattu);
 
-            //set combobox chi nhánh là chi nhánh ta đăng nhập từ đầu
-            this.tenCNComboBox.SelectedValue = Program.servername;
-            //max day là ngày hôm nay
-            this.ngayDateTimePicker.MaxDate = DateTime.Today;
+                //set combobox chi nhánh là chi nhánh ta đăng nhập từ đầu
+                this.tenCNComboBox.SelectedValue = Program.servername;
+                //max day là ngày hôm nay
+                this.ngayDateTimePicker.MaxDate = DateTime.Today;
 
-            //bật lại kiểm tra ràng buộc
-            cN1.EnforceConstraints = true;
+                //bật lại kiểm tra ràng buộc
+                cN1.EnforceConstraints = true;
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -118,31 +125,38 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
-            cN1.EnforceConstraints = false;
+            try
+            {
+                //tắt kiểm tra ràng buộc trước để tránh load lỗi  khi mã nhân viên không có
+                cN1.EnforceConstraints = false;
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
+                //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+                this.v_DS_NhanVienTableAdapter.Connection.ConnectionString = Program.connectString;
+                this.v_DS_NhanVienTableAdapter.Fill(this.cN1.V_DS_NhanVien);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
+                //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connectString;
+                this.phieuNhapTableAdapter.Fill(this.cN1.PhieuNhap);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.vattuTableAdapter.Fill(this.cN1.Vattu);
+                //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+                this.vattuTableAdapter.Connection.ConnectionString = Program.connectString;
+                this.vattuTableAdapter.Fill(this.cN1.Vattu);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.cTPNTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.cTPNTableAdapter.Fill(this.cN1.CTPN);
+                //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+                this.cTPNTableAdapter.Connection.ConnectionString = Program.connectString;
+                this.cTPNTableAdapter.Fill(this.cN1.CTPN);
 
-            //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
-            this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.khoTableAdapter.Fill(this.cN1.Kho);
+                //thay đổi connectionstring để phù hợp với tài khoản mới khi chuyển chi nhánh or đăng nhập lại
+                this.khoTableAdapter.Connection.ConnectionString = Program.connectString;
+                this.khoTableAdapter.Fill(this.cN1.Kho);
 
-            //bật lại kiểm tra ràng buộc
-            cN1.EnforceConstraints = true;
+                //bật lại kiểm tra ràng buộc
+                cN1.EnforceConstraints = true;
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         //tên kho change -> mã kho change
@@ -195,7 +209,7 @@ namespace QLVT_DATHANG.SubForm
                     Program.execStoreProcedure(sqlcmd);
 
                     MessageBox.Show("Phiếu nhập đã bị xóa!", "Thông báo",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     btnReload.PerformClick();
                 }
@@ -269,7 +283,7 @@ namespace QLVT_DATHANG.SubForm
                 this.cTPNTableAdapter.Fill(this.cN1.CTPN);
 
                 MessageBox.Show("Chi tiết phiếu nhập đã bị xóa!", "Thông báo",
-                             MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -282,6 +296,10 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //chuẩn hóa input
+            maPhieuNhapTextEdit.Text = Program.RemoveSpecialCharacters(maPhieuNhapTextEdit.Text);
+            maSoDonDatHangTextEdit.Text = Program.RemoveSpecialCharacters(maSoDonDatHangTextEdit.Text);
+
             //validate rỗng
             if (!Program.checkValidate(maPhieuNhapTextEdit, "Field mã phiếu nhập không được để trống!")) return;
             if (!Program.checkValidate(maSoDonDatHangTextEdit, "Field mã số đơn đặt hàng không được để trống!")) return;

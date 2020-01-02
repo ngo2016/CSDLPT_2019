@@ -164,6 +164,11 @@ namespace QLVT_DATHANG
 
         public void updateNhanVien()
         {
+            //chuẩn hóa input
+            hoTextEdit.Text = Program.RemoveSpecialCharacters(hoTextEdit.Text);
+            tenTextEdit.Text = Program.RemoveSpecialCharacters(tenTextEdit.Text);
+            diaChiTextEdit.Text = Program.RemoveSpecialCharacters(diaChiTextEdit.Text);
+
             //validate rỗng, minvalue
             if (!Program.checkValidate(hoTextEdit, "Field họ không được để trống!")) return;
             if (!Program.checkValidate(tenTextEdit, "Field tên không được để trống!")) return;

@@ -70,6 +70,10 @@ namespace QLVT_DATHANG
 
         private void btnSaveStorage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //chuẩn hóa input
+            tenKhoTextEdit.Text = Program.RemoveSpecialCharacters(tenKhoTextEdit.Text);
+            diaChiTextEdit.Text = Program.RemoveSpecialCharacters(diaChiTextEdit.Text);
+            
             //validate rỗng
             if (!Program.checkValidate(tenKhoTextEdit, "Field tên kho không được để trống!")) return;
             if (!Program.checkValidate(diaChiTextEdit, "Field địa chỉ không được để trống!")) return;

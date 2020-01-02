@@ -79,12 +79,8 @@
             this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.cTDDHDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vattuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.qLVT_DATHANGDataSet = new QLVT_DATHANG.QLVT_DATHANGDataSet();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnSubformAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSubformWrite = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,6 +97,10 @@
             this.v_DS_PHANMANHTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.TableAdapterManager();
             this.vattuTableAdapter1 = new QLVT_DATHANG.QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter();
+            this.cellMaSoDDH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellMaVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cellSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tENCNLabel = new System.Windows.Forms.Label();
             masoDDHLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -570,10 +570,10 @@
             this.cTDDHDataGridView.AutoGenerateColumns = false;
             this.cTDDHDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cTDDHDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.cellMaSoDDH,
+            this.cellMaVT,
+            this.cellSoLuong,
+            this.cellDonGia});
             this.cTDDHDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.cTDDHDataGridView.DataSource = this.cTDDHBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -591,23 +591,6 @@
             this.cTDDHDataGridView.Size = new System.Drawing.Size(561, 312);
             this.cTDDHDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MasoDDH";
-            this.dataGridViewTextBoxColumn1.HeaderText = "MasoDDH";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MAVT";
-            this.dataGridViewTextBoxColumn2.DataSource = this.vattuBindingSource1;
-            this.dataGridViewTextBoxColumn2.DisplayMember = "TENVT";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MAVT";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.ValueMember = "MAVT";
-            // 
             // vattuBindingSource1
             // 
             this.vattuBindingSource1.DataMember = "Vattu";
@@ -617,18 +600,6 @@
             // 
             this.qLVT_DATHANGDataSet.DataSetName = "QLVT_DATHANGDataSet";
             this.qLVT_DATHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.HeaderText = "SOLUONG";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DONGIA";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DONGIA";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // contextMenuStrip1
             // 
@@ -738,6 +709,35 @@
             // vattuTableAdapter1
             // 
             this.vattuTableAdapter1.ClearBeforeFill = true;
+            // 
+            // cellMaSoDDH
+            // 
+            this.cellMaSoDDH.DataPropertyName = "MasoDDH";
+            this.cellMaSoDDH.HeaderText = "MasoDDH";
+            this.cellMaSoDDH.Name = "cellMaSoDDH";
+            // 
+            // cellMaVT
+            // 
+            this.cellMaVT.DataPropertyName = "MAVT";
+            this.cellMaVT.DataSource = this.vattuBindingSource1;
+            this.cellMaVT.DisplayMember = "TENVT";
+            this.cellMaVT.HeaderText = "MAVT";
+            this.cellMaVT.Name = "cellMaVT";
+            this.cellMaVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cellMaVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cellMaVT.ValueMember = "MAVT";
+            // 
+            // cellSoLuong
+            // 
+            this.cellSoLuong.DataPropertyName = "SOLUONG";
+            this.cellSoLuong.HeaderText = "SOLUONG";
+            this.cellSoLuong.Name = "cellSoLuong";
+            // 
+            // cellDonGia
+            // 
+            this.cellDonGia.DataPropertyName = "DONGIA";
+            this.cellDonGia.HeaderText = "DONGIA";
+            this.cellDonGia.Name = "cellDonGia";
             // 
             // LapDonDatHang
             // 
@@ -853,10 +853,10 @@
         private System.Windows.Forms.TextBox maSoDDHTextEdit;
         private System.Windows.Forms.BindingSource vattuBindingSource1;
         private QLVT_DATHANGDataSetTableAdapters.VattuTableAdapter vattuTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellMaSoDDH;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cellMaVT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellDonGia;
 
 
     }

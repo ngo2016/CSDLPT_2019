@@ -70,6 +70,11 @@ namespace QLVT_DATHANG.SubForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //chuẩn hóa input
+            textEditThemMaVT.Text = Program.RemoveSpecialCharacters(textEditThemMaVT.Text);
+            textEditThemTenVT.Text = Program.RemoveSpecialCharacters(textEditThemTenVT.Text);
+            textEditThemDVT.Text = Program.RemoveSpecialCharacters(textEditThemDVT.Text);
+            
             //chỉ đc tạo mới vật tư khi validate xong
             bool canCreate = !textEditThemMaVT.Text.Equals("") && !textEditThemTenVT.Text.Equals("")
                 && numericSoLuongTon.Value >= 0 && !textEditThemDVT.Text.Equals("");
